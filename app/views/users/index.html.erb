@@ -3,9 +3,28 @@
   <div class="row">
     <div class="large-12 columns text-center">
       <div class="home-button">
-        <h1 class='home-border' id="white">
+        <h1 class='home-border'>
           <%=link_to 'Find the Snow', today_path, class:'white'%></h1>
       </div>
     </div>
   </div>
 </div>
+
+  <script src="snowfall.jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      //Start the snow default options you can also make it snow in certain elements, etc.
+      $(document).snowfall({shadow : true, round : true,  minSize: 5, maxSize:8});
+
+      $("#clear").click(function(){
+          $(document).snowfall('clear'); // How you clear
+      });
+
+      $("#imgbut").click(function(){
+          $('.collectonme').hide();
+          $(document).snowfall('clear');
+          document.body.className  = "darkBg";
+          $(document).snowfall({image :"images/flake.png", minSize: 10, maxSize:32});
+      });
+    });
+  </script>

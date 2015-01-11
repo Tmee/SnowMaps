@@ -18,11 +18,18 @@
 
 .home-wrapper {
   min-height: 100%;
-  background: url(http://images2.layoutsparks.com/1/191654/winter-memories-snowfall-cold.gif);
+  background: #4473ab;
+  /*background: url(http://images2.layoutsparks.com/1/191654/winter-memories-snowfall-cold.gif);*/
  }
 
+ .collectonme {
+  padding-top: 25%;
+  background-color: transparent;
+  text-shadow: 2px 2px black;
+}
+
  .today-wrapper {
-  background-color: #536579;
+  background-color: #4473ab;
   min-height: 22%;
  }
 
