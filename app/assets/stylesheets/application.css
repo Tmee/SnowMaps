@@ -23,7 +23,12 @@
 
  .today-wrapper {
   background-color: #536579;
-  min-height: 20%;
+  min-height: 22%;
+ }
+
+ .today-body {
+  background-color: #e2e1d9;
+  min-height: 78%;
  }
 
  .home-button {
