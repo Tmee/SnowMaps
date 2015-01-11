@@ -1,52 +1,42 @@
-
 <div class="row">
   <div class="large-12 columns text-right">
     <div class="home-login">
-    <h5 id="white" data-reveal-id="firstModal">Login</h5>
-  </div>
-</div>
-
-
-<!-- Reveal Modals begin -->
-<div id="firstModal" class="reveal-modal" data-reveal>
- <div class="formfield">
-  <%= form_for(@user, url: '/login') do |f| %>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email, placeholder: 'Email', size: "28x30" %><br>
-    <%= f.label :password %><br>
-    <%= f.password_field :password, placeholder: 'Password', size: "28x30" %>
-  </div>
-  <div class="note">
-    Not a user?<br>Please <a href="#" data-reveal-id="secondModal" class="secondary button">Sign Up</a> today.
-  </div><br>
-  <div class="actions">
-    <%= f.submit "Login", :class => 'btn btn-default'  %>
-  </div>
-  <% end %>
-
-  <a class="close-reveal-modal">&#215;</a>
-</div>
-
-  <a class="close-reveal-modal">&#215;</a>
-</div>
-
-<div id="secondModal" class="reveal-modal" data-reveal>
-  <%= form_for @user do |f| %>
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name, placeholder: 'Full Name', size: "28x50" %></br>
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name, placeholder: 'Username', size: "28x30" %></br>
-    <%= f.label :email %><br>
-    <%= f.text_field :email, placeholder: 'Email', size: "28x30" %></br>
-    <%= f.label :password %><br>
-    <%= f.password_field   :password, placeholder: 'Password', size: "28x30" %></br>
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field   :password_confirmation, placeholder: 'Password Confirmation', size: "28x30" %></br>
-    <div>
-      <%= f.submit "Register", :class => 'btn btn-default' %>
+      <h5><a href="#" data-reveal-id="firstModal" id='white'>Login</a></h5>
     </div>
-  <%end%>
+  </div>
 
-  <a class="close-reveal-modal">&#215;</a>
+  <div id="firstModal" class="reveal-modal" data-reveal>
+    <div class="formfield">
+      <%= form_for(@user, url: '/login') do |f| %>
+      <div class="field">
+        <%= f.label :email %><br>
+        <%= f.text_field :email, placeholder: 'Email', size: "28x30" %><br>
+        <%= f.label :password %><br>
+        <%= f.password_field :password, placeholder: 'Password', size: "28x30" %>
+      </div>
+        Not a user?<br>Please <a href="#" data-reveal-id="secondModal" class="button tiny round">Register</a> today.<br>
+      <div class="actions">
+        <%= f.submit "Login", :class => 'button round success'  %>
+      </div>
+      <% end %>
+    </div>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
+
+  <div id="secondModal" class="reveal-modal" data-reveal>
+    <%= form_for @user do |f| %>
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name, placeholder: 'Full Name', size: "28x50" %></br>
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name, placeholder: 'Username', size: "28x30" %></br>
+      <%= f.label :email %><br>
+      <%= f.text_field :email, placeholder: 'Email', size: "28x30" %></br>
+      <%= f.label :password %><br>
+      <%= f.password_field   :password, placeholder: 'Password', size: "28x30" %></br>
+      <%= f.label :password_confirmation %><br>
+      <%= f.password_field   :password_confirmation, placeholder: 'Password Confirmation', size: "28x30" %></br>
+      <%= f.submit "Register", :class => 'btn btn-default' %>
+    <% end %>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
 </div>

@@ -9,9 +9,12 @@ class Seed
                   last_name: "Mee",
                   email: "tjeme90@gmail.com",
                   password: "password",
-                  password_confirmation: "password",
+                  password_confirmation: "password"
                   )
+
+    puts 'Users have been created'
   end
+
 end
 
 Seed.new
