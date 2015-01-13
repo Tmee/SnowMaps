@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-  def index
+  def today
+    format_time
   end
 
   def new
@@ -24,5 +25,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation)
+  end
+
+  def format_time
+    raw_time = Time.now
+    @time = raw_time.strftime'%I:%M %Z'
   end
 end
