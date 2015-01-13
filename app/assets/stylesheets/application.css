@@ -13,13 +13,11 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-
  */
 
 .home-wrapper {
   min-height: 100%;
   background: #2d6a85;
-  /*background: url(http://images2.layoutsparks.com/1/191654/winter-memories-snowfall-cold.gif);*/
  }
 
  .collectonme {
