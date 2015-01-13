@@ -18,7 +18,7 @@
 
 .home-wrapper {
   min-height: 100%;
-  background: #4473ab;
+  background: #2d6a85;
   /*background: url(http://images2.layoutsparks.com/1/191654/winter-memories-snowfall-cold.gif);*/
  }
 
@@ -29,13 +29,29 @@
 }
 
  .today-wrapper {
-  background-color: #4473ab;
+  background-color: #2d6a85;
   min-height: 22%;
  }
 
  .today-body {
   background-color: #e2e1d9;
   min-height: 78%;
+ }
+
+ .on-top {
+  z-index: 9;
+ }
+
+ .most-snow-panel {
+  margin-top: 2%;
+  min-height: 150px;
+  max-width: 50%;
+  background-color: #FFFFFF;
+  margin-left: 25%;
+  padding-left: 1%;
+  -webkit-box-shadow: 0 10px 10px -3px black;
+  -moz-box-shadow: 0 10px 10px -3px black;
+  box-shadow: 0 10px 10px -3px black;
  }
 
  .home-button {

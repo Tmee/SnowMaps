@@ -17,14 +17,7 @@
       $(document).snowfall({shadow : true, round : true,  minSize: 5, maxSize:8});
 
       $("#clear").click(function(){
-          $(document).snowfall('clear'); // How you clear
-      });
-
-      $("#imgbut").click(function(){
-          $('.collectonme').hide();
           $(document).snowfall('clear');
-          document.body.className  = "darkBg";
-          $(document).snowfall({image :"images/flake.png", minSize: 10, maxSize:32});
       });
     });
   </script>
