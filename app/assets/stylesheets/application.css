@@ -20,6 +20,12 @@
   background: #2d6a85;
  }
 
+.open-snow {
+  max-height: 500px;
+  max-width: 600px;
+  text-align: center;
+}
+
  .collectonme {
   padding-top: 25%;
   background-color: transparent;
