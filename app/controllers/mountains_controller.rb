@@ -4,7 +4,7 @@ class MountainsController < ApplicationController
   end
 
   def create
-    @mountain = Mountains.create!(:name)
+    @mountain = Mountain.create!(:name)
 
     if @mountain.save
       flash[:notice] = "mountain created"
@@ -17,6 +17,6 @@ class MountainsController < ApplicationController
 
   def show
     format_time
-    @mountain = Mountains.find_by name: params[:mountain].capitalize
+    @mountain = Mountain.find_by slug: params[:mountain]
   end
 end

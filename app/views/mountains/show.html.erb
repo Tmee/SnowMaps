@@ -19,36 +19,84 @@
     </div>
   </div><br/>
   <div class="row panel">
-  <!--   <div class="large-12 columns text-center">
-      <span data-tooltip aria-haspopup="true" class="has-tip" title="bullshit"><h1><strong><%=@mountain.name%></strong></span> | 29℉</h1><br><br>
-    </div> -->
-<dl class="accordion" data-accordion>
-  <dd class="accordion-navigation text-center">
-    <a href="#panel2b">
-      <h1><strong><%=@mountain.name%></strong> | 29℉</h1><br><br>
-    </a>
-    <div id="panel2b" class="content open-snow">
-      <%=image_tag("vail_open_snow.png")%>
-    </div>
-  </dd>
-</dl>
-
+    <dl class="accordion" data-accordion>
+      <dd class="accordion-navigation text-center">
+        <a href="#panel2b">
+          <h1><strong><%=@mountain.name%></strong> | 29℉</h1><br><br>
+        </a>
+        <div id="panel2b" class="content open-snow">
+          <%=image_tag("vail_open_snow.png")%>
+        </div>
+      </dd>
+    </dl>
       <div class="large-4 columns text-center ">
         <h4>Snowfall</h4>
-        <h4>0"</h4><hr/>
+        <h4><%=@mountain.overnight%>"</h4><hr/>
         <h7>New Snow</h7><br>
-        <small>Last 24 hrs:  0 "</small><br>
-        <small>Overnight*: 0 "</small><br>
-        <small>Last 48 hrs:  5 "</small><br>
-        <small>Last 7 days:  5 "</small><hr/>
+        <small>Last 24 hrs: <%=@mountain.last_two_four%> "</small><br>
+        <small>Overnight: <%=@mountain.overnight%> "</small><br>
+        <small>Last 48 hrs:  <%=@mountain.last_four_eight%> "</small><br>
+        <small>Last 7 days:  <%=@mountain.last_seven_days%> "</small><hr/>
         <h7>Snow Conditions</h7><br>
-        <small>Powder/Packed Powder </small><br>
-        <small>Base Depth: 41 "</small><br>
-        <small>Season Total: 164 "</small><hr/>
+        <small><%=@mountain.snow_condition%>r </small><br>
+        <small>Base Depth: <%=@mountain.base_depth%> "</small><br>
+        <small>Season Total: <%=@mountain.season_total%> "</small><hr/>
       </div>
       <div class="large-8 columns text-center">
         <h4>Terrain Status</h4>
-        <%=image_tag("vail_stats2.png")%>
+        <table>
+          <thead>
+            <tr>
+              <th width="200" class="text-center">Lifts Running</th>
+              <th width="200" class="text-center">Runs Open</th>
+              <th width="200" class="text-center">Acres Open</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-center"><%=@mountain.lifts_open%> of <%=@mountain.lifts_total%></td>
+              <td class="text-center"><%=@mountain.runs_open%> of <%=@mountain.runs_total%></td>
+              <td class="text-center"><%=@mountain.acres_open%> of <%=@mountain.acres_total%></td>
+            </tr>
+          </tbody>
+        </table>
+        <dl class="tabs" data-tab>
+          <%@mountain.peaks.each do |peak|%>
+            <dd><a href="#panel<%=peak.id%>"><%=peak.name%></a> </dd>
+          <%end%>
+        </dl>
+        <div class="tabs-content">
+          <%@mountain.peaks.each do |peak|%>
+            <div class="content" id="panel<%=peak.id%>">
+              <table>
+                <thead>
+                  <tr>
+                    <th width="70" class="text-center">Difficulty</th>
+                    <th width="150">Trail</th>
+                    <th width="70" class="text-center">Open</th>
+                    <th width="70" class="text-center">Difficulty</th>
+                    <th width="150">Trail</th>
+                    <th width="70" class="text-center">Open</th>
+                  </tr>
+                </thead>
+                <tr>
+                  <td>trail.difficulty</td>
+                  <td>trail.name</td>
+                  <td>trail.open</td>
+                  <td>trial.difficulty</td>
+                  <td>trail.name</td>
+                  <td>trail.open</td>
+                </tr>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          <%end%>
+        </div>
+
+
+
+
         <%=image_tag("vail_stats.png")%>
 
       </div>

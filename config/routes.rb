@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users
   get '/:mountain', to: 'mountains#show'
 
-
+  #Twitter routes + sessions
   get "/auth/twitter/callback", to: "sessions#create"
   get "/signout", to: "sessions#destroy", :as => :signout
   get '/auth/twitter', to: 'sessions#new',  as: :login

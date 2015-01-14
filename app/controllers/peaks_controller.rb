@@ -1,0 +1,2 @@
+class PeaksController < ApplicationController
+end

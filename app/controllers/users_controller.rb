@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def today
     format_time
+    @mountains = Mountain.all.order(overnight: :desc)
   end
 
   def new

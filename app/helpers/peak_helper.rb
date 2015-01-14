@@ -1,0 +1,2 @@
+module PeakHelper
+end
