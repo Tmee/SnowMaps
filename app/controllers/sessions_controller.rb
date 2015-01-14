@@ -6,10 +6,8 @@ class SessionsController < ApplicationController
 
   def create
     user = User.create! :name => auth_hash["info"]["name"], :uid => auth_hash[:uid]
-    user.save
     session[:user_id] = user.id
-
-    redirect_to today_path, :notice => "Thanks for using SnowMaps!"
+    user.save
   end
 
   def destroy
@@ -22,9 +20,5 @@ class SessionsController < ApplicationController
 
   def auth_hash
     request.env['omniauth.auth']
-  end
-
-  def set_user(user)
-    @user = user
   end
 end

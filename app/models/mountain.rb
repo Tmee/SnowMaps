@@ -1,5 +1,6 @@
 class Mountain < ActiveRecord::Base
   has_many :peaks
+  has_many :trails, through: :peaks
 
   validates :name, presence: true
 

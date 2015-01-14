@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114175620) do
+ActiveRecord::Schema.define(version: 20150114192942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(version: 20150114175620) do
   create_table "peaks", force: true do |t|
     t.string   "name"
     t.integer  "mountain_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trails", force: true do |t|
+    t.string   "name"
+    t.integer  "peak_id"
+    t.boolean  "open",       default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

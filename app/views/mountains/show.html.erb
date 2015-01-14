@@ -74,31 +74,27 @@
                     <th width="70" class="text-center">Difficulty</th>
                     <th width="150">Trail</th>
                     <th width="70" class="text-center">Open</th>
-                    <th width="70" class="text-center">Difficulty</th>
+                 <!--    <th width="70" class="text-center">Difficulty</th>
                     <th width="150">Trail</th>
-                    <th width="70" class="text-center">Open</th>
+                    <th width="70" class="text-center">Open</th> -->
                   </tr>
                 </thead>
+                  <%peak.trails.each do |trail|%>
                 <tr>
                   <td>trail.difficulty</td>
-                  <td>trail.name</td>
-                  <td>trail.open</td>
-                  <td>trial.difficulty</td>
-                  <td>trail.name</td>
-                  <td>trail.open</td>
+                  <td><%=trail.name%></td>
+                  <td><%=trail.open%></td>
+         <!--          <td>trial.difficulty</td>
+                  <td><%=trail.name%></td>
+                  <td><%=trail.open%></td> -->
                 </tr>
+                  <%end%>
                 <tbody>
                 </tbody>
               </table>
             </div>
           <%end%>
         </div>
-
-
-
-
-        <%=image_tag("vail_stats.png")%>
-
       </div>
   </div>
 </div>

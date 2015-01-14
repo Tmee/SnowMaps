@@ -3,6 +3,7 @@ class Seed
   def initialize
     generate_mountains
     generate_peaks
+    generate_trails
   end
 
   def generate_mountains
@@ -133,6 +134,16 @@ class Seed
      puts 'Peaks created'
   end
 
+  def generate_trails
+    vail_village = ['Cold Feet', 'Gitalong Road', 'OverEasy', 'Ramshorn', 'Swingsville', 'The Meadows', 'Windish Way', 'Avanti', 'Bear Tree']
+
+    vail_village.each do |trail|
+    Trail.create!(name: trail,
+                  peak_id: 1
+    )
+    end
+    puts 'Trails created'
+  end
 end
 
 Seed.new
