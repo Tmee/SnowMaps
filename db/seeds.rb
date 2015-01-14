@@ -6,12 +6,9 @@ class Seed
   end
 
   def generate_admin
-    User.create!(first_name: "Tim",
-                  last_name: "Mee",
-                  email: "tjeme90@gmail.com",
-                  password: "password",
-                  password_confirmation: "password"
-                  )
+    # User.create!(first_name: "Tim",
+    #               last_name: "Mee"
+    #               )
 
     puts 'Users have been created'
   end

@@ -5,14 +5,14 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    @user = User.new(user_params)
   end
 
   def create
     @user = User.create!(user_params)
 
     if @user.save
-      session[:email] = @user.id
+      session[:uid] = @user.id
       flash[:notice] = "User created"
       redirect_to root_path
     else
@@ -21,9 +21,10 @@ class UsersController < ApplicationController
     end
   end
 
+
   protected
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation)
+    params.require(:user).permit(:uid, :name)
   end
 end

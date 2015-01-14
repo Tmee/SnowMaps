@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :users
   get '/:mountain', to: 'mountains#show'
 
-  get '/login' => 'sessions#new',  as: :login
-  post '/login' => 'sessions#create'
-  delete '/logout' => 'sessions#destroy'
+
+  get "/auth/twitter/callback", to: "sessions#create"
+  get "/signout", to: "sessions#destroy", :as => :signout
+  get '/auth/twitter', to: 'sessions#new',  as: :login
 end
