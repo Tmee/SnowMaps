@@ -4,7 +4,7 @@ class MountainsController < ApplicationController
   end
 
   def create
-    @mountain = Mountains.create!(:email)
+    @mountain = Mountains.create!(:name)
 
     if @mountain.save
       flash[:notice] = "mountain created"

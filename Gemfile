@@ -11,6 +11,8 @@ gem 'foundation-rails'
 gem 'bcrypt'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'omniauth'
+gem 'omniauth-twitter'
 
 gem 'spring',        group: :development
 

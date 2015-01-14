@@ -4,7 +4,11 @@
 
   <section class="top-bar-section">
     <ul class="right">
-      <li><a href="#">Login</a></li>
+      <%if current_user.present?%>
+        <%= current_user.name%>
+      <%else%>
+        <li><%=link_to "Login with Twitter", "/auth/twitter"%></a></li>
+      <% end %>
       <li class="has-dropdown">
         <a href="#">Resorts</a>
         <ul class="dropdown">
