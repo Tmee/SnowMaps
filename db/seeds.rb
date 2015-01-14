@@ -15,10 +15,10 @@ class Seed
                       acres_open: '5289',
                       acres_total: '5289',
                       lifts_open: '31',
-                      lifts_total: '31',
+                      lifts_total: '37',
                       runs_open: '195',
-                      runs_total: '195',
-                      snow_condition: 'Powder/Packed Powder',
+                      runs_total: '665',
+                      snow_condition: 'all the pow',
                       base_depth: '40',
                       season_total: '165'
     )
@@ -28,13 +28,13 @@ class Seed
                       overnight: '20',
                       last_four_eight: '2',
                       last_seven_days: '8',
-                      acres_open: '5289',
-                      acres_total: '5289',
+                      acres_open: '9289',
+                      acres_total: '9289',
                       lifts_open: '31',
                       lifts_total: '31',
-                      runs_open: '195',
-                      runs_total: '195',
-                      snow_condition: 'Powder/Packed Powder',
+                      runs_open: '125',
+                      runs_total: '145',
+                      snow_condition: 'some serious pow',
                       base_depth: '40',
                       season_total: '165'
     )
@@ -44,13 +44,13 @@ class Seed
                       overnight: '17',
                       last_four_eight: '2',
                       last_seven_days: '8',
-                      acres_open: '5289',
-                      acres_total: '5289',
+                      acres_open: '525  9',
+                      acres_total: '5789',
                       lifts_open: '31',
-                      lifts_total: '31',
+                      lifts_total: '41',
                       runs_open: '195',
-                      runs_total: '195',
-                      snow_condition: 'Powder/Packed Powder',
+                      runs_total: '905',
+                      snow_condition: 'yellow',
                       base_depth: '40',
                       season_total: '165'
     )
@@ -59,16 +59,16 @@ class Seed
                       last_two_four: '15',
                       overnight: '15',
                       last_four_eight: '2',
-                      last_seven_days: '8',
-                      acres_open: '5289',
-                      acres_total: '5289',
-                      lifts_open: '31',
+                      last_seven_days: '10',
+                      acres_open: '52867',
+                      acres_total: '6542',
+                      lifts_open: '23',
                       lifts_total: '31',
-                      runs_open: '195',
-                      runs_total: '195',
-                      snow_condition: 'Powder/Packed Powder',
+                      runs_open: '125',
+                      runs_total: '225',
+                      snow_condition: 'powpow',
                       base_depth: '40',
-                      season_total: '165'
+                      season_total: '15'
     )
 
     Mountain.create!(name: 'Loveland Ski Area',
@@ -76,14 +76,14 @@ class Seed
                       overnight: '11',
                       last_four_eight: '2',
                       last_seven_days: '8',
-                      acres_open: '5289',
-                      acres_total: '5289',
+                      acres_open: '5229',
+                      acres_total: '5349',
                       lifts_open: '31',
-                      lifts_total: '31',
-                      runs_open: '195',
+                      lifts_total: '41',
+                      runs_open: '192',
                       runs_total: '195',
-                      snow_condition: 'Powder/Packed Powder',
-                      base_depth: '40',
+                      snow_condition: 'boiler plate',
+                      base_depth: '4',
                       season_total: '165'
     )
 
@@ -136,10 +136,45 @@ class Seed
 
   def generate_trails
     vail_village = ['Cold Feet', 'Gitalong Road', 'OverEasy', 'Ramshorn', 'Swingsville', 'The Meadows', 'Windish Way', 'Avanti', 'Bear Tree']
+    back_bowls = ['Sleepytime Road', 'Apres Vous', 'Campbells', "Ricky's Ridge", 'Swingsville', 'Straight Shot', 'Chicken Yard Way', 'Cow Face', 'Forever']
+    peak_7 = ['Angels Rest', 'Swan City', 'Fort Mary B', 'Wirepatch', 'Lincoln Meadows', 'Ore Bucket', 'Pioneer', 'Monte Cristo']
+    peak_9 = ['A Lift Line', 'Bonanza Terrain Park', 'Eldorado', 'Frontier', 'Sundown', 'American', 'Mine Shaft', 'Peerless', 'Upper Lehman']
+    dercum_mountain = ['Bear Tree', 'Orfint Boy', 'Paymaster', 'Discovery']
+    a_51 = ['Easy Street', 'I-70', 'Park Lane', 'The Ally', 'Main Steet', 'Quarter Pipe']
 
     vail_village.each do |trail|
     Trail.create!(name: trail,
                   peak_id: 1
+    )
+    end
+
+    back_bowls.each do |trail|
+    Trail.create!(name: trail,
+                  peak_id: 2
+    )
+    end
+
+    peak_7.each do |trail|
+    Trail.create!(name: trail,
+                  peak_id: 8
+    )
+    end
+
+    peak_9.each do |trail|
+    Trail.create!(name: trail,
+                  peak_id: 10
+    )
+    end
+
+    dercum_mountain.each do |trail|
+    Trail.create!(name: trail,
+                  peak_id: 19
+    )
+    end
+
+    a_51.each do |trail|
+    Trail.create!(name: trail,
+                  peak_id: 20
     )
     end
     puts 'Trails created'
