@@ -190,64 +190,8 @@
       "/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/app/helpers/users_helper.rb": [
         1,
         null
-      ],
-      "/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/app/models/mountain.rb": [
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null
-      ],
-      "/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/spec/models/peaks_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        null
-      ],
-      "/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/app/models/peak.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/spec/models/trail_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        null
-      ],
-      "/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/app/models/trail.rb": [
-        1,
-        1,
-        null,
-        1,
-        1,
-        null
-      ],
-      "/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/spec/models/users_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        null
-      ],
-      "/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/app/models/user.rb": [
-        1,
-        1,
-        1,
-        null
       ]
     },
-    "timestamp": 1421275738
+    "timestamp": 1421523988
   }
 }

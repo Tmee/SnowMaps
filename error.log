@@ -1,0 +1,235 @@
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frahmeworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler/setup (LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+	from bin/rails:7:in `require_relative'
+	from bin/rails:7:in `<main>'

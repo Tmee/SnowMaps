@@ -4,6 +4,7 @@ class MountainsController < ApplicationController
   end
 
   def create
+
     @mountain = Mountain.create!(:name)
 
     if @mountain.save

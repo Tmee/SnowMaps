@@ -1,9 +1,10 @@
 class Seed
+  require 'open-uri'
 
   def initialize
     generate_mountains
     generate_peaks
-    generate_trails
+    # generate_trails
   end
 
   def generate_mountains

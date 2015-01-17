@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     user = User.create! :name => auth_hash["info"]["name"], :uid => auth_hash[:uid]
     session[:user_id] = user.id
     user.save
+    redirect_to today_path
   end
 
   def destroy
