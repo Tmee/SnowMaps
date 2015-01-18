@@ -145,7 +145,7 @@ class BreckenridgeTrail < ActiveRecord::Base
     array.delete_at(0)
     array.each do |trail|
       trail[:open] = trail[:open].scan(/\b(noStatus|yesStatus)\b/).join(',')
-      trail[:difficulty] = trail[:difficulty].scan(/\b(easiest|moreDifficult|mostDifficult)\b/).join(',')
+      trail[:difficulty] = trail[:difficulty].scan(/\b(easiest|moreDifficult|mostDifficult|doubleDiamond)\b/).join(',')
     end
   end
 end

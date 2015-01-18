@@ -9,7 +9,7 @@ class BeaverCreekTrail < ActiveRecord::Base
     scrape_for_birds_of_prey
     scrape_for_elkhorn
     scrape_for_grouse_mountain
-    scrape_for_larspur_bowl
+    scrape_for_larkspur_bowl
     scrape_for_rose_bowl
   end
 
@@ -20,7 +20,7 @@ class BeaverCreekTrail < ActiveRecord::Base
 
     arrowhead_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 9,
+                    peak_id: 33,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -34,7 +34,7 @@ class BeaverCreekTrail < ActiveRecord::Base
 
     bachelor_gulch_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 9,
+                    peak_id: 34,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -48,7 +48,7 @@ class BeaverCreekTrail < ActiveRecord::Base
 
     beaver_creek_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 9,
+                    peak_id: 35,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -63,7 +63,7 @@ class BeaverCreekTrail < ActiveRecord::Base
 
     beaver_creek_west_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 9,
+                    peak_id: 36,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -77,7 +77,7 @@ class BeaverCreekTrail < ActiveRecord::Base
 
     bird_of_prey_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 9,
+                    peak_id: 37,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -91,7 +91,7 @@ class BeaverCreekTrail < ActiveRecord::Base
 
     elkhorn_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 9,
+                    peak_id: 38,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -105,21 +105,21 @@ class BeaverCreekTrail < ActiveRecord::Base
 
     grouse_mountain_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 9,
+                    peak_id: 39,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
     end
   end
 
-  def scrape_for_larspur_bowl
-    larspur_bowl_trails = scrape_raw_html("//div[contains(@id, 'GA7')]//td//tr")
+  def scrape_for_larkspur_bowl
+    larkspur_bowl_trails = scrape_raw_html("//div[contains(@id, 'GA7')]//td//tr")
 
-    format_open_and_difficulty(arrowhead_trails)
+    format_open_and_difficulty(larkspur_bowl_trails)
 
-    arrowhead_trails.each do |trail|
+    larkspur_bowl_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 9,
+                    peak_id: 40,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -133,7 +133,7 @@ class BeaverCreekTrail < ActiveRecord::Base
 
     rose_bowl_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 9,
+                    peak_id: 41,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -161,7 +161,7 @@ class BeaverCreekTrail < ActiveRecord::Base
     array.delete_at(0)
     array.each do |trail|
       trail[:open] = trail[:open].scan(/\b(noStatus|yesStatus)\b/).join(',')
-      trail[:difficulty] = trail[:difficulty].scan(/\b(easiest|moreDifficult|mostDifficult)\b/).join(',')
+      trail[:difficulty] = trail[:difficulty].scan(/\b(easiest|moreDifficult|mostDifficult|doubleDiamond)\b/).join(',')
     end
   end
 end

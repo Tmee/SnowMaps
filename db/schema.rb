@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150117204156) do
     t.datetime "updated_at"
   end
 
-  create_table "beever_creek_trails", force: true do |t|
+  create_table "beaver_creek_trails", force: true do |t|
     t.string   "name"
     t.string   "difficulty"
     t.integer  "peak_id"

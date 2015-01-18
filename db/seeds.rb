@@ -118,6 +118,8 @@ class Seed
 
     arapahoe_basin_peak_names = ['Front Side', 'Back Side']
 
+    beaver_creek_names = ['Arrowhead', 'Bachelor Gulch', 'Beaver Creek', 'Beaver Creek West', 'Birds of Prey', 'Elkhorn', 'Grouse Mountain', 'Larkspur Bowl', 'Rose Bowl']
+
     vail_peak_names.each do |peak|
       Peak.create!(name: peak,
                   mountain_id: '1'
@@ -148,6 +150,12 @@ class Seed
       )
     end
 
+    beaver_creek_names.each do |peak|
+      Peak.create!(name: peak,
+                  mountain_id: '6'
+      )
+    end
+
      puts 'Peaks created'
   end
 
@@ -157,6 +165,12 @@ class Seed
 
     BreckenridgeTrail.new
     puts "Generated Breckenridge's trails"
+
+    BeaverCreekTrail.new
+    puts "Generated Beaver Creek's trails"
+
+    KeystoneTrail.new
+    puts "Generated Keystone's trails"
   end
     # dercum_mountain = ['Bear Tree', 'Orfint Boy', 'Paymaster', 'Discovery']
     # a_51 = ['Easy Street', 'I-70', 'Park Lane', 'The Ally', 'Main Steet', 'Quarter Pipe']

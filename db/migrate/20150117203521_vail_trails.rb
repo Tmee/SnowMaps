@@ -5,7 +5,7 @@ class VailTrails < ActiveRecord::Migration
       t.string  :difficulty
       t.integer :peak_id
       t.integer :mountain_id,  default: 1
-      t.integer :open,         default: false
+      t.string  :open
 
       t.timestamps
     end
