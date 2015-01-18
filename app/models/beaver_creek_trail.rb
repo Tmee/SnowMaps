@@ -1,4 +1,4 @@
-class BeaverCreekScraper < ActiveRecord::Base
+class BeaverCreekTrail < ActiveRecord::Base
 
   def initialize
     @doc = Nokogiri::HTML(open("http://www.beavercreek.com/the-mountain/terrain-status.aspx#/TerrainStatus"))
@@ -14,63 +14,154 @@ class BeaverCreekScraper < ActiveRecord::Base
   end
 
   def scrape_for_arrowhead
-    trail_names = @doc.xpath("//div[contains(@id, 'GA4')]//td//tr/td[position() = 2]//text()").to_a.join(",").split(",")
-    difficlutly = @doc.xpath("//div[contains(@id, 'GA4')]//td//tr/td[position() = 1]").to_s.scan(/\b(easiest|moreDifficult|mostDifficult)\b/).join(',').split(',')
-    open_status = @doc.xpath("//div[contains(@id, 'GA4')]//td//tr/td[position() = 3]").to_s.scan(/\b(noStatus|yesStatus)\b/).join(',').split(',')
+    arrowhead_trails = scrape_raw_html("//div[contains(@id, 'GA4')]//td//tr")
 
-    trail_names.each do |trail|
-      Trail.create!(name: trail,
-                    peak_id: 1
+    format_open_and_difficulty(arrowhead_trails)
+
+    arrowhead_trails.each do |trail|
+      Trail.create!(name: trail[:name],
+                    peak_id: 9,
+                    open: trail[:open],
+                    difficulty: trail[:difficulty]
       )
     end
   end
 
   def scrape_for_bachelor_gulch
-    trail_names = @doc.xpath("//div[contains(@id, 'GA3')]//td//tr/td[position() = 2]//text()").to_a.join(",").split(",")
-    difficlutly = @doc.xpath("//div[contains(@id, 'GA3')]//td//tr/td[position() = 1]").to_s.scan(/\b(easiest|moreDifficult|mostDifficult)\b/).join(',').split(',')
-    open_status = @doc.xpath("//div[contains(@id, 'GA3')]//td//tr/td[position() = 3]").to_s.scan(/\b(noStatus|yesStatus)\b/).join(',').split(',')
+    bachelor_gulch_trails = scrape_raw_html("//div[contains(@id, 'GA3')]//td//tr")
+
+    format_open_and_difficulty(bachelor_gulch_trails)
+
+    bachelor_gulch_trails.each do |trail|
+      Trail.create!(name: trail[:name],
+                    peak_id: 9,
+                    open: trail[:open],
+                    difficulty: trail[:difficulty]
+      )
+    end
   end
 
   def scrape_for_beaver_creek
-    trail_names = @doc.xpath("//div[contains(@id, 'GA1')]//td//tr/td[position() = 2]//text()").to_a.join(",").split(",")
-    difficlutly = @doc.xpath("//div[contains(@id, 'GA1')]//td//tr/td[position() = 1]").to_s.scan(/\b(easiest|moreDifficult|mostDifficult)\b/).join(',').split(',')
-    open_status = @doc.xpath("//div[contains(@id, 'GA1')]//td//tr/td[position() = 3]").to_s.scan(/\b(noStatus|yesStatus)\b/).join(',').split(',')
+    beaver_creek_trails = scrape_raw_html("//div[contains(@id, 'GA1')]//td//tr")
+
+    format_open_and_difficulty(beaver_creek_trails)
+
+    beaver_creek_trails.each do |trail|
+      Trail.create!(name: trail[:name],
+                    peak_id: 9,
+                    open: trail[:open],
+                    difficulty: trail[:difficulty]
+      )
+    end
   end
 
 
   def scrape_for_beaver_creek_west
-    trail_names = @doc.xpath("//div[contains(@id, 'GA2')]//td//tr/td[position() = 2]//text()").to_a.join(",").split(",")
-    difficlutly = @doc.xpath("//div[contains(@id, 'GA2')]//td//tr/td[position() = 1]").to_s.scan(/\b(easiest|moreDifficult|mostDifficult)\b/).join(',').split(',')
-    open_status = @doc.xpath("//div[contains(@id, 'GA2')]//td//tr/td[position() = 3]").to_s.scan(/\b(noStatus|yesStatus)\b/).join(',').split(',')
+    beaver_creek_west_trails = scrape_raw_html("//div[contains(@id, 'GA2')]//td//tr")
+
+    format_open_and_difficulty(beaver_creek_west_trails)
+
+    beaver_creek_west_trails.each do |trail|
+      Trail.create!(name: trail[:name],
+                    peak_id: 9,
+                    open: trail[:open],
+                    difficulty: trail[:difficulty]
+      )
+    end
   end
 
   def scrape_for_birds_of_prey
-    trail_names = @doc.xpath("//div[contains(@id, 'GA8')]//td//tr/td[position() = 2]//text()").to_a.join(",").split(",")
-    difficlutly = @doc.xpath("//div[contains(@id, 'GA8')]//td//tr/td[position() = 1]").to_s.scan(/\b(easiest|moreDifficult|mostDifficult)\b/).join(',').split(',')
-    open_status = @doc.xpath("//div[contains(@id, 'GA8')]//td//tr/td[position() = 3]").to_s.scan(/\b(noStatus|yesStatus)\b/).join(',').split(',')
+    bird_of_prey_trails = scrape_raw_html("//div[contains(@id, 'GA8')]//td//tr")
+
+    format_open_and_difficulty(bird_of_prey_trails)
+
+    bird_of_prey_trails.each do |trail|
+      Trail.create!(name: trail[:name],
+                    peak_id: 9,
+                    open: trail[:open],
+                    difficulty: trail[:difficulty]
+      )
+    end
   end
 
   def scrape_for_elkhorn
-    trail_names = @doc.xpath("//div[contains(@id, 'GA9')]//td//tr/td[position() = 2]//text()").to_a.join(",").split(",")
-    difficlutly = @doc.xpath("//div[contains(@id, 'GA9')]//td//tr/td[position() = 1]").to_s.scan(/\b(easiest|moreDifficult|mostDifficult)\b/).join(',').split(',')
-    open_status = @doc.xpath("//div[contains(@id, 'GA9')]//td//tr/td[position() = 3]").to_s.scan(/\b(noStatus|yesStatus)\b/).join(',').split(',')
+    elkhorn_trails = scrape_raw_html("//div[contains(@id, 'GA9')]//td//tr")
+
+    format_open_and_difficulty(elkhorn_trails)
+
+    elkhorn_trails.each do |trail|
+      Trail.create!(name: trail[:name],
+                    peak_id: 9,
+                    open: trail[:open],
+                    difficulty: trail[:difficulty]
+      )
+    end
   end
 
   def scrape_for_grouse_mountain
-    trail_names = @doc.xpath("//div[contains(@id, 'GA5')]//td//tr/td[position() = 2]//text()").to_a.join(",").split(",")
-    difficlutly = @doc.xpath("//div[contains(@id, 'GA5')]//td//tr/td[position() = 1]").to_s.scan(/\b(easiest|moreDifficult|mostDifficult)\b/).join(',').split(',')
-    open_status = @doc.xpath("//div[contains(@id, 'GA5')]//td//tr/td[position() = 3]").to_s.scan(/\b(noStatus|yesStatus)\b/).join(',').split(',')
+    grouse_mountain_trails = scrape_raw_html("//div[contains(@id, 'GA5')]//td//tr")
+
+    format_open_and_difficulty(grouse_mountain_trails)
+
+    grouse_mountain_trails.each do |trail|
+      Trail.create!(name: trail[:name],
+                    peak_id: 9,
+                    open: trail[:open],
+                    difficulty: trail[:difficulty]
+      )
+    end
   end
 
   def scrape_for_larspur_bowl
-    trail_names = @doc.xpath("//div[contains(@id, 'GA7')]//td//tr/td[position() = 2]//text()").to_a.join(",").split(",")
-    difficlutly = @doc.xpath("//div[contains(@id, 'GA7')]//td//tr/td[position() = 1]").to_s.scan(/\b(easiest|moreDifficult|mostDifficult)\b/).join(',').split(',')
-    open_status = @doc.xpath("//div[contains(@id, 'GA7')]//td//tr/td[position() = 3]").to_s.scan(/\b(noStatus|yesStatus)\b/).join(',').split(',')
+    larspur_bowl_trails = scrape_raw_html("//div[contains(@id, 'GA7')]//td//tr")
+
+    format_open_and_difficulty(arrowhead_trails)
+
+    arrowhead_trails.each do |trail|
+      Trail.create!(name: trail[:name],
+                    peak_id: 9,
+                    open: trail[:open],
+                    difficulty: trail[:difficulty]
+      )
+    end
   end
 
   def scrape_for_rose_bowl
-    trail_names = @doc.xpath("//div[contains(@id, 'GA6')]//td//tr/td[position() = 2]//text()").to_a.join(",").split(",")
-    difficlutly = @doc.xpath("//div[contains(@id, 'GA6')]//td//tr/td[position() = 1]").to_s.scan(/\b(easiest|moreDifficult|mostDifficult)\b/).join(',').split(',')
-    open_status = @doc.xpath("//div[contains(@id, 'GA6')]//td//tr/td[position() = 3]").to_s.scan(/\b(noStatus|yesStatus)\b/).join(',').split(',')
+    rose_bowl_trails = scrape_raw_html("//div[contains(@id, 'GA6')]//td//tr")
+
+    format_open_and_difficulty(rose_bowl_trails)
+
+    rose_bowl_trails.each do |trail|
+      Trail.create!(name: trail[:name],
+                    peak_id: 9,
+                    open: trail[:open],
+                    difficulty: trail[:difficulty]
+      )
+    end
+  end
+
+  protected
+
+  def scrape_raw_html(xpath)
+    rows = @doc.xpath(xpath)
+    trails_array = rows.collect do |row|
+    detail = {}
+    [
+      [:name, 'td[position() = 2]//text()'],
+      [:open, 'td[position() = 3]'],
+      [:difficulty, 'td[position() = 1]'],
+    ].each do |name, xpath|
+      detail[name] = row.at_xpath(xpath).to_s.strip
+      end
+    detail
+    end
+  end
+
+  def format_open_and_difficulty(array)
+    array.delete_at(0)
+    array.each do |trail|
+      trail[:open] = trail[:open].scan(/\b(noStatus|yesStatus)\b/).join(',')
+      trail[:difficulty] = trail[:difficulty].scan(/\b(easiest|moreDifficult|mostDifficult)\b/).join(',')
+    end
   end
 end

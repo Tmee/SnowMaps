@@ -154,6 +154,9 @@ class Seed
   def generate_trails
     VailTrail.new
     puts "Generated Vail's trails"
+
+    BreckenridgeTrail.new
+    puts "Generated Breckenridge's trails"
   end
     # dercum_mountain = ['Bear Tree', 'Orfint Boy', 'Paymaster', 'Discovery']
     # a_51 = ['Easy Street', 'I-70', 'Park Lane', 'The Ally', 'Main Steet', 'Quarter Pipe']
