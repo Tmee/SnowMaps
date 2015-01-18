@@ -2,12 +2,45 @@ class VailTrail < ActiveRecord::Base
 
   def initialize
     @doc = Nokogiri::HTML(open("http://www.vail.com/mountain/current-conditions/whats-open-today.aspx#/GA8"))
+    @weather_doc = Nokogiri::HTML(open("http://www.vail.com/mountain/current-conditions/snow-and-weather-report.aspx"))
+    scrape_for_trails
+  end
+
+  def scrape_for_trails
     scrape_for_vail_village_trails
     scrape_for_back_bowls
     scrape_for_blue_sky_basin
     scrape_for_china_bowl
     scrape_for_golden_peak
     scrape_for_lionshead
+  end
+
+  def scrape_for_mountain_information
+    new_snow = @weather_doc.xpath("//div[contains(@class, 'newSnow')]//tr//td[position() = 2]//text()").text.scan(/\b(\d)\b/)
+
+    snow_conditions =  @weather_doc.xpath("//div[contains(@class, 'snowConditions')]//tr[position() = 2]//td[position() = 1]//text()").to_s.gsub("\r\n", "").gsub(/\s/, "")
+
+    snow_stats_raw = @weather_doc.xpath("//div[contains(@class, 'snowConditions')]//tr//td//span//text()").to_a
+    snow_stats = snow_stats.map do |snow|
+        snow.text.gsub(/\s/, "")
+      end
+
+    terrain_report_raw = @weather_doc.xpath("//div[contains(@class, 'terrain')]//tr//td[position() = 2]//text()").to_a
+    terrain_report = terrain_report_raw.map do |terrain|
+      terrain.text.gsub(/\s/, "")
+    end
+
+
+    snow_info.each do |trail|
+      Mountain.create!(name:       trail[:name],
+                      last_24:     trail[:last_24],
+                      overnight:   trail[:overnight],
+                      last_48:     trail[:last_48],
+                      last_7_days: trail[:last_7_days],
+                      acres_open:  trail[:acres_open],
+                      acres_total: trail[:acres_total],
+      )
+    end
   end
 
   def scrape_for_vail_village_trails
@@ -23,7 +56,6 @@ class VailTrail < ActiveRecord::Base
       )
     end
   end
-
 
   def scrape_for_back_bowls
     back_bowl_trails = scrape_raw_html("//div[contains(@id, 'GA4')]//td//tr")

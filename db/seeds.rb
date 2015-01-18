@@ -172,33 +172,6 @@ class Seed
     KeystoneTrail.new
     puts "Generated Keystone's trails"
   end
-    # dercum_mountain = ['Bear Tree', 'Orfint Boy', 'Paymaster', 'Discovery']
-    # a_51 = ['Easy Street', 'I-70', 'Park Lane', 'The Ally', 'Main Steet', 'Quarter Pipe']
-
-    # peak_7.each do |trail|
-    # Trail.create!(name: trail,
-    #               peak_id: 8
-    # )
-    # end
-
-    # peak_9.each do |trail|
-    # Trail.create!(name: trail,
-    #               peak_id: 10
-    # )
-    # end
-
-    # dercum_mountain.each do |trail|
-    # Trail.create!(name: trail,
-    #               peak_id: 19
-    # )
-    # end
-
-    # a_51.each do |trail|
-    # Trail.create!(name: trail,
-    #               peak_id: 20
-    # )
-    # end
-    # puts 'Trails created'
 end
 
 Seed.new
