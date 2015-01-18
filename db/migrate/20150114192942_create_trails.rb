@@ -3,7 +3,7 @@ class CreateTrails < ActiveRecord::Migration
     create_table :trails do |t|
       t.string  :name
       t.integer :peak_id
-      t.boolean :open,         default: false
+      t.string :open
 
       t.timestamps
     end

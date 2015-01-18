@@ -1,10 +1,10 @@
 class Seed
-  require 'open-uri'
+  # require 'open-uri'
 
   def initialize
     generate_mountains
     generate_peaks
-    # generate_trails
+    generate_trails
   end
 
   def generate_mountains
@@ -88,13 +88,29 @@ class Seed
                       season_total: '165'
     )
 
+    Mountain.create!(name: 'Beaver Creek Resort',
+                      last_two_four: '11',
+                      overnight: '11',
+                      last_four_eight: '2',
+                      last_seven_days: '8',
+                      acres_open: '5229',
+                      acres_total: '5349',
+                      lifts_open: '31',
+                      lifts_total: '41',
+                      runs_open: '192',
+                      runs_total: '195',
+                      snow_condition: 'boiler plate',
+                      base_depth: '4',
+                      season_total: '165'
+    )
+
     puts 'Mountains created'
   end
 
   def generate_peaks
     vail_peak_names = ['Vail Village', 'Back Bowls', 'Blue Sky Basin', 'China Bowl', 'Golden Peak', 'Lionshead', 'Chairlift Status']
 
-    breckenridge_peak_names = ['Peak 7', 'Peak 8', 'Peak 9', 'Peak 10', 'Terrain Parks', 'T-bar', 'Bows', 'Peak 6', 'Lifts']
+    breckenridge_peak_names = ['Peak 7', 'Peak 8', 'Peak 9', 'Peak 10', 'Terrain Parks', 'T-bar', 'Bowls', 'Peak 6', 'Lifts']
 
     loveland_peak_names = ['Chair 1', 'Chair 2', 'Chair 3', 'Chair 4', 'Chair 6', 'Chair 7', 'Chair 8', 'Chair 9', 'Magic Carpet']
 
@@ -136,50 +152,36 @@ class Seed
   end
 
   def generate_trails
-    vail_village = ['Cold Feet', 'Gitalong Road', 'OverEasy', 'Ramshorn', 'Swingsville', 'The Meadows', 'Windish Way', 'Avanti', 'Bear Tree']
-    back_bowls = ['Sleepytime Road', 'Apres Vous', 'Campbells', "Ricky's Ridge", 'Swingsville', 'Straight Shot', 'Chicken Yard Way', 'Cow Face', 'Forever']
-    peak_7 = ['Angels Rest', 'Swan City', 'Fort Mary B', 'Wirepatch', 'Lincoln Meadows', 'Ore Bucket', 'Pioneer', 'Monte Cristo']
-    peak_9 = ['A Lift Line', 'Bonanza Terrain Park', 'Eldorado', 'Frontier', 'Sundown', 'American', 'Mine Shaft', 'Peerless', 'Upper Lehman']
-    dercum_mountain = ['Bear Tree', 'Orfint Boy', 'Paymaster', 'Discovery']
-    a_51 = ['Easy Street', 'I-70', 'Park Lane', 'The Ally', 'Main Steet', 'Quarter Pipe']
-
-    vail_village.each do |trail|
-    Trail.create!(name: trail,
-                  peak_id: 1
-    )
-    end
-
-    back_bowls.each do |trail|
-    Trail.create!(name: trail,
-                  peak_id: 2
-    )
-    end
-
-    peak_7.each do |trail|
-    Trail.create!(name: trail,
-                  peak_id: 8
-    )
-    end
-
-    peak_9.each do |trail|
-    Trail.create!(name: trail,
-                  peak_id: 10
-    )
-    end
-
-    dercum_mountain.each do |trail|
-    Trail.create!(name: trail,
-                  peak_id: 19
-    )
-    end
-
-    a_51.each do |trail|
-    Trail.create!(name: trail,
-                  peak_id: 20
-    )
-    end
-    puts 'Trails created'
+    VailTrail.new
+    puts "Generated Vail's trails"
   end
+    # dercum_mountain = ['Bear Tree', 'Orfint Boy', 'Paymaster', 'Discovery']
+    # a_51 = ['Easy Street', 'I-70', 'Park Lane', 'The Ally', 'Main Steet', 'Quarter Pipe']
+
+    # peak_7.each do |trail|
+    # Trail.create!(name: trail,
+    #               peak_id: 8
+    # )
+    # end
+
+    # peak_9.each do |trail|
+    # Trail.create!(name: trail,
+    #               peak_id: 10
+    # )
+    # end
+
+    # dercum_mountain.each do |trail|
+    # Trail.create!(name: trail,
+    #               peak_id: 19
+    # )
+    # end
+
+    # a_51.each do |trail|
+    # Trail.create!(name: trail,
+    #               peak_id: 20
+    # )
+    # end
+    # puts 'Trails created'
 end
 
 Seed.new

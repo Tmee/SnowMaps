@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150116053402) do
+ActiveRecord::Schema.define(version: 20150117204156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,36 @@ ActiveRecord::Schema.define(version: 20150116053402) do
     t.string   "privder"
     t.string   "uid"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "beever_creek_trails", force: true do |t|
+    t.string   "name"
+    t.string   "difficulty"
+    t.integer  "peak_id"
+    t.integer  "mountain_id", default: 6
+    t.integer  "open",        default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "breckenridge_trails", force: true do |t|
+    t.string   "name"
+    t.string   "difficulty"
+    t.integer  "peak_id"
+    t.integer  "mountain_id", default: 2
+    t.integer  "open",        default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "keystone_trails", force: true do |t|
+    t.string   "name"
+    t.string   "difficulty"
+    t.integer  "peak_id"
+    t.integer  "mountain_id", default: 4
+    t.integer  "open",        default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -54,7 +84,7 @@ ActiveRecord::Schema.define(version: 20150116053402) do
   create_table "trails", force: true do |t|
     t.string   "name"
     t.integer  "peak_id"
-    t.boolean  "open",       default: false
+    t.string   "open"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "difficulty"
@@ -63,6 +93,16 @@ ActiveRecord::Schema.define(version: 20150116053402) do
   create_table "users", force: true do |t|
     t.string   "uid"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vail_trails", force: true do |t|
+    t.string   "name"
+    t.string   "difficulty"
+    t.integer  "peak_id"
+    t.integer  "mountain_id", default: 1
+    t.integer  "open",        default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

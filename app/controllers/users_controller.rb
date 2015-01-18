@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       flash[:notice] = "User could not be created"
       render :new
     end
-  ends
+  end
 
 
   protected
