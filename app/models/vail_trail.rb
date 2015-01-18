@@ -24,11 +24,7 @@ class VailTrail < ActiveRecord::Base
     detail
     end
 
-    vail_village_trails.delete_at(0)
-    vail_village_trails.each do |trail|
-      trail[:open] = trail[:open].scan(/\b(noStatus|yesStatus)\b/).join(',')
-      trail[:difficulty] = trail[:difficulty].scan(/\b(easiest|moreDifficult|mostDifficult)\b/).join(',')
-    end
+    format_open_and_difficulty(vail_village_trails)
 
     vail_village_trails.each do |trail|
       Trail.create!(name: trail[:name],
@@ -36,6 +32,14 @@ class VailTrail < ActiveRecord::Base
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
+    end
+  end
+
+  def format_open_and_difficulty(array)
+    array.delete_at(0)
+    array.each do |trail|
+      trail[:open] = trail[:open].scan(/\b(noStatus|yesStatus)\b/).join(',')
+      trail[:difficulty] = trail[:difficulty].scan(/\b(easiest|moreDifficult|mostDifficult)\b/).join(',')
     end
   end
 
