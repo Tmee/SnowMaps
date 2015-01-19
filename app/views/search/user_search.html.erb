@@ -1,0 +1,19 @@
+<h3>Products matching your search:</h3>
+<ul >
+  <% @mountains.each do |product| %>
+    <%=product.name%>
+  <% end %>
+</ul>
+
+<ul >
+  <% @peaks.each do |product| %>
+    <%=product.name%>
+  <% end %>
+</ul>
+
+<ul >
+  <% @trails.each do |product| %>
+    <%=product.name%>
+    <%=product.peak_id%>
+  <% end %>
+</ul>

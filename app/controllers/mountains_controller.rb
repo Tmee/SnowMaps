@@ -17,6 +17,12 @@ class MountainsController < ApplicationController
 
   def show
     format_time
-    @mountain = Mountain.find_by slug: params[:mountain]
+    if params[:search].present?
+      @mountain = Mountain.all.reject do |mount|
+        !mount.name.include? params[:search].capitalize
+      end
+    else
+      @mountain = Mountain.find_by slug: params[:mountain]
+    end
   end
 end

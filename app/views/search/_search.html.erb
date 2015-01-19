@@ -1,0 +1,8 @@
+<span class="search">
+  <%= form_tag search_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search], :class => "search_text" %>
+    <button class="button round alert" id="click_search" name="search_button" type="submit" value="Search">
+      <i class="icon-search"></i>
+    </button>
+  <% end %>
+</span>
