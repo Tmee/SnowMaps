@@ -20,6 +20,11 @@
   background: #2d6a85;
  }
 
+ .nav-padding {
+  padding-left: 0px;
+  padding-right: 0px;
+ }
+
 .open-snow {
   max-height: 500px;
   max-width: 600px;

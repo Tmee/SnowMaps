@@ -1,8 +1,9 @@
-<span class="search">
-  <%= form_tag search_path, :method => 'get' do %>
-    <%= text_field_tag :search, params[:search], :class => "search_text" %>
-    <button class="button round alert" id="click_search" name="search_button" type="submit" value="Search">
-      <i class="icon-search"></i>
+<%= form_tag search_path, :method => 'get' do %>
+  <div class="large-8 small-9 columns nav-padding">
+    <%= text_field_tag :search, params[:search], placeholder: "Search"%>
+  </div>
+  <div class="large-4 small-3 columns nav-padding">
+    <button class="alert button expand" id="click_search" name="search_button" type="submit" value="Search">Search
     </button>
-  <% end %>
-</span>
+  </div>
+<% end %>
