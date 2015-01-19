@@ -1,7 +1,65 @@
-class BeaverCreekTrail < ActiveRecord::Base
+class BeaverCreekScraper < ActiveRecord::Base
 
   def initialize
     @doc = Nokogiri::HTML(open("http://www.beavercreek.com/the-mountain/terrain-status.aspx#/TerrainStatus"))
+    @mountain_doc = Nokogiri::HTML(open("http://www.beavercreek.com/the-mountain/snow-report.aspx"))
+    create_or_update_mountain_information
+    generate_peak_names
+    scrape_for_trails
+  end
+
+  def create_or_update_mountain_information
+    snow_condition = scrape_for_snow_condition
+    report         = scrape_for_snow_report_data
+    open_area      = scrape_for_openness
+
+    Mountain.create!(name:   "Beaver Creek Resort",
+                    last_24:        report[0],
+                    overnight:      report[1],
+                    last_48:        report[2],
+                    last_7_days:    report[3],
+                    base_depth:     report[4],
+                    season_total:   report[5],
+                    acres_open:     "#{open_area[4]} of #{open_area[5]}",
+                    lifts_open:     "#{open_area[0]} of #{open_area[1]}",
+                    runs_open:      "#{open_area[2]} of #{open_area[3]}",
+                    snow_condition: snow_condition
+    )
+  end
+
+  def scrape_for_openness
+    open_area = @doc.xpath("//div[contains(@class, 'gradBorderModule')]//li//span//text()")
+    open_area_array = open_area.map do |report|
+      report.text.gsub(/\s/, "")
+    end
+    open_area_array.pop
+    open_area_array
+  end
+
+  def scrape_for_snow_report_data
+    snow_report_array = @mountain_doc.xpath("//div[contains(@class, 'snowReportDataColumn2')]//tr//td[position() = 2]")
+    snow_report_formatted = snow_report_array.map do |report|
+      report.text.gsub(/\s/, "")
+    end
+    snow_report_formatted.delete('')
+    snow_report_formatted
+  end
+
+  def scrape_for_snow_condition
+    snow_condition =  @mountain_doc.xpath("//div[contains(@class, 'snowConditions')]//tr[position() = 2]//td[position() = 1]//text()").to_s.gsub("\r\n", "").gsub(/\s/, "")
+  end
+
+
+  def generate_peak_names
+    beaver_creek_names = ['Arrowhead', 'Bachelor Gulch', 'Beaver Creek', 'Beaver Creek West', 'Birds of Prey', 'Elkhorn', 'Grouse Mountain', 'Larkspur Bowl', 'Rose Bowl']
+    beaver_creek_names.each do |peak|
+      Peak.create!(name: peak,
+                  mountain_id: 4
+      )
+    end
+  end
+
+  def scrape_for_trails
     scrape_for_arrowhead
     scrape_for_bachelor_gulch
     scrape_for_beaver_creek
@@ -20,7 +78,7 @@ class BeaverCreekTrail < ActiveRecord::Base
 
     arrowhead_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 33,
+                    peak_id: 22,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -34,7 +92,7 @@ class BeaverCreekTrail < ActiveRecord::Base
 
     bachelor_gulch_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 34,
+                    peak_id: 23,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -48,13 +106,12 @@ class BeaverCreekTrail < ActiveRecord::Base
 
     beaver_creek_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 35,
+                    peak_id: 24,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
     end
   end
-
 
   def scrape_for_beaver_creek_west
     beaver_creek_west_trails = scrape_raw_html("//div[contains(@id, 'GA2')]//td//tr")
@@ -63,7 +120,7 @@ class BeaverCreekTrail < ActiveRecord::Base
 
     beaver_creek_west_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 36,
+                    peak_id: 25,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -77,7 +134,7 @@ class BeaverCreekTrail < ActiveRecord::Base
 
     bird_of_prey_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 37,
+                    peak_id: 26,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -91,7 +148,7 @@ class BeaverCreekTrail < ActiveRecord::Base
 
     elkhorn_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 38,
+                    peak_id: 27,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -105,7 +162,7 @@ class BeaverCreekTrail < ActiveRecord::Base
 
     grouse_mountain_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 39,
+                    peak_id: 28,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -119,7 +176,7 @@ class BeaverCreekTrail < ActiveRecord::Base
 
     larkspur_bowl_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 40,
+                    peak_id: 29,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -133,7 +190,7 @@ class BeaverCreekTrail < ActiveRecord::Base
 
     rose_bowl_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 41,
+                    peak_id: 30,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )

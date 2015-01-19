@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150117204156) do
+ActiveRecord::Schema.define(version: 20150118223256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "arapahoe_basin_scrapers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "authorizations", force: true do |t|
     t.string   "privder"
@@ -24,32 +29,32 @@ ActiveRecord::Schema.define(version: 20150117204156) do
     t.datetime "updated_at"
   end
 
-  create_table "beaver_creek_trails", force: true do |t|
+  create_table "beaver_creek_scrapers", force: true do |t|
     t.string   "name"
     t.string   "difficulty"
     t.integer  "peak_id"
-    t.integer  "mountain_id", default: 6
-    t.integer  "open",        default: 0
+    t.integer  "mountain_id"
+    t.string   "open"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "breckenridge_trails", force: true do |t|
+  create_table "breckenridge_scrapers", force: true do |t|
+    t.string   "name"
+    t.string   "difficulty"
+    t.integer  "peak_id"
+    t.integer  "mountain_id"
+    t.string   "open"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "keystone_scrapers", force: true do |t|
     t.string   "name"
     t.string   "difficulty"
     t.integer  "peak_id"
     t.integer  "mountain_id", default: 2
-    t.integer  "open",        default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "keystone_trails", force: true do |t|
-    t.string   "name"
-    t.string   "difficulty"
-    t.integer  "peak_id"
-    t.integer  "mountain_id", default: 4
-    t.integer  "open",        default: 0
+    t.string   "open"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -57,16 +62,13 @@ ActiveRecord::Schema.define(version: 20150117204156) do
   create_table "mountains", force: true do |t|
     t.string   "name"
     t.string   "slug"
-    t.integer  "last_two_four"
+    t.integer  "last_24"
     t.integer  "overnight"
-    t.integer  "last_four_eight"
-    t.integer  "last_seven_days"
-    t.integer  "acres_open"
-    t.integer  "acres_total"
-    t.integer  "lifts_open"
-    t.integer  "lifts_total"
-    t.integer  "runs_open"
-    t.integer  "runs_total"
+    t.integer  "last_48"
+    t.integer  "last_7_days"
+    t.string   "acres_open"
+    t.string   "lifts_open"
+    t.string   "runs_open"
     t.string   "snow_condition"
     t.integer  "base_depth"
     t.integer  "season_total"
@@ -83,8 +85,9 @@ ActiveRecord::Schema.define(version: 20150117204156) do
 
   create_table "trails", force: true do |t|
     t.string   "name"
-    t.integer  "peak_id"
     t.string   "open"
+    t.integer  "peak_id"
+    t.integer  "mountain_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "difficulty"
@@ -97,12 +100,27 @@ ActiveRecord::Schema.define(version: 20150117204156) do
     t.datetime "updated_at"
   end
 
-  create_table "vail_trails", force: true do |t|
+  create_table "vail_mountain_scrapers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vail_peak_scrapers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vail_scrapers", force: true do |t|
     t.string   "name"
     t.string   "difficulty"
     t.integer  "peak_id"
     t.integer  "mountain_id", default: 1
-    t.integer  "open",        default: 0
+    t.string   "open"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vail_trail_scrapers", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

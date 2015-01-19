@@ -33,10 +33,10 @@
         <h4>Snowfall</h4>
         <h4><%=@mountain.overnight%>"</h4><hr/>
         <h7>New Snow</h7><br>
-        <small>Last 24 hrs: <%=@mountain.last_two_four%> "</small><br>
+        <small>Last 24 hrs: <%=@mountain.last_24%> "</small><br>
         <small>Overnight: <%=@mountain.overnight%> "</small><br>
-        <small>Last 48 hrs:  <%=@mountain.last_four_eight%> "</small><br>
-        <small>Last 7 days:  <%=@mountain.last_seven_days%> "</small><hr/>
+        <small>Last 48 hrs:  <%=@mountain.last_48%> "</small><br>
+        <small>Last 7 days:  <%=@mountain.last_7_days%> "</small><hr/>
         <h7>Snow Conditions</h7><br>
         <small><%=@mountain.snow_condition%> </small><br>
         <small>Base Depth: <%=@mountain.base_depth%> "</small><br>
@@ -54,9 +54,9 @@
           </thead>
           <tbody>
             <tr>
-              <td class="text-center"><%=@mountain.lifts_open%> of <%=@mountain.lifts_total%></td>
-              <td class="text-center"><%=@mountain.runs_open%> of <%=@mountain.runs_total%></td>
-              <td class="text-center"><%=@mountain.acres_open%> of <%=@mountain.acres_total%></td>
+              <td class="text-center"><%=@mountain.lifts_open%></td>
+              <td class="text-center"><%=@mountain.runs_open%></td>
+              <td class="text-center"><%=@mountain.acres_open%></td>
             </tr>
           </tbody>
         </table>

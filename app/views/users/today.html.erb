@@ -33,15 +33,15 @@
       </div>
       <div class="large-4 columns text-center" style="padding-top: 3%;">
         <p>Terrain Report</p>
-        <small>Acres Open:  <%=@mountains[0].acres_open%> of <%=@mountains[0].acres_total%></small>
-        <small style="padding-left: 10px;">Lifts Open: <%=@mountains[0].lifts_open%>  of   <%=@mountains[0].lifts_total%></small>
-        <small>Runs Open:  <%=@mountains[0].runs_open%> of <%=@mountains[0].runs_total%></small>
+        <small>Acres Open:  <%=@mountains[0].acres_open%></small>
+        <small style="padding-left: 10px;">Lifts Open: <%=@mountains[0].lifts_open%></small>
+        <small>Runs Open:  <%=@mountains[0].runs_open%></small>
       </div>
     </div>
   </div><br/><br/>
 <!-- End most snow -->
 <!-- Begin other mountains -->
-  <div class="row">
+  <div class="row" data-equalizer>
   <%@mountains[1..-1].each do |mountain| %>
     <div class="large-6 columns panel">
       <div class="large-8 columns text-center">
@@ -55,9 +55,9 @@
       </div>
       <div class="large-4 columns text-center" style="padding-top: 3%;">
         <p>Terrain Report</p>
-        <small>Acres Open : <%=mountain.acres_open%> of <%=mountain.acres_total%></small>
-        <small>Lifts Open : <%=mountain.lifts_open%> of <%=mountain.lifts_total%></small>
-        <small>Runs Open : <%=mountain.runs_open%> of <%=mountain.runs_total%></small>
+        <small>Acres Open : <%=mountain.acres_open%></small>
+        <small>Lifts Open : <%=mountain.lifts_open%></small>
+        <small>Runs Open : <%=mountain.runs_open%></small>
       </div>
     </div>
     <%end%>

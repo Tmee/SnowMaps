@@ -1,9 +1,51 @@
-class VailTrail < ActiveRecord::Base
+class VailScraper < ActiveRecord::Base
 
   def initialize
     @doc = Nokogiri::HTML(open("http://www.vail.com/mountain/current-conditions/whats-open-today.aspx#/GA8"))
-    @weather_doc = Nokogiri::HTML(open("http://www.vail.com/mountain/current-conditions/snow-and-weather-report.aspx"))
+    @mountain_doc = Nokogiri::HTML(open("http://www.vail.com/mountain/current-conditions/snow-and-weather-report.aspx"))
+    create_mountain_information
+    generate_peak_names
     scrape_for_trails
+  end
+
+  def create_mountain_information
+    snow_condition = scrape_for_snow_condition
+    report         = scrape_for_snow_report_data
+
+    Mountain.create!(name:      "Vail Resort",
+                    last_24:        report[0],
+                    overnight:      report[1],
+                    last_48:        report[2],
+                    last_7_days:    report[3],
+                    base_depth:     report[4],
+                    season_total:   report[5],
+                    acres_open:     report[6],
+                    lifts_open:     report[7],
+                    runs_open:      report[8],
+                    snow_condition: snow_condition
+    )
+  end
+
+  def scrape_for_snow_report_data
+    snow_report_array = @mountain_doc.xpath("//div[contains(@class, 'snowReportDataColumn2')]//tr//td[position() = 2]")
+    snow_report_formatted = snow_report_array.map do |report|
+      report.text.gsub(/\s/, "")
+    end
+    snow_report_formatted.delete('')
+    snow_report_formatted
+  end
+
+  def scrape_for_snow_condition
+    snow_condition =  @mountain_doc.xpath("//div[contains(@class, 'snowConditions')]//tr[position() = 2]//td[position() = 1]//text()").to_s.gsub("\r\n", "").gsub(/\s/, "")
+  end
+
+  def generate_peak_names
+    vail_peak_names = ['Vail Village', 'Back Bowls', 'Blue Sky Basin', 'China Bowl', 'Golden Peak', 'Lionshead', 'Chairlift Status']
+    vail_peak_names.each do |peak|
+      Peak.create!(name: peak,
+                  mountain_id: 1
+      )
+    end
   end
 
   def scrape_for_trails
@@ -13,34 +55,6 @@ class VailTrail < ActiveRecord::Base
     scrape_for_china_bowl
     scrape_for_golden_peak
     scrape_for_lionshead
-  end
-
-  def scrape_for_mountain_information
-    new_snow = @weather_doc.xpath("//div[contains(@class, 'newSnow')]//tr//td[position() = 2]//text()").text.scan(/\b(\d)\b/)
-
-    snow_conditions =  @weather_doc.xpath("//div[contains(@class, 'snowConditions')]//tr[position() = 2]//td[position() = 1]//text()").to_s.gsub("\r\n", "").gsub(/\s/, "")
-
-    snow_stats_raw = @weather_doc.xpath("//div[contains(@class, 'snowConditions')]//tr//td//span//text()").to_a
-    snow_stats = snow_stats.map do |snow|
-        snow.text.gsub(/\s/, "")
-      end
-
-    terrain_report_raw = @weather_doc.xpath("//div[contains(@class, 'terrain')]//tr//td[position() = 2]//text()").to_a
-    terrain_report = terrain_report_raw.map do |terrain|
-      terrain.text.gsub(/\s/, "")
-    end
-
-
-    snow_info.each do |trail|
-      Mountain.create!(name:       trail[:name],
-                      last_24:     trail[:last_24],
-                      overnight:   trail[:overnight],
-                      last_48:     trail[:last_48],
-                      last_7_days: trail[:last_7_days],
-                      acres_open:  trail[:acres_open],
-                      acres_total: trail[:acres_total],
-      )
-    end
   end
 
   def scrape_for_vail_village_trails

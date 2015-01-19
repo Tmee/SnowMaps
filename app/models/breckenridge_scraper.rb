@@ -1,7 +1,53 @@
-class BreckenridgeTrail < ActiveRecord::Base
+class BreckenridgeScraper < ActiveRecord::Base
 
   def initialize
     @doc = Nokogiri::HTML(open("http://www.breckenridge.com/mountain/terrain-status.aspx#/GA4"))
+    @mountain_doc = Nokogiri::HTML(open("http://www.breckenridge.com/mountain/snow-and-weather-report.aspx"))
+    create_or_update_mountain_information
+    generate_peak_names
+    scrape_for_trails
+  end
+
+  def create_or_update_mountain_information
+    snow_condition = scrape_for_snow_condition
+    report         = scrape_for_snow_report_data
+
+    Mountain.create!(name:   "Breckenridge Resort",
+                    last_24:        report[0],
+                    overnight:      report[1],
+                    last_48:        report[2],
+                    last_7_days:    report[3],
+                    season_total:   report[4],
+                    acres_open:     report[5],
+                    lifts_open:     report[6],
+                    runs_open:      report[7],
+                    snow_condition: snow_condition
+    )
+  end
+
+  def scrape_for_snow_report_data
+    snow_report_array = @mountain_doc.xpath("//div[contains(@class, 'snowReportDataColumn2')]//tr//td[position() = 2]")
+    snow_report_formatted = snow_report_array.map do |report|
+      report.text.gsub(/\s/, "")
+    end
+    snow_report_formatted.delete('')
+    snow_report_formatted
+  end
+
+  def scrape_for_snow_condition
+    snow_condition =  @mountain_doc.xpath("//div[contains(@class, 'snowConditions')]//tr[position() = 2]//td[position() = 1]//text()").to_s.gsub("\r\n", "").gsub(/\s/, "")
+  end
+
+  def generate_peak_names
+    breckenridge_peak_names = ['Peak 7', 'Peak 8', 'Peak 9', 'Peak 10', 'Terrain Parks', 'T-bar', 'Bowls', 'Peak 6', 'Lifts']
+    breckenridge_peak_names.each do |peak|
+      Peak.create!(name: peak,
+                  mountain_id: 3
+      )
+    end
+  end
+
+  def scrape_for_trails
     scrape_for_peak_6
     scrape_for_peak_7
     scrape_for_peak_8
@@ -19,7 +65,7 @@ class BreckenridgeTrail < ActiveRecord::Base
 
     peak_7_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 8,
+                    peak_id: 13,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -33,7 +79,7 @@ class BreckenridgeTrail < ActiveRecord::Base
 
     peak_8_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 9,
+                    peak_id: 14,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -47,7 +93,7 @@ class BreckenridgeTrail < ActiveRecord::Base
 
     peak_9_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 10,
+                    peak_id: 15,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -61,7 +107,7 @@ class BreckenridgeTrail < ActiveRecord::Base
 
     peak_10_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 11,
+                    peak_id: 16,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -75,7 +121,7 @@ class BreckenridgeTrail < ActiveRecord::Base
 
     terrain_park_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 12,
+                    peak_id: 17,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -89,7 +135,7 @@ class BreckenridgeTrail < ActiveRecord::Base
 
     t_bar_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 13,
+                    peak_id: 18,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -103,7 +149,7 @@ class BreckenridgeTrail < ActiveRecord::Base
 
     bowls_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 14,
+                    peak_id: 19,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -117,7 +163,7 @@ class BreckenridgeTrail < ActiveRecord::Base
 
     peak_6_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 15,
+                    peak_id: 20,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )

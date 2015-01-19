@@ -1,10 +1,10 @@
-class BeaverCreekTrails < ActiveRecord::Migration
+class BreckenridgeScrapers < ActiveRecord::Migration
   def change
-    create_table :beaver_creek_trails do |t|
+    create_table :breckenridge_scrapers do |t|
       t.string  :name
       t.string  :difficulty
       t.integer :peak_id
-      t.integer :mountain_id,  default: 6
+      t.integer :mountain_id
       t.string  :open
 
       t.timestamps
