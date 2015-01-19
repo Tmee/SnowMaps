@@ -54,7 +54,7 @@
     <%@peaks.each do |peak| %>
       <div class="large-6 columns panel">
         <div class="large-8 columns text-center">
-          <h4><%=peak.name%></h4>
+          <h3><%=link_to "<i class='fi-arrow-right medium'>".html_safe, "/#{Mountain.find(peak.mountain_id).slug}" %></i></a> <%=peak.name%></h3>
         </div>
       </div>
     <%end%>
@@ -68,8 +68,16 @@
   <%else%>
     <%@trails.each do |trail| %>
       <div class="large-6 columns panel">
-        <div class="large-8 columns text-center">
-          <h4><%=trail.name%></h4>
+        <div class="large-9 columns text-center">
+          <tr>
+            <td><%=trail.difficulty%> |</td>
+            <td><%=trail.name%> |</td>
+            <%if trail.open == 'yesStatus'%>
+              <td><i class="fi-check" style="color: green;"> - Open</i></td>
+            <%else%>
+              <td><i class="fi-x" style="color: red;">- Closed</i></td>
+            <%end%>
+          </tr>
         </div>
       </div>
     <%end%>

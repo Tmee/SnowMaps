@@ -6,6 +6,11 @@ class VailScraper < ActiveRecord::Base
     create_mountain_information
     generate_peak_names
     scrape_for_trails
+    delete_blank_trails
+  end
+
+  def delete_blank_trails
+    Trail.where(:name => '').destroy_all
   end
 
   def create_mountain_information
