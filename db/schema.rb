@@ -21,14 +21,6 @@ ActiveRecord::Schema.define(version: 20150118223256) do
     t.datetime "updated_at"
   end
 
-  create_table "authorizations", force: true do |t|
-    t.string   "privder"
-    t.string   "uid"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "beaver_creek_scrapers", force: true do |t|
     t.string   "name"
     t.string   "difficulty"
@@ -53,7 +45,7 @@ ActiveRecord::Schema.define(version: 20150118223256) do
     t.string   "name"
     t.string   "difficulty"
     t.integer  "peak_id"
-    t.integer  "mountain_id", default: 2
+    t.integer  "mountain_id"
     t.string   "open"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -62,10 +54,10 @@ ActiveRecord::Schema.define(version: 20150118223256) do
   create_table "mountains", force: true do |t|
     t.string   "name"
     t.string   "slug"
-    t.integer  "last_24"
-    t.integer  "overnight"
-    t.integer  "last_48"
-    t.integer  "last_7_days"
+    t.string   "last_24"
+    t.string   "overnight"
+    t.string   "last_48"
+    t.string   "last_7_days"
     t.string   "acres_open"
     t.string   "lifts_open"
     t.string   "runs_open"
@@ -114,7 +106,7 @@ ActiveRecord::Schema.define(version: 20150118223256) do
     t.string   "name"
     t.string   "difficulty"
     t.integer  "peak_id"
-    t.integer  "mountain_id", default: 1
+    t.integer  "mountain_id"
     t.string   "open"
     t.datetime "created_at"
     t.datetime "updated_at"

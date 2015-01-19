@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-# source 'https://rails-assets.org'
 
 gem 'rails', '4.1.7'
 gem 'pg'
@@ -16,7 +15,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'nokogiri'
-# gem 'rails-assets-select2'
 
 gem 'spring',        group: :development
 
