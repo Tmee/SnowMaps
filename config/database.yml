@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
+  host: localhost
   database: snow_maps_production
   username: snow_maps
   password: <%= ENV['SNOW_MAPS_DATABASE_PASSWORD'] %>
