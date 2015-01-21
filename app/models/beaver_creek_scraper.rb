@@ -1,14 +1,13 @@
 class BeaverCreekScraper < ActiveRecord::Base
 
   def initialize
-    @doc = Nokogiri::HTML(open("http://www.beavercreek.com/the-mountain/terrain-status.aspx#/TerrainStatus"))
-    @mountain_doc = Nokogiri::HTML(open("http://www.beavercreek.com/the-mountain/snow-report.aspx"))
-    create_or_update_mountain_information
-    generate_peak_names
+    set_documents
+    create_mountain_information
+    generate_peaks
     scrape_for_trails
   end
 
-  def create_or_update_mountain_information
+  def create_mountain_information
     snow_condition = scrape_for_snow_condition
     report         = scrape_for_snow_report_data
     open_area      = scrape_for_openness
@@ -50,7 +49,7 @@ class BeaverCreekScraper < ActiveRecord::Base
   end
 
 
-  def generate_peak_names
+  def generate_peaks
     beaver_creek_names = ['Arrowhead', 'Bachelor Gulch', 'Beaver Creek', 'Beaver Creek West', 'Birds of Prey', 'Elkhorn', 'Grouse Mountain', 'Larkspur Bowl', 'Rose Bowl']
     beaver_creek_names.each do |peak|
       Peak.create!(name: peak,
@@ -78,7 +77,7 @@ class BeaverCreekScraper < ActiveRecord::Base
 
     arrowhead_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 22,
+                    peak_id: 19,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -92,7 +91,7 @@ class BeaverCreekScraper < ActiveRecord::Base
 
     bachelor_gulch_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 23,
+                    peak_id: 20,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -106,7 +105,7 @@ class BeaverCreekScraper < ActiveRecord::Base
 
     beaver_creek_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 24,
+                    peak_id: 21,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -120,7 +119,7 @@ class BeaverCreekScraper < ActiveRecord::Base
 
     beaver_creek_west_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 25,
+                    peak_id: 22,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -134,7 +133,7 @@ class BeaverCreekScraper < ActiveRecord::Base
 
     bird_of_prey_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 26,
+                    peak_id: 23,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -148,7 +147,7 @@ class BeaverCreekScraper < ActiveRecord::Base
 
     elkhorn_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 27,
+                    peak_id: 24,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -162,7 +161,7 @@ class BeaverCreekScraper < ActiveRecord::Base
 
     grouse_mountain_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 28,
+                    peak_id: 25,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -176,7 +175,7 @@ class BeaverCreekScraper < ActiveRecord::Base
 
     larkspur_bowl_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 29,
+                    peak_id: 26,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -190,7 +189,7 @@ class BeaverCreekScraper < ActiveRecord::Base
 
     rose_bowl_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 30,
+                    peak_id: 27,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -198,6 +197,11 @@ class BeaverCreekScraper < ActiveRecord::Base
   end
 
   protected
+
+  def set_documents
+    @doc = Nokogiri::HTML(open("http://www.beavercreek.com/the-mountain/terrain-status.aspx#/TerrainStatus"))
+    @mountain_doc = Nokogiri::HTML(open("http://www.beavercreek.com/the-mountain/snow-report.aspx"))
+  end
 
   def scrape_raw_html(xpath)
     rows = @doc.xpath(xpath)

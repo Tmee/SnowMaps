@@ -25,7 +25,7 @@
     <h4>No results</h4>
   <%else%>
     <%@mountains.each do |mountain| %>
-      <div class="large-6 columns panel">
+      <div class="large-6 columns panel" data-equalizer-watch>
         <div class="large-8 columns text-center">
           <h3><%=link_to "<i class='fi-arrow-right medium'>".html_safe, "/#{mountain.slug}" %></i></a> <%=mountain.name%></h3>
           <div class="large-2 columns">
@@ -37,8 +37,8 @@
         </div>
         <div class="large-4 columns text-center" style="padding-top: 3%;">
           <p>Terrain Report</p>
-          <small>Acres Open : <%=mountain.acres_open%></small>
-          <small>Lifts Open : <%=mountain.lifts_open%></small>
+          <small>Acres Open : <%=mountain.acres_open%></small><br>
+          <small>Lifts Open : <%=mountain.lifts_open%></small><br>
           <small>Runs Open : <%=mountain.runs_open%></small>
         </div>
       </div>
@@ -52,7 +52,7 @@
     <h4>No results</h4>
   <%else%>
     <%@peaks.each do |peak| %>
-      <div class="large-6 columns panel">
+      <div class="large-6 columns panel" data-equalizer-watch>
         <div class="large-8 columns text-center">
           <h3><%=link_to "<i class='fi-arrow-right medium'>".html_safe, "/#{Mountain.find(peak.mountain_id).slug}" %></i></a> <%=peak.name%></h3>
         </div>
@@ -67,8 +67,8 @@
     <h4>No results</h4>
   <%else%>
     <%@trails.each do |trail| %>
-      <div class="large-6 columns panel">
-        <div class="large-9 columns text-center">
+      <div class="large-6 columns panel" data-equalizer-watch>
+        <div class="large-11 columns text-center">
           <tr>
             <td><%=trail.difficulty%> |</td>
             <td><%=trail.name%> |</td>

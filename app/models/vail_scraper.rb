@@ -1,16 +1,10 @@
 class VailScraper < ActiveRecord::Base
 
   def initialize
-    @doc = Nokogiri::HTML(open("http://www.vail.com/mountain/current-conditions/whats-open-today.aspx#/GA8"))
-    @mountain_doc = Nokogiri::HTML(open("http://www.vail.com/mountain/current-conditions/snow-and-weather-report.aspx"))
+    set_documents
     create_mountain_information
-    generate_peak_names
+    generate_peaks
     scrape_for_trails
-    delete_blank_trails
-  end
-
-  def delete_blank_trails
-    Trail.where(:name => '').destroy_all
   end
 
   def create_mountain_information
@@ -44,8 +38,8 @@ class VailScraper < ActiveRecord::Base
     snow_condition =  @mountain_doc.xpath("//div[contains(@class, 'snowConditions')]//tr[position() = 2]//td[position() = 1]//text()").to_s.gsub("\r\n", "").gsub(/\s/, "")
   end
 
-  def generate_peak_names
-    vail_peak_names = ['Vail Village', 'Back Bowls', 'Blue Sky Basin', 'China Bowl', 'Golden Peak', 'Lionshead', 'Chairlift Status']
+  def generate_peaks
+    vail_peak_names = ['Vail Village', 'Back Bowls', 'Blue Sky Basin', 'China Bowl', 'Golden Peak', 'Lionshead']
     vail_peak_names.each do |peak|
       Peak.create!(name: peak,
                   mountain_id: 1
@@ -64,9 +58,7 @@ class VailScraper < ActiveRecord::Base
 
   def scrape_for_vail_village_trails
     vail_village_trails = scrape_raw_html("//div[contains(@id, 'GA8')]//td//tr")
-
     format_open_and_difficulty(vail_village_trails)
-
     vail_village_trails.each do |trail|
       Trail.create!(name: trail[:name],
                     peak_id: 1,
@@ -78,9 +70,7 @@ class VailScraper < ActiveRecord::Base
 
   def scrape_for_back_bowls
     back_bowl_trails = scrape_raw_html("//div[contains(@id, 'GA4')]//td//tr")
-
     format_open_and_difficulty(back_bowl_trails)
-
     back_bowl_trails.each do |trail|
       Trail.create!(name: trail[:name],
                     peak_id: 2,
@@ -92,9 +82,7 @@ class VailScraper < ActiveRecord::Base
 
   def scrape_for_blue_sky_basin
     blue_sky_basin_trails = scrape_raw_html("//div[contains(@id, 'GA7')]//td//tr")
-
     format_open_and_difficulty(blue_sky_basin_trails)
-
     blue_sky_basin_trails.each do |trail|
       Trail.create!(name: trail[:name],
                     peak_id: 3,
@@ -106,9 +94,7 @@ class VailScraper < ActiveRecord::Base
 
   def scrape_for_china_bowl
     china_bowl_trails = scrape_raw_html("//div[contains(@id, 'GA6')]//td//tr")
-
     format_open_and_difficulty(china_bowl_trails)
-
     china_bowl_trails.each do |trail|
       Trail.create!(name: trail[:name],
                     peak_id: 4,
@@ -119,11 +105,8 @@ class VailScraper < ActiveRecord::Base
   end
 
   def scrape_for_golden_peak
-
     golden_peak_trails = scrape_raw_html("//div[contains(@id, 'GA5')]//td//tr")
-
     format_open_and_difficulty(golden_peak_trails)
-
     golden_peak_trails.each do |trail|
       Trail.create!(name: trail[:name],
                     peak_id: 5,
@@ -135,9 +118,7 @@ class VailScraper < ActiveRecord::Base
 
   def scrape_for_lionshead
     lionshead_trails = scrape_raw_html("//div[contains(@id, 'GA1')]//td//tr")
-
     format_open_and_difficulty(lionshead_trails)
-
     lionshead_trails.each do |trail|
       Trail.create!(name: trail[:name],
                     peak_id: 6,
@@ -148,6 +129,11 @@ class VailScraper < ActiveRecord::Base
   end
 
   protected
+
+  def set_documents
+    @doc = Nokogiri::HTML(open("http://www.vail.com/mountain/current-conditions/whats-open-today.aspx#/GA8"))
+    @mountain_doc = Nokogiri::HTML(open("http://www.vail.com/mountain/current-conditions/snow-and-weather-report.aspx"))
+  end
 
   def scrape_raw_html(xpath)
     rows = @doc.xpath(xpath)

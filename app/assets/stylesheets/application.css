@@ -20,6 +20,14 @@
   background: #2d6a85;
  }
 
+ .green {
+  color: green;
+ }
+
+ .blue {
+  color: blue;
+ }
+
  .nav-padding {
   padding-left: 0px;
   padding-right: 0px;

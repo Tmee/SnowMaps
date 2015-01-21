@@ -1,8 +1,7 @@
 class KeystoneScraper < ActiveRecord::Base
 
   def initialize
-    @doc = Nokogiri::HTML(open("http://www.keystoneresort.com/ski-and-snowboard/terrain-status.aspx#/TerrainStatus"))
-    @mountain_doc = Nokogiri::HTML(open("http://www.keystoneresort.com/ski-and-snowboard/snow-report.aspx"))
+    set_documents
     create_mountain_information
     generate_peak_names
     scrape_for_trails
@@ -40,7 +39,7 @@ class KeystoneScraper < ActiveRecord::Base
   end
 
   def generate_peak_names
-    keystone_peak_names = ['Dercum Mountain', 'A51 Terrain Park', 'North Peak', 'Outback', 'Lifts']
+    keystone_peak_names = ['Dercum Mountain', 'A51 Terrain Park', 'North Peak', 'Outback']
     keystone_peak_names.each do |peak|
       Peak.create!(name: peak,
                   mountain_id: 2
@@ -62,7 +61,7 @@ class KeystoneScraper < ActiveRecord::Base
 
     dercum_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 8,
+                    peak_id: 7,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -76,7 +75,7 @@ class KeystoneScraper < ActiveRecord::Base
 
     a51_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 9,
+                    peak_id: 8,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -90,7 +89,7 @@ class KeystoneScraper < ActiveRecord::Base
 
     north_peak_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 10,
+                    peak_id: 9,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -104,7 +103,7 @@ class KeystoneScraper < ActiveRecord::Base
 
     outback_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 11,
+                    peak_id: 10,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -112,6 +111,11 @@ class KeystoneScraper < ActiveRecord::Base
   end
 
   protected
+
+  def set_documents
+    @doc = Nokogiri::HTML(open("http://www.keystoneresort.com/ski-and-snowboard/terrain-status.aspx#/TerrainStatus"))
+    @mountain_doc = Nokogiri::HTML(open("http://www.keystoneresort.com/ski-and-snowboard/snow-report.aspx"))
+  end
 
   def scrape_raw_html(xpath)
     rows = @doc.xpath(xpath)

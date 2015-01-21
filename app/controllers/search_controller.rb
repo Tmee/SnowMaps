@@ -7,6 +7,10 @@ class SearchController < ApplicationController
     render :user_search
   end
 
+  # def self.find_mountain_slug
+  #   Mountain.find(peak.mountain_id).slug
+  # end
+
 private
 
   def mountain_search(search)

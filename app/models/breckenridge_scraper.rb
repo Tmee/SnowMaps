@@ -1,14 +1,13 @@
 class BreckenridgeScraper < ActiveRecord::Base
 
   def initialize
-    @doc = Nokogiri::HTML(open("http://www.breckenridge.com/mountain/terrain-status.aspx#/GA4"))
-    @mountain_doc = Nokogiri::HTML(open("http://www.breckenridge.com/mountain/snow-and-weather-report.aspx"))
-    create_or_update_mountain_information
-    generate_peak_names
+    set_documents
+    create_mountain_information
+    generate_peaks
     scrape_for_trails
   end
 
-  def create_or_update_mountain_information
+  def create_mountain_information
     snow_condition = scrape_for_snow_condition
     report         = scrape_for_snow_report_data
 
@@ -38,8 +37,8 @@ class BreckenridgeScraper < ActiveRecord::Base
     snow_condition =  @mountain_doc.xpath("//div[contains(@class, 'snowConditions')]//tr[position() = 2]//td[position() = 1]//text()").to_s.gsub("\r\n", "").gsub(/\s/, "")
   end
 
-  def generate_peak_names
-    breckenridge_peak_names = ['Peak 7', 'Peak 8', 'Peak 9', 'Peak 10', 'Terrain Parks', 'T-bar', 'Bowls', 'Peak 6', 'Lifts']
+  def generate_peaks
+    breckenridge_peak_names = ['Peak 7', 'Peak 8', 'Peak 9', 'Peak 10', 'Terrain Parks', 'T-bar', 'Bowls', 'Peak 6']
     breckenridge_peak_names.each do |peak|
       Peak.create!(name: peak,
                   mountain_id: 3
@@ -65,7 +64,7 @@ class BreckenridgeScraper < ActiveRecord::Base
 
     peak_7_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 13,
+                    peak_id: 11,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -79,7 +78,7 @@ class BreckenridgeScraper < ActiveRecord::Base
 
     peak_8_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 14,
+                    peak_id: 12,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -93,7 +92,7 @@ class BreckenridgeScraper < ActiveRecord::Base
 
     peak_9_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 15,
+                    peak_id: 13,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -107,7 +106,7 @@ class BreckenridgeScraper < ActiveRecord::Base
 
     peak_10_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 16,
+                    peak_id: 14,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -121,7 +120,7 @@ class BreckenridgeScraper < ActiveRecord::Base
 
     terrain_park_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 17,
+                    peak_id: 15,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -135,7 +134,7 @@ class BreckenridgeScraper < ActiveRecord::Base
 
     t_bar_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 18,
+                    peak_id: 16,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -149,7 +148,7 @@ class BreckenridgeScraper < ActiveRecord::Base
 
     bowls_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 19,
+                    peak_id: 17,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -163,7 +162,7 @@ class BreckenridgeScraper < ActiveRecord::Base
 
     peak_6_trails.each do |trail|
       Trail.create!(name: trail[:name],
-                    peak_id: 20,
+                    peak_id: 18,
                     open: trail[:open],
                     difficulty: trail[:difficulty]
       )
@@ -171,6 +170,11 @@ class BreckenridgeScraper < ActiveRecord::Base
   end
 
   protected
+
+  def set_documents
+    @doc = Nokogiri::HTML(open("http://www.breckenridge.com/mountain/terrain-status.aspx#/GA4"))
+    @mountain_doc = Nokogiri::HTML(open("http://www.breckenridge.com/mountain/snow-and-weather-report.aspx"))
+  end
 
   def scrape_raw_html(xpath)
     rows = @doc.xpath(xpath)

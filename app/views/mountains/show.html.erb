@@ -33,14 +33,14 @@
         <h4>Snowfall</h4>
         <h4><%=@mountain.overnight%></h4><hr/>
         <h7>New Snow</h7><br>
-        <small>Last 24 hrs: <%=@mountain.last_24%> "</small><br>
-        <small>Overnight: <%=@mountain.overnight%> "</small><br>
-        <small>Last 48 hrs:  <%=@mountain.last_48%> "</small><br>
-        <small>Last 7 days:  <%=@mountain.last_7_days%> "</small><hr/>
+        <small>Last 24 hrs: <%=@mountain.last_24%></small><br>
+        <small>Overnight: <%=@mountain.overnight%></small><br>
+        <small>Last 48 hrs:  <%=@mountain.last_48%></small><br>
+        <small>Last 7 days:  <%=@mountain.last_7_days%></small><hr/>
         <h7>Snow Conditions</h7><br>
         <small><%=@mountain.snow_condition%> </small><br>
-        <small>Base Depth: <%=@mountain.base_depth%> "</small><br>
-        <small>Season Total: <%=@mountain.season_total%> "</small><hr/>
+        <small>Base Depth: <%=@mountain.base_depth%></small><br>
+        <small>Season Total: <%=@mountain.season_total%></small><hr/>
       </div>
       <div class="large-8 columns text-center">
         <h4>Terrain Status</h4>
@@ -65,7 +65,7 @@
             <dd><a href="#panel<%=peak.id%>"><%=peak.name%></a></dd>
           <%end%>
         </dl>
-        <div class="tabs-content">
+        <div class="tabs-content" data-equalizer>
           <%@mountain.peaks.each do |peak|%>
             <div class="content" id="panel<%=peak.id%>">
               <table>
@@ -83,7 +83,17 @@
                 <%else%>
                   <%peak.trails.each do |trail|%>
                   <tr>
-                    <td><%=trail.difficulty%></td>
+                    <%if trail.beginner?%>
+                      <td class="text-center"><i class="fi-record" style="color: green;"></td>
+                    <%elsif trail.intermediate?%>
+                      <td class="text-center"><i class="fi-stop" style="color: blue;"></td>
+                    <%elsif trail.advanced?%>
+                      <td class="text-center"><%=image_tag("diamond.png")%></td>
+                    <%elsif trail.expert?%>
+                      <td class="text-center"><%=image_tag("diamond.png")%><%=image_tag("diamond.png")%></td>
+                    <%else%>
+                      <td><%=trail.difficulty%></td>
+                    <%end%>
                     <td><%=trail.name%></td>
                     <%if trail.open == 'yesStatus'%>
                       <td class="text-center"><i class="fi-check" style="color: green;"></i></td>
