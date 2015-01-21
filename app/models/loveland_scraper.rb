@@ -11,12 +11,12 @@ class LovelandScraper < ActiveRecord::Base
     report = scrape_mountain_information
 
     Mountain.create!(name:   "Loveland Ski Area",
-                        last_24:        "#{report[0]} \"",
-                        overnight:      "#{report[0]} \"",
-                        last_48:        "#{report[1]} \"",
+                        last_24:        "#{report[0]}\"",
+                        overnight:      "#{report[0]}\"",
+                        last_48:        "#{report[1]}\"",
                         last_7_days:    '-',
-                        base_depth:     "#{report[3]} \"",
-                        season_total:   "#{report[4]} \"",
+                        base_depth:     "#{report[3]}\"",
+                        season_total:   "#{report[4]}\"",
                         acres_open:     report[8],
                         lifts_open:     report[5],
                         runs_open:      report[6],
