@@ -5,6 +5,6 @@ env :PATH, ENV['PATH']
 
 set :output, { error: 'error.log', standard: 'cron.log' }
 
-# every 2.minutes do
-#   command "VailScraper.scrape_for_vail_village_trails"
-# end
+every 2.minutes do
+  runner "Seed.new"
+end
