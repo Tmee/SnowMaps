@@ -110,7 +110,7 @@ class KeystoneScraper < ActiveRecord::Base
     end
   end
 
-  protected
+  private
 
   def set_documents
     @doc = Nokogiri::HTML(open("http://www.keystoneresort.com/ski-and-snowboard/terrain-status.aspx#/TerrainStatus"))

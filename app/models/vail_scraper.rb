@@ -128,7 +128,7 @@ class VailScraper < ActiveRecord::Base
     end
   end
 
-  protected
+  private
 
   def set_documents
     @doc = Nokogiri::HTML(open("http://www.vail.com/mountain/current-conditions/whats-open-today.aspx#/GA8"))

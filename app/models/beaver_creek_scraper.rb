@@ -196,7 +196,7 @@ class BeaverCreekScraper < ActiveRecord::Base
     end
   end
 
-  protected
+  private
 
   def set_documents
     @doc = Nokogiri::HTML(open("http://www.beavercreek.com/the-mountain/terrain-status.aspx#/TerrainStatus"))
