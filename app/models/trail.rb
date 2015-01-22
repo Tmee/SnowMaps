@@ -25,6 +25,11 @@ class Trail < ActiveRecord::Base
     array.include? true
   end
 
+  def park?
+    array = ['terrain', 'park'].map {|x| x == difficulty}
+    array.include? true
+  end
+
   def open?
     open_status_array = ['yesStatus', 'open'].map {|x| x == open}
     open_status_array.include? true
@@ -34,10 +39,4 @@ class Trail < ActiveRecord::Base
     closed_status_array = ['noStatus', 'closed'].map {|x| x == open}
     closed_status_array.include? true
   end
-
-  def park?
-    array = ['terrain', 'park'].map {|x| x == difficulty}
-    array.include? true
-  end
-
 end
