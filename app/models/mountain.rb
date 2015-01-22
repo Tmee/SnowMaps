@@ -6,6 +6,7 @@ class Mountain < ActiveRecord::Base
 
   before_save :generate_slug
 
+
   protected
 
   def generate_slug

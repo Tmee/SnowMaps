@@ -169,7 +169,7 @@ class BreckenridgeScraper < ActiveRecord::Base
     end
   end
 
-  protected
+  private
 
   def set_documents
     @doc = Nokogiri::HTML(open("http://www.breckenridge.com/mountain/terrain-status.aspx#/GA4"))
