@@ -1,7 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-config.assets.paths << Rails.root.join("app", "assets", "foundation-icons")
 
 
 # Require the gems listed in Gemfile, including any gems
