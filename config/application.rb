@@ -9,7 +9,6 @@ Bundler.require(*Rails.groups)
 
 module SnowMaps
   class Application < Rails::Application
-    config.assets.paths << Rails.root.join("app", "assets", "fonts")
-    config.assets.paths << Rails.root.join("app", "assets", "foundation-icons")
+    config.assets.paths << Rails.root.join("app", "assets", "stylesheets", "foundation-icons")
   end
 end
