@@ -12,9 +12,10 @@
  *
  *= require_tree .
  *= require_self
- *= require_foundation-icons
  *= require foundation_and_overrides
  */
+
+ @import 'foundation-icons';
 
 .home-wrapper {
   min-height: 100%;
