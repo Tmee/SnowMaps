@@ -22,7 +22,8 @@ class BeaverCreekScraper < ActiveRecord::Base
                     acres_open:     "#{open_area[4]} of #{open_area[5]}",
                     lifts_open:     "#{open_area[0]} of #{open_area[1]}",
                     runs_open:      "#{open_area[2]} of #{open_area[3]}",
-                    snow_condition: snow_condition
+                    snow_condition: snow_condition,
+                    town: "Avon"
     )
   end
 

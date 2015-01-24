@@ -21,7 +21,8 @@ class ArapahoeBasinScraper < ActiveRecord::Base
                     acres_open:     "-",
                     lifts_open:     "#{lifts_open} of 9",
                     runs_open:      "#{new_snow[-1]} of front side",
-                    snow_condition: new_snow[3]
+                    snow_condition: new_snow[3],
+                    town:           "Keystone"
     )
   end
 

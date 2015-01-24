@@ -22,11 +22,13 @@
     <dl class="accordion" data-accordion>
       <dd class="accordion-navigation text-center">
         <a href="#panel2b">
-          <h1><strong><%=@mountain.name%></strong> | 29℉</h1><br><br>
+          <h1><strong><%=@mountain.name%></strong> | <%= @day_1['high']['fahrenheit']%>℉</h1><br><br>
         </a>
-        <div id="panel2b" class="content open-snow">
-          <%=image_tag("vail_open_snow.png")%>
-        </div><br>
+        <div id="panel2b" class="content text-center">
+          <div class="row">
+            <%=render 'mountains/weather_report'%>
+          </div>
+       </div><br>
       </dd>
     </dl>
       <div class="large-4 columns text-center ">
@@ -62,54 +64,10 @@
         </table>
         <dl class="tabs" data-tab>
           <%@mountain.peaks.each do |peak|%>
-            <dd><a href="#panel<%=peak.id%>"><%=peak.name%></a></dd>
+            <dd><a href="#panel<%=peak.id%>" class="trail-name"><%=peak.name%></a></dd>
           <%end%>
         </dl>
-        <div class="tabs-content" data-equalizer>
-          <%@mountain.peaks.each do |peak|%>
-            <div class="content" id="panel<%=peak.id%>">
-              <table>
-                <thead>
-                  <tr>
-                    <th width="70" class="text-center">Difficulty</th>
-                    <th width="150">Trail</th>
-                    <th width="70" class="text-center">Open</th>
-                  </tr>
-                </thead>
-                <%if peak.trails == []%>
-                  <tr>
-                    <td>Sorry, We don't have any information on this peak.</td>
-                  </tr>
-                <%else%>
-                  <%peak.trails.each do |trail|%>
-                  <tr>
-                    <%if trail.beginner?%>
-                      <td class="text-center"><i class="fi-record" style="color: green;"></td>
-                    <%elsif trail.intermediate?%>
-                      <td class="text-center"><i class="fi-stop" style="color: blue;"></td>
-                    <%elsif trail.advanced?%>
-                      <td class="text-center"><%=image_tag("diamond.png")%></td>
-                    <%elsif trail.expert?%>
-                      <td class="text-center"><%=image_tag("diamond.png")%><%=image_tag("diamond.png")%></td>
-                    <%elsif trail.park?%>
-                      <td class="text-center"><i class="fi-burst" style="color: orange;"></td>
-                    <%else%>
-                      <td><%=trail.difficulty%></td>
-                    <%end%>
-                    <td><%=trail.name%></td>
-                    <%if trail.open? %>
-                      <td class="text-center"><i class="fi-check" style="color: green;"></i></td>
-                    <%else%>
-                      <td class="text-center"><i class="fi-x" style="color: red;"></i></td>
-                    <%end%>
-                  </tr>
-                <%end%><%end%>
-                <tbody>
-                </tbody>
-              </table>
-            </div>
-          <%end%>
-        </div>
+          <%=render 'mountains/trails_table'%>
       </div>
   </div>
 </div>

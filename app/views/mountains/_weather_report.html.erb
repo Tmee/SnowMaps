@@ -1,0 +1,50 @@
+ <div class="large-4 small-6 columns">
+  <div class="panel" style="height: 170px;">
+    <div class="large-6 columns">
+      <h5><%= @day_1['date']['weekday']%></h5>
+    </div>
+    <div class="large-6 columns">
+      <img src="<%=@day_1_icon%>">
+    </div>
+    <div class="large-12 columns">
+      <p>High:<strong> <%= @day_1['high']['fahrenheit']%> ℉</strong> |  Low:<strong> <%= @day_1['low']['fahrenheit']%> ℉</strong></p>
+    </div>
+    <div>
+     <%=@day_1['conditions']%>
+    </div>
+  </div>
+</div>
+
+<div class="large-4 small-6 columns">
+  <div class="panel" style="height: 170px;">
+    <div class="large-6 columns">
+      <h5><%= @day_2['date']['weekday']%></h5>
+    </div>
+    <div class="large-6 columns">
+      <img src="<%=@day_2_icon%>">
+    </div>
+    <div class="large-12 columns">
+      <p>High:<strong> <%= @day_2['high']['fahrenheit']%> ℉</strong> | Low:<strong> <%= @day_2['low']['fahrenheit']%> ℉</strong></p>
+    </div>
+    <div>
+      <p><%=@day_2['conditions']%></p>
+    </div>
+  </div>
+</div>
+
+<div class="large-4 small-6 columns">
+  <div class="panel" style="height: 170px;">
+    <div class="large-6 columns">
+      <h5><%= @day_3['date']['weekday']%></h5>
+    </div>
+    <div class="large-6 columns">
+      <img src="<%=@day_3_icon%>">
+    </div>
+    <div class="large-12 columns">
+      <p>High:<strong> <%= @day_3['high']['fahrenheit']%> ℉</strong> | Low:<strong> <%= @day_3['low']['fahrenheit']%> ℉</strong></p>
+    </div>
+    <div>
+      <%=@day_3['conditions']%>
+    </div>
+  </div>
+</div>

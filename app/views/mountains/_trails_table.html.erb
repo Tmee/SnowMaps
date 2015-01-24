@@ -1,0 +1,87 @@
+<div class="tabs-content" data-equalizer>
+  <%@mountain.peaks.each do |peak|%>
+    <div class="content" id="panel<%=peak.id%>">
+      <div class="large-6 columns">
+        <table>
+          <thead>
+            <tr>
+              <th style="padding-right: 2px; padding-left: 2px; width: 64px;" class="text-center">Difficulty</th>
+              <th width="150">Trail</th>
+              <th style="padding-left: 5px; padding-right: 5px; max-width: 35px;width: 60px;"class="text-center">Open</th>
+            </tr>
+          </thead>
+          <%if peak.trails.present?%>
+            <%@count = peak.trails.count / 2%>
+            <%peak.trails[0..@count].each do |trail|%>
+              <tr>
+                <%if trail.beginner?%>
+                  <td class="text-center"><i class="fi-record" style="color: green;"></td>
+                <%elsif trail.intermediate?%>
+                  <td class="text-center"><i class="fi-stop" style="color: blue;"></td>
+                <%elsif trail.advanced?%>
+                  <td class="text-center"><%=image_tag("diamond.png")%></td>
+                <%elsif trail.expert?%>
+                  <td class="text-center"><%=image_tag("diamond.png")%><%=image_tag("diamond.png")%></td>
+                <%elsif trail.park?%>
+                  <td class="text-center"><i class="fi-burst" style="color: orange;"></td>
+                <%else%>
+                  <td><%=trail.difficulty%></td>
+                <%end%>
+                  <td><%=trail.name%></td>
+                <%if trail.open? %>
+                  <td class="text-center"><i class="fi-check" style="color: green;"></i></td>
+                <%else%>
+                  <td class="text-center"><i class="fi-x" style="color: red;"></i></td>
+                <%end%>
+              </tr>
+            <%end%>
+          <%else%>
+            <tr>
+              <td>Sorry, We don't have any information on this peak.</td>
+            </tr>
+          <%end%>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="large-6 columns">
+        <table>
+          <thead>
+            <tr>
+              <th style="padding-right: 2px; padding-left: 2px; width: 64px;" class="text-center">Difficulty</th>
+              <th width="150">Trail</th>
+              <th style="padding-left: 5px; padding-right: 5px; max-width: 35px;width: 60px;"class="text-center">Open</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%if peak.trails.present?%>
+            <%peak.trails[(@count+1)..-1].each do |trail|%>
+              <tr>
+                <%if trail.beginner?%>
+                  <td class="text-center"><i class="fi-record" style="color: green;"></td>
+                <%elsif trail.intermediate?%>
+                  <td class="text-center"><i class="fi-stop" style="color: blue;"></td>
+                <%elsif trail.advanced?%>
+                  <td class="text-center"><%=image_tag("diamond.png")%></td>
+                <%elsif trail.expert?%>
+                  <td class="text-center"><%=image_tag("diamond.png")%><%=image_tag("diamond.png")%></td>
+                <%elsif trail.park?%>
+                  <td class="text-center"><i class="fi-burst" style="color: orange;"></td>
+                <%else%>
+                  <td><%=trail.difficulty%></td>
+                <%end%>
+                <td><%=trail.name%></td>
+                <%if trail.open? %>
+                  <td class="text-center"><i class="fi-check" style="color: green;"></i></td>
+                <%else%>
+                  <td class="text-center"><i class="fi-x" style="color: red;"></i></td>
+                <%end%>
+              </tr>
+            <%end%>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <%end%><%end%>
+</div>
