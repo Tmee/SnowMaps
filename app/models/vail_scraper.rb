@@ -21,7 +21,8 @@ class VailScraper < ActiveRecord::Base
                     acres_open:     report[6],
                     lifts_open:     report[7],
                     runs_open:      report[8],
-                    snow_condition: snow_condition
+                    snow_condition: snow_condition,
+                    town: 'Vail'
     )
   end
 

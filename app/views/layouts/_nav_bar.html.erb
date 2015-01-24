@@ -7,7 +7,7 @@
       <%if current_user.present?%>
         <%=current_user.name%>
       <%else%>
-        <li><%=link_to "Login with Twitter", "/auth/twitter"%></a></li>
+        <li><%=link_to "Login with Twitter <i class='fi-social-twitter'></i>".html_safe, "/auth/twitter"%></a></li>
       <% end %>
       <li class="has-dropdown">
         <a href="#">Resorts</a>

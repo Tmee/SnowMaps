@@ -20,7 +20,8 @@
                         acres_open:     report[8],
                         lifts_open:     report[5],
                         runs_open:      report[6],
-                        snow_condition: report[7]
+                        snow_condition: report[7],
+                        town:           'Georgetown'
     )
   end
 

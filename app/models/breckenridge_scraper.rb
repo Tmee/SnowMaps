@@ -20,7 +20,8 @@ class BreckenridgeScraper < ActiveRecord::Base
                     acres_open:     report[5],
                     lifts_open:     report[6],
                     runs_open:      report[7],
-                    snow_condition: snow_condition
+                    snow_condition: snow_condition,
+                    town:           'Breckenridge'
     )
   end
 
