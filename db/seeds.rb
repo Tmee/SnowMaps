@@ -35,3 +35,5 @@ class Seed
     puts "Got the Weather"
   end
 end
+
+Seed.new
