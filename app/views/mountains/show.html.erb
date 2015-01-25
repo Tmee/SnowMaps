@@ -1,15 +1,11 @@
-<div class="today-body">
-  <div class="row">
-    <div class="nav-center">
-      <%= render partial: "layouts/nav_bar" %>
-    </div>
-  </div><br/>
+<%=render 'layouts/nav_bar'%>
+<div class="today-body"><br/>
   <div class="row panel">
     <dl class="accordion" data-accordion>
       <dd class="accordion-navigation text-center">
         <a href="#panel2b">
           <h1><strong><%=@mountain.name%></strong> | <%= @mountain.weather_reports.first.high%>℉</h1><br><br>
-          <i class="fi-thumbnails"></i>
+          Weather <i class="fi-thumbnails"></i> Forecast
         </a>
         <div id="panel2b" class="content text-center">
           <div class="row">

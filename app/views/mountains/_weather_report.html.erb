@@ -1,18 +1,35 @@
 <%@mountain.weather_reports[0..2].each do |report|%>
    <div class="large-4 small-6 columns">
-    <div class="panel" style="height: 170px;">
-      <div class="large-6 columns">
-        <h5><%= report.weekday%></h5>
+     <% if report.icon.include?("snow")%>
+      <div class="panel" id="snow"style="height: 170px;">
+        <div class="large-6 columns" style="color: #dddddd;">
+          <h5 style="color: #dddddd;"><%= report.weekday%></h5>
+        </div>
+        <div class="large-6 columns">
+          <img src="<%=report.icon%>">
+        </div><hr/>
+        <div class="large-12 columns">
+          <p style="color: #dddddd;">High:<strong> <%= report.high%> ℉</strong> |  Low:<strong> <%= report.low%> ℉</strong></p>
+        </div>
+        <div>
+         <%=report.conditions%>
+        </div>
       </div>
-      <div class="large-6 columns">
-        <img src="<%=report.icon%>">
-      </div><hr/>
-      <div class="large-12 columns">
-        <p>High:<strong> <%= report.high%> ℉</strong> |  Low:<strong> <%= report.low%> ℉</strong></p>
+    <%else%>
+      <div class="panel" style="height: 170px;">
+        <div class="large-6 columns">
+          <h5><%= report.weekday%></h5>
+        </div>
+        <div class="large-6 columns">
+          <img src="<%=report.icon%>">
+        </div><hr/>
+        <div class="large-12 columns">
+          <p>High:<strong> <%= report.high%> ℉</strong> |  Low:<strong> <%= report.low%> ℉</strong></p>
+        </div>
+        <div>
+         <%=report.conditions%>
+        </div>
       </div>
-      <div>
-       <%=report.conditions%>
-      </div>
-    </div>
+    <%end%>
   </div>
 <%end%>
