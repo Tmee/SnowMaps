@@ -4,55 +4,10 @@
       <%=render 'layouts/nav_bar'%>
     </div>
   </div><br/>
-
   <div class="row" data-equalizer>
     <h1>Search Results</h1>
-      <%@mountains.each do |mountain| %>
-        <div class="large-6 columns panel" data-equalizer-watch>
-          <div class="large-8 columns text-center">
-            <h3><%=link_to "<i class='fi-arrow-right medium'>".html_safe, "/#{mountain.slug}" %></i></a> <%=mountain.name%></h3>
-            <div class="large-2 columns">
-              <h1><%=mountain.overnight%></h1>
-            </div>
-            <div class="large-6 columns">
-              <h2><%=mountain.weather_reports.first.high%> ℉</h2>
-            </div>
-          </div>
-          <div class="large-4 columns text-center" style="padding-top: 3%;">
-            <p>Terrain Report</p>
-            <small>Acres Open : <%=mountain.acres_open%></small><br>
-            <small>Lifts Open : <%=mountain.lifts_open%></small><br>
-            <small>Runs Open : <%=mountain.runs_open%></small>
-          </div>
-        </div>
-      <%end%>
-  </div>
-
-  <div class="row" data-equalizer>
-    <%@peaks.each do |peak| %>
-      <div class="large-6 columns panel" data-equalizer-watch>
-        <div class="large-8 columns text-center">
-          <h3><%=link_to "<i class='fi-arrow-right medium'>".html_safe, "/#{Mountain.find(peak.mountain_id).slug}" %></i></a> <%=peak.name%></h3>
-        </div>
-      </div>
-    <%end%>
-  </div>
-
-  <div class="row" data-equalizer>
-    <%@trails.each do |trail| %>
-      <div class="large-6 columns panel" data-equalizer-watch>
-        <div class="large-11 columns text-center">
-          <tr>
-            <td><%=trail.difficulty%> |</td>
-            <td><%=trail.name%> |</td>
-            <%if trail.open?%>
-              <td><i class="fi-check" style="color: green;"> - Open</i></td>
-            <%else%>
-              <td><i class="fi-x" style="color: red;"> - Closed</i></td>
-            <%end%>
-          </tr>
-        </div>
-      </div>
-    <%end%>
+    <%=render 'search/mountain_results'%>
+    <%=render 'search/peak_results'%>
+    <%=render 'search/trail_results'%>
   </div>
 </div>

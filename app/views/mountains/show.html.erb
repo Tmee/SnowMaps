@@ -8,7 +8,6 @@
     <dl class="accordion" data-accordion>
       <dd class="accordion-navigation text-center">
         <a href="#panel2b">
-
           <h1><strong><%=@mountain.name%></strong> | <%= @mountain.weather_reports.first.high%>℉</h1><br><br>
           <i class="fi-thumbnails"></i>
         </a>
@@ -19,29 +18,28 @@
        </div><br>
       </dd>
     </dl>
-      <div class="large-4 columns text-center ">
-        <h4>Snowfall</h4>
-        <h4><%=@mountain.overnight%></h4><hr/>
-        <h7>New Snow</h7><br>
-        <small>Last 24 hrs: <%=@mountain.last_24%></small><br>
-        <small>Overnight: <%=@mountain.overnight%></small><br>
-        <small>Last 48 hrs:  <%=@mountain.last_48%></small><br>
-        <small>Last 7 days:  <%=@mountain.last_7_days%></small><hr/>
-        <h7>Snow Conditions</h7><br>
-        <small><%=@mountain.snow_condition%> </small><br>
-        <small>Base Depth: <%=@mountain.base_depth%></small><br>
-        <small>Season Total: <%=@mountain.season_total%></small><hr/>
-      </div>
-      <div class="large-8 columns text-center">
-        <h4>Terrain Status</h4>
-         <%=render 'mountains/terrian_table'%>
-        <dl class="tabs" data-tab>
-          <%@mountain.peaks.each do |peak|%>
-            <dd><a href="#panel<%=peak.id%>" class="trail-name"><%=peak.name%></a></dd>
-          <%end%>
-        </dl>
-          <%=render 'mountains/trails_table'%>
-      </div>
+    <div class="large-4 columns text-center ">
+      <h4>Snowfall</h4>
+      <h4><%=@mountain.overnight%></h4><hr/>
+      <h7>New Snow</h7><br>
+      <small>Last 24 hrs: <%=@mountain.last_24%></small><br>
+      <small>Overnight: <%=@mountain.overnight%></small><br>
+      <small>Last 48 hrs:  <%=@mountain.last_48%></small><br>
+      <small>Last 7 days:  <%=@mountain.last_7_days%></small><hr/>
+      <h7>Snow Conditions</h7><br>
+      <small><%=@mountain.snow_condition%> </small><br>
+      <small>Base Depth: <%=@mountain.base_depth%></small><br>
+      <small>Season Total: <%=@mountain.season_total%></small><hr/>
+    </div>
+    <div class="large-8 columns text-center">
+      <%=render 'mountains/terrian_status_table'%>
+      <dl class="tabs" data-tab>
+        <%@mountain.peaks.each do |peak|%>
+          <dd><a href="#panel<%=peak.id%>" class="trail-name"><%=peak.name%></a></dd>
+        <%end%>
+      </dl>
+      <%=render 'mountains/trails_table'%>
+    </div>
   </div><br><br>
 </div>
 
