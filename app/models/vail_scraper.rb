@@ -60,73 +60,37 @@ class VailScraper < ActiveRecord::Base
   def scrape_for_vail_village_trails
     vail_village_trails = scrape_raw_html("//div[contains(@id, 'GA8')]//td//tr")
     format_open_and_difficulty(vail_village_trails)
-    vail_village_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 1,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(vail_village_trails, 1)
   end
 
   def scrape_for_back_bowls
     back_bowl_trails = scrape_raw_html("//div[contains(@id, 'GA4')]//td//tr")
     format_open_and_difficulty(back_bowl_trails)
-    back_bowl_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 2,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(back_bowl_trails, 2)
   end
 
   def scrape_for_blue_sky_basin
     blue_sky_basin_trails = scrape_raw_html("//div[contains(@id, 'GA7')]//td//tr")
     format_open_and_difficulty(blue_sky_basin_trails)
-    blue_sky_basin_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 3,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(blue_sky_basin_trails, 3)
   end
 
   def scrape_for_china_bowl
     china_bowl_trails = scrape_raw_html("//div[contains(@id, 'GA6')]//td//tr")
     format_open_and_difficulty(china_bowl_trails)
-    china_bowl_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 4,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(china_bowl_trails, 4)
   end
 
   def scrape_for_golden_peak
     golden_peak_trails = scrape_raw_html("//div[contains(@id, 'GA5')]//td//tr")
     format_open_and_difficulty(golden_peak_trails)
-    golden_peak_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 5,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(golden_peak_trails, 5)
   end
 
   def scrape_for_lionshead
     lionshead_trails = scrape_raw_html("//div[contains(@id, 'GA1')]//td//tr")
     format_open_and_difficulty(lionshead_trails)
-    lionshead_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 6,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(lionshead_trails, 6)
   end
 
   private
@@ -134,6 +98,16 @@ class VailScraper < ActiveRecord::Base
   def set_documents
     @doc = Nokogiri::HTML(open("http://www.vail.com/mountain/current-conditions/whats-open-today.aspx#/GA8"))
     @mountain_doc = Nokogiri::HTML(open("http://www.vail.com/mountain/current-conditions/snow-and-weather-report.aspx"))
+  end
+
+  def create_trails(trails, peak_id)
+    trails.each do |trail|
+      Trail.create!(name: trail[:name],
+                    peak_id: peak_id,
+                    open: trail[:open],
+                    difficulty: trail[:difficulty]
+      )
+    end
   end
 
   def scrape_raw_html(xpath)

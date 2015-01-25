@@ -60,114 +60,50 @@ class BreckenridgeScraper < ActiveRecord::Base
 
   def scrape_for_peak_7
     peak_7_trails = scrape_raw_html("//div[contains(@id, 'GA4')]//td//tr")
-
     format_open_and_difficulty(peak_7_trails)
-
-    peak_7_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 11,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(peak_7_trails, 11)
   end
 
   def scrape_for_peak_8
     peak_8_trails = scrape_raw_html("//div[contains(@id, 'GA1')]//td//tr")
-
     format_open_and_difficulty(peak_8_trails)
-
-    peak_8_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 12,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(peak_8_trails, 12)
   end
 
   def scrape_for_peak_9
     peak_9_trails = scrape_raw_html("//div[contains(@id, 'GA2')]//td//tr")
-
     format_open_and_difficulty(peak_9_trails)
-
-    peak_9_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 13,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(peak_9_trails, 13)
   end
 
   def scrape_for_peak_10
     peak_10_trails = scrape_raw_html("//div[contains(@id, 'GA3')]//td//tr")
-
     format_open_and_difficulty(peak_10_trails)
-
-    peak_10_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 14,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(peak_10_trails, 14)
   end
 
   def scrape_for_terrain_parks
     terrain_park_trails = scrape_raw_html("//div[contains(@id, 'GA9001')]//td//tr")
-
     format_open_and_difficulty(terrain_park_trails)
-
-    terrain_park_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 15,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(terrain_park_trails, 15)
   end
 
   def scrape_for_t_bar
     t_bar_trails = scrape_raw_html("//div[contains(@id, 'GA6')]//td//tr")
-
     format_open_and_difficulty(t_bar_trails)
-
-    t_bar_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 16,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(t_bar_trails, 16)
   end
 
   def scrape_for_bowls
     bowls_trails = scrape_raw_html("//div[contains(@id, 'GA5')]//td//tr")
-
     format_open_and_difficulty(bowls_trails)
-
-    bowls_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 17,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(bowls_trails, 17)
   end
 
   def scrape_for_peak_6
     peak_6_trails = scrape_raw_html("//div[contains(@id, 'GA7')]//td//tr")
-
     format_open_and_difficulty(peak_6_trails)
-
-    peak_6_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 18,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(peak_6_trails, 18)
   end
 
   private
@@ -175,6 +111,16 @@ class BreckenridgeScraper < ActiveRecord::Base
   def set_documents
     @doc = Nokogiri::HTML(open("http://www.breckenridge.com/mountain/terrain-status.aspx#/GA4"))
     @mountain_doc = Nokogiri::HTML(open("http://www.breckenridge.com/mountain/snow-and-weather-report.aspx"))
+  end
+
+  def create_trails(trails, peak_id)
+    trails.each do |trail|
+      Trail.create!(name: trail[:name],
+                    peak_id: peak_id,
+                    open: trail[:open],
+                    difficulty: trail[:difficulty]
+      )
+    end
   end
 
   def scrape_raw_html(xpath)

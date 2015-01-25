@@ -22,31 +22,16 @@ ActiveRecord::Schema.define(version: 20150125020219) do
   end
 
   create_table "beaver_creek_scrapers", force: true do |t|
-    t.string   "name"
-    t.string   "difficulty"
-    t.integer  "peak_id"
-    t.integer  "mountain_id"
-    t.string   "open"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "breckenridge_scrapers", force: true do |t|
-    t.string   "name"
-    t.string   "difficulty"
-    t.integer  "peak_id"
-    t.integer  "mountain_id"
-    t.string   "open"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "keystone_scrapers", force: true do |t|
-    t.string   "name"
-    t.string   "difficulty"
-    t.integer  "peak_id"
-    t.integer  "mountain_id"
-    t.string   "open"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -77,17 +62,6 @@ ActiveRecord::Schema.define(version: 20150125020219) do
   create_table "peaks", force: true do |t|
     t.string   "name"
     t.integer  "mountain_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "reports", force: true do |t|
-    t.string   "weekday"
-    t.string   "icon"
-    t.text     "conditions"
-    t.integer  "mountain_id"
-    t.string   "high"
-    t.string   "low"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

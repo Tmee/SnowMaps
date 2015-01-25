@@ -73,135 +73,74 @@ class BeaverCreekScraper < ActiveRecord::Base
 
   def scrape_for_arrowhead
     arrowhead_trails = scrape_raw_html("//div[contains(@id, 'GA4')]//td//tr")
-
     format_open_and_difficulty(arrowhead_trails)
-
-    arrowhead_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 19,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(arrowhead_trails, 19)
   end
 
   def scrape_for_bachelor_gulch
     bachelor_gulch_trails = scrape_raw_html("//div[contains(@id, 'GA3')]//td//tr")
-
     format_open_and_difficulty(bachelor_gulch_trails)
-
-    bachelor_gulch_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 20,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(bachelor_gulch_trails, 20)
   end
 
   def scrape_for_beaver_creek
     beaver_creek_trails = scrape_raw_html("//div[contains(@id, 'GA1')]//td//tr")
-
     format_open_and_difficulty(beaver_creek_trails)
-
-    beaver_creek_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 21,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(beaver_creek_trails, 21)
   end
 
   def scrape_for_beaver_creek_west
     beaver_creek_west_trails = scrape_raw_html("//div[contains(@id, 'GA2')]//td//tr")
-
     format_open_and_difficulty(beaver_creek_west_trails)
-
-    beaver_creek_west_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 22,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(beaver_creek_west_trails, 22)
   end
 
   def scrape_for_birds_of_prey
     bird_of_prey_trails = scrape_raw_html("//div[contains(@id, 'GA8')]//td//tr")
-
     format_open_and_difficulty(bird_of_prey_trails)
-
-    bird_of_prey_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 23,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(bird_of_prey_trails, 23)
   end
 
   def scrape_for_elkhorn
     elkhorn_trails = scrape_raw_html("//div[contains(@id, 'GA9')]//td//tr")
-
     format_open_and_difficulty(elkhorn_trails)
-
-    elkhorn_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 24,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(elkhorn_trails, 24)
   end
 
   def scrape_for_grouse_mountain
     grouse_mountain_trails = scrape_raw_html("//div[contains(@id, 'GA5')]//td//tr")
-
     format_open_and_difficulty(grouse_mountain_trails)
-
-    grouse_mountain_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 25,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(grouse_mountain_trails, 25)
   end
 
   def scrape_for_larkspur_bowl
     larkspur_bowl_trails = scrape_raw_html("//div[contains(@id, 'GA7')]//td//tr")
-
     format_open_and_difficulty(larkspur_bowl_trails)
-
-    larkspur_bowl_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 26,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(larkspur_bowl_trails, 26)
   end
 
   def scrape_for_rose_bowl
     rose_bowl_trails = scrape_raw_html("//div[contains(@id, 'GA6')]//td//tr")
-
     format_open_and_difficulty(rose_bowl_trails)
-
-    rose_bowl_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 27,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(rose_bowl_trails, 27)
   end
 
   private
 
+
   def set_documents
     @doc = Nokogiri::HTML(open("http://www.beavercreek.com/the-mountain/terrain-status.aspx#/TerrainStatus"))
     @mountain_doc = Nokogiri::HTML(open("http://www.beavercreek.com/the-mountain/snow-report.aspx"))
+  end
+
+  def create_trails(trails, peak_id)
+    trails.each do |trail|
+      Trail.create!(name: trail[:name],
+                    peak_id: peak_id,
+                    open: trail[:open],
+                    difficulty: trail[:difficulty]
+      )
+    end
   end
 
   def scrape_raw_html(xpath)

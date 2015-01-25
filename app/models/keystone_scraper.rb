@@ -57,58 +57,26 @@ class KeystoneScraper < ActiveRecord::Base
 
   def scrape_for_dercum_trails
     dercum_trails = scrape_raw_html("//div[contains(@id, 'GA1')]//td//tr")
-
     format_open_and_difficulty(dercum_trails)
-
-    dercum_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 7,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(dercum_trails, 7)
   end
 
   def scrape_for_a51_trails
     a51_trails = scrape_raw_html("//div[contains(@id, 'GA4')]//td//tr")
-
     format_open_and_difficulty(a51_trails)
-
-    a51_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 8,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(a51_trails, 8)
   end
 
   def scrape_for_north_peak_trails
     north_peak_trails = scrape_raw_html("//div[contains(@id, 'GA2')]//td//tr")
-
     format_open_and_difficulty(north_peak_trails)
-
-    north_peak_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 9,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(north_peak_trails, 9)
   end
 
   def scrape_for_outback_trails
     outback_trails = scrape_raw_html("//div[contains(@id, 'GA3')]//td//tr")
-
     format_open_and_difficulty(outback_trails)
-
-    outback_trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: 10,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
-    end
+    create_trails(outback_trails, 10)
   end
 
   private
@@ -116,6 +84,16 @@ class KeystoneScraper < ActiveRecord::Base
   def set_documents
     @doc = Nokogiri::HTML(open("http://www.keystoneresort.com/ski-and-snowboard/terrain-status.aspx#/TerrainStatus"))
     @mountain_doc = Nokogiri::HTML(open("http://www.keystoneresort.com/ski-and-snowboard/snow-report.aspx"))
+  end
+
+  def create_trails(trails, peak_id)
+    trails.each do |trail|
+      Trail.create!(name: trail[:name],
+                    peak_id: peak_id,
+                    open: trail[:open],
+                    difficulty: trail[:difficulty]
+      )
+    end
   end
 
   def scrape_raw_html(xpath)
