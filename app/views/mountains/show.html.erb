@@ -1,17 +1,3 @@
-<div class="today-wrapper"><br>
-  <div class="row">
-    <div class="large-12 columns">
-      <h1>Denver, CO</h1>
-    </div>
-    <div class="large-1 columns text-right" style="padding-top: 10px;">
-      <p><%=@time%></p>
-    </div>
-    <div class="large-11 columns">
-      <h3>| 23℉</h3 >
-    </div>
-  </div>
-</div>
-
 <div class="today-body">
  <div class="row">
     <div class="nav-center">
@@ -22,7 +8,8 @@
     <dl class="accordion" data-accordion>
       <dd class="accordion-navigation text-center">
         <a href="#panel2b">
-          <h1><strong><%=@mountain.name%></strong> | <%= @day_1['high']['fahrenheit']%>℉</h1><br><br>
+
+          <h1><strong><%=@mountain.name%></strong> | <%= @mountain.weather_reports.first.high%>℉</h1><br><br>
           <i class="fi-thumbnails"></i>
         </a>
         <div id="panel2b" class="content text-center">
@@ -47,22 +34,7 @@
       </div>
       <div class="large-8 columns text-center">
         <h4>Terrain Status</h4>
-        <table>
-          <thead>
-            <tr>
-              <th width="200" class="text-center">Lifts Running</th>
-              <th width="200" class="text-center">Runs Open</th>
-              <th width="200" class="text-center">Acres Open</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="text-center"><%=@mountain.lifts_open%></td>
-              <td class="text-center"><%=@mountain.runs_open%></td>
-              <td class="text-center"><%=@mountain.acres_open%></td>
-            </tr>
-          </tbody>
-        </table>
+         <%=render 'mountains/terrian_table'%>
         <dl class="tabs" data-tab>
           <%@mountain.peaks.each do |peak|%>
             <dd><a href="#panel<%=peak.id%>" class="trail-name"><%=peak.name%></a></dd>

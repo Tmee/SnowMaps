@@ -1,15 +1,11 @@
 class SearchController < ApplicationController
 
   def user_search
-    @mountains = mountain_search(params[:search])
-    @peaks = peak_search(params[:search])
-    @trails = trail_search(params[:search])
+    @mountains ||= mountain_search(params[:search])
+    @peaks     ||= peak_search(params[:search])
+    @trails    ||= trail_search(params[:search])
     render :user_search
   end
-
-  # def self.find_mountain_slug
-  #   Mountain.find(peak.mountain_id).slug
-  # end
 
 private
 

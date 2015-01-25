@@ -1,16 +1,3 @@
-<div class="today-wrapper"><br>
-  <div class="row">
-    <div class="large-12 columns">
-      <h1>Denver, CO</h1>
-    </div>
-    <div class="large-1 columns text-right" style="padding-top: 10px;">
-      <p><%=@time%></p>
-    </div>
-    <div class="large-11 columns">
-      <h3>| 23℉</h3 >
-    </div>
-  </div>
-</div>
 <div class="today-body">
   <div class="row">
     <div class="nav-center">
@@ -26,7 +13,7 @@
           <h1><%=@mountains[0].overnight%></h1>
         </div>
         <div class="large-6 columns text-left">
-          <h1><%=@w_api.forecast_for("CO","#{@mountains[0].town}")['forecast']['simpleforecast']['forecastday'][0]['high']['fahrenheit']%>℉</h1>
+          <h1><%=@mountains[0].weather_reports.first.high%>℉</h1>
         </div>
       </div>
       <div class="large-4 columns text-center" style="padding-top: 2%; max-height">
@@ -48,7 +35,7 @@
           <h1><%=mountain.overnight%></h1>
         </div>
         <div class="large-6 columns">
-          <h2><%=@w_api.forecast_for("CO","#{mountain.town}")['forecast']['simpleforecast']['forecastday'][0]['high']['fahrenheit']%> ℉</h2>
+          <h2><%=mountain.weather_reports.first.high%> ℉</h2>
         </div>
       </div>
       <div class="large-4 columns text-center" style="padding-top: 3%;">

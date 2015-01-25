@@ -12,10 +12,9 @@
       <li class="has-dropdown">
         <a href="#">Resorts</a>
         <ul class="dropdown">
-          <li><a href="/breckenridge-resort">Breckenridge</a></li>
-          <li><a href="/keystone-resort">Keystone</a></li>
-          <li><a href="arapahoe-basin">A basin</a></li>
-          <li><a href="vail-resort">Vail</a></li>
+          <%@mountains.each do |mountain|%>
+          <li><a href="/<%=mountain.slug%>"><%=mountain.name%></a></li>
+          <%end%>
         </ul>
       </li>
     </ul>

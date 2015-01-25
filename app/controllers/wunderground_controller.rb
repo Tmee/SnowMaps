@@ -1,5 +1,0 @@
-class WundergroundController < ApplicationController
-
-
-
-end

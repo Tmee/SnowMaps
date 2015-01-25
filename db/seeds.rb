@@ -3,6 +3,7 @@ class Seed
   def initialize
     generate_mountains_peaks_and_trails
     remove_blank_trail_names
+    get_the_weather
   end
 
   def generate_mountains_peaks_and_trails
@@ -28,6 +29,9 @@ class Seed
   def remove_blank_trail_names
     Trail.where(name: '').destroy_all
   end
-end
 
-Seed.new
+  def get_the_weather
+    Weather.new
+    puts "Got the Weather"
+  end
+end
