@@ -1,7 +1,7 @@
 <div class="today-body">
- <div class="row">
+  <div class="row">
     <div class="nav-center">
-      <%=render 'layouts/nav_bar'%>
+      <%= render partial: "layouts/nav_bar" %>
     </div>
   </div><br/>
   <div class="row panel">
@@ -13,7 +13,7 @@
         </a>
         <div id="panel2b" class="content text-center">
           <div class="row">
-            <%=render 'mountains/weather_report'%>
+            <%= render partial: "weather_report" %>
           </div>
        </div><br>
       </dd>
@@ -32,13 +32,13 @@
       <small>Season Total: <%=@mountain.season_total%></small><hr/>
     </div>
     <div class="large-8 columns text-center">
-      <%=render 'mountains/terrian_status_table'%>
+      <%= render partial: "mountains/terrian_status_table" %>
       <dl class="tabs" data-tab>
         <%@mountain.peaks.each do |peak|%>
           <dd><a href="#panel<%=peak.id%>" class="trail-name"><%=peak.name%></a></dd>
         <%end%>
       </dl>
-      <%=render 'mountains/trails_table'%>
+      <%= render partial: "mountains/trails_table" %>
     </div>
   </div><br><br>
 </div>

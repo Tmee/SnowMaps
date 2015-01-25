@@ -8,22 +8,22 @@ class Seed
 
   def generate_mountains_peaks_and_trails
     VailScraper.new
-    puts "Generate Vail complete"
+    puts "Generate Vail, complete"
 
     KeystoneScraper.new
-    puts "Generate Keystone complete"
+    puts "Generate Keystone, complete"
 
     BreckenridgeScraper.new
-    puts "Generate Breckenridge complete"
+    puts "Generate Breckenridge, complete"
 
     BeaverCreekScraper.new
-    puts "Generate Beaver Creek complete"
+    puts "Generate Beaver Creek, complete"
 
     ArapahoeBasinScraper.new
-    puts "Generate A Basin complete"
+    puts "Generate A Basin, complete"
 
     LovelandScraper.new
-    puts "Generate Loveland complete"
+    puts "Generate Loveland,, complete"
   end
 
   def remove_blank_trail_names
