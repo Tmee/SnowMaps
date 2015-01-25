@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20150125020219) do
     t.integer  "mountain_id"
     t.string   "high"
     t.string   "low"
+    t.string   "current_temp"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

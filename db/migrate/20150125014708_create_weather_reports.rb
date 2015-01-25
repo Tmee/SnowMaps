@@ -7,6 +7,7 @@ class CreateWeatherReports < ActiveRecord::Migration
       t.integer :mountain_id
       t.string  :high
       t.string  :low
+      t.string  :current_temp
 
       t.timestamps
     end
