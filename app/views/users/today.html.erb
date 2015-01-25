@@ -21,12 +21,12 @@
   <div class="row">
     <div class="most-snow-panel">
       <div class="large-8 columns text-center">
-        <h3><%=link_to "<i class='fi-arrow-right medium'>".html_safe, "/#{@mountains[0].slug}" %></i></a> <%=@mountains[0].name%></h3>
+        <h3><%=link_to "<i class='fi-info small'> #{@mountains[0].name}".html_safe, "/#{@mountains[0].slug}" %></i></h3>
         <div class="large-2 columns">
           <h1><%=@mountains[0].overnight%></h1>
         </div>
         <div class="large-6 columns text-left">
-          <h1>30℉</h1>
+          <h1><%=@w_api.forecast_for("CO","#{@mountains[0].town}")['forecast']['simpleforecast']['forecastday'][0]['high']['fahrenheit']%>℉</h1>
         </div>
       </div>
       <div class="large-4 columns text-center" style="padding-top: 2%; max-height">
@@ -43,12 +43,12 @@
   <%@mountains[1..-1].each do |mountain| %>
     <div class="large-6 columns panel">
       <div class="large-8 columns text-center">
-        <h3><%=link_to "<i class='fi-arrow-right medium'>".html_safe, "/#{mountain.slug}" %></i></a> <%=mountain.name%></h3>
+        <h3><%=link_to "<i class='fi-info small'> #{mountain.name}".html_safe, "/#{mountain.slug}" %></i></h3>
         <div class="large-4 columns">
           <h1><%=mountain.overnight%></h1>
         </div>
         <div class="large-6 columns">
-          <h2>45℉</h2>
+          <h2><%=@w_api.forecast_for("CO","#{mountain.town}")['forecast']['simpleforecast']['forecastday'][0]['high']['fahrenheit']%> ℉</h2>
         </div>
       </div>
       <div class="large-4 columns text-center" style="padding-top: 3%;">
