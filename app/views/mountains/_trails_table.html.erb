@@ -12,9 +12,9 @@
                 <th style="padding-left: 5px; padding-right: 5px; max-width: 35px;width: 60px;"class="text-center">Open</th>
               </tr>
             </thead>
-                <%peak.trails[0..@count].each do |trail|%>
-                  <%= render partial: "trail_difficulty", locals: {trail: trail}%>
-                <%end%>
+              <%peak.trails[0..@count].each do |trail|%>
+                <%= render partial: "trail_difficulty", locals: {trail: trail}%>
+              <%end%>
             <tbody>
             </tbody>
           </table>
