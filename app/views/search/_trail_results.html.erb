@@ -1,15 +1,11 @@
 <div class="row" data-equalizer>
-  <%@trails.each do |trail| %>
+  <% @trails.each do |trail| %>
     <div class="large-6 columns panel" data-equalizer-watch>
       <div class="large-11 columns text-center">
         <tr>
-          <td><%=trail.difficulty%> |</td>
-          <td><%=trail.name%> |</td>
-          <%if trail.open?%>
-            <td><i class="fi-check" style="color: green;"> - Open</i></td>
-          <%else%>
-            <td><i class="fi-x" style="color: red;"> - Closed</i></td>
-          <%end%>
+          <td><%= trail.difficulty %> |</td>
+          <td><%= trail.name %> |</td>
+          <%= render partial: "shared/open_status", locals: {trail: trail}%>
         </tr>
       </div>
     </div>

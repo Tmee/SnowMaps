@@ -1,0 +1,5 @@
+<tr>
+  <%= render partial: "shared/difficulty", locals: {trail: trail}%>
+  <td><%=trail.name%></td>
+  <%= render partial: "shared/open_status", locals: {trail: trail}%>
+</tr>

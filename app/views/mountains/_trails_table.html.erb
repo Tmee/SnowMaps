@@ -13,7 +13,7 @@
               </tr>
             </thead>
               <%peak.trails[0..@count].each do |trail|%>
-                <%= render partial: "trail_difficulty", locals: {trail: trail}%>
+                <%= render partial: "trail_data", locals: {trail: trail}%>
               <%end%>
             <tbody>
             </tbody>
@@ -30,7 +30,7 @@
             </thead>
             <tbody>
               <%peak.trails[(@count+1)..-1].each do |trail|%>
-                <%= render partial: "trail_difficulty", locals: {trail: trail}%>
+                <%= render partial: "trail_data", locals: {trail: trail}%>
               <%end%>
             </tbody>
           </table>

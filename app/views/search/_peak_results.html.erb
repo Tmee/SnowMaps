@@ -1,8 +1,8 @@
 <div class="row" data-equalizer>
- <%@peaks.each do |peak| %>
+  <% @peaks.each do |peak| %>
     <div class="large-6 columns panel" data-equalizer-watch>
       <div class="large-8 columns text-center">
-        <h3><%=link_to "<i class='fi-arrow-right medium'>".html_safe, "/#{Mountain.find(peak.mountain_id).slug}" %></i></a> <%=peak.name%></h3>
+        <h3><%= link_to "<i class='fi-arrow-right medium'>".html_safe, "/#{Mountain.find(peak.mountain_id).slug}" %></i></a> <%= peak.name %></h3>
       </div>
     </div>
   <%end%>

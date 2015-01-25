@@ -3,6 +3,7 @@
   def today
     format_time
     @mountains = Mountain.all.order(overnight: :desc)
+    @most_snow = @mountains[0]
   end
 
   def new

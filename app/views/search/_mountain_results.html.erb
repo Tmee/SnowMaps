@@ -1,21 +1,16 @@
 <div class="row" data-equalizer>
-  <%@mountains.each do |mountain| %>
+  <% @mountains.each do |mountain| %>
     <div class="large-6 columns panel" data-equalizer-watch>
       <div class="large-8 columns text-center">
-        <h3><%=link_to "<i class='fi-arrow-right medium'>".html_safe, "/#{mountain.slug}" %></i></a> <%=mountain.name%></h3>
+        <h3><%= link_to "<i class='fi-arrow-right medium'>".html_safe, "/#{mountain.slug}" %></i></a> <%= mountain.name %></h3>
         <div class="large-2 columns">
-          <h1><%=mountain.overnight%></h1>
+          <h1><%= mountain.overnight %></h1>
         </div>
         <div class="large-6 columns">
-          <h2><%=mountain.weather_reports.first.high%> ℉</h2>
+          <h2><%= mountain.weather_reports.first.high %> ℉</h2>
         </div>
       </div>
-      <div class="large-4 columns text-center" style="padding-top: 3%;">
-        <p>Terrain Report</p>
-        <small>Acres Open : <%=mountain.acres_open%></small><br>
-        <small>Lifts Open : <%=mountain.lifts_open%></small><br>
-        <small>Runs Open : <%=mountain.runs_open%></small>
-      </div>
+      <%= render partial: "shared/panel_terrian_report", locals: {mountain: mountain}%>
     </div>
   <%end%>
 </div>

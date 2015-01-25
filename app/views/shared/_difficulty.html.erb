@@ -1,5 +1,4 @@
-<tr>
-  <%if trail.beginner?%>
+<%if trail.beginner?%>
     <td class="text-center"><i class="fi-record" style="color: green;"></td>
   <%elsif trail.intermediate?%>
     <td class="text-center"><i class="fi-stop" style="color: blue;"></td>
@@ -11,11 +10,4 @@
     <td class="text-center"><i class="fi-burst" style="color: orange;"></td>
   <%else%>
     <td><%=trail.difficulty%></td>
-  <%end%>
-    <td><%=trail.name%></td>
-  <%if trail.open? %>
-    <td class="text-center"><i class="fi-check" style="color: green;"></i></td>
-  <%else%>
-    <td class="text-center"><i class="fi-x" style="color: red;"></i></td>
-  <%end%>
-</tr>
+<%end%>

@@ -15,7 +15,8 @@
           <div class="row">
             <%= render partial: "weather_report" %>
           </div>
-       </div><br>
+        </div>
+        <br>
       </dd>
     </dl>
     <div class="large-4 columns text-center ">
@@ -32,14 +33,15 @@
       <small>Season Total: <%=@mountain.season_total%></small><hr/>
     </div>
     <div class="large-8 columns text-center">
-      <%= render partial: "mountains/terrian_status_table" %>
+      <%= render partial: "terrian_side_table" %>
       <dl class="tabs" data-tab>
         <%@mountain.peaks.each do |peak|%>
           <dd><a href="#panel<%=peak.id%>" class="trail-name"><%=peak.name%></a></dd>
         <%end%>
       </dl>
-      <%= render partial: "mountains/trails_table" %>
+      <%= render partial: "trails_table" %>
     </div>
-  </div><br><br>
+  </div>
+  <br><br>
 </div>
 

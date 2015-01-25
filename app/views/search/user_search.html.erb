@@ -1,13 +1,13 @@
 <div class="today-body">
   <div class="row">
     <div class="nav-center">
-      <%=render 'layouts/nav_bar'%>
+      <%= render partial: 'layouts/nav_bar'%>
     </div>
   </div><br/>
-  <div class="row" data-equalizer>
+  <div class="row">
     <h1>Search Results</h1>
-    <%=render 'search/mountain_results'%>
-    <%=render 'search/peak_results'%>
-    <%=render 'search/trail_results'%>
+    <%= render partial: 'mountain_results', locals: {mountains: @mountains} %>
+    <%= render partial: 'peak_results', locals: {peaks: @peaks} %>
+    <%= render partial: 'trail_results', locals: {trails: @trails} %>
   </div>
 </div>

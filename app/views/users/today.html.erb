@@ -8,20 +8,15 @@
   <div class="row">
     <div class="most-snow-panel">
       <div class="large-8 columns text-center">
-        <h3><%=link_to "<i class='fi-info small'> #{@mountains[0].name}".html_safe, "/#{@mountains[0].slug}" %></i></h3>
+        <h3><%=link_to "<i class='fi-info small'> #{@most_snow.name}".html_safe, "/#{@most_snow.slug}" %></i></h3>
         <div class="large-2 columns">
-          <h1><%=@mountains[0].overnight%></h1>
+          <h1><%=@most_snow.overnight%></h1>
         </div>
         <div class="large-6 columns text-left">
-          <h1><%=@mountains[0].weather_reports.first.high%>℉</h1>
+          <h1><%=@most_snow.weather_reports.first.high%>℉</h1>
         </div>
       </div>
-      <div class="large-4 columns text-center" style="padding-top: 2%; max-height">
-        <p>Terrain Report</p>
-        <small>Acres Open:  <%=@mountains[0].acres_open%></small><br>
-        <small>Lifts Open: <%=@mountains[0].lifts_open%></small><br>
-        <small>Runs Open:  <%=@mountains[0].runs_open%></small>
-      </div>
+      <%= render partial: "shared/panel_terrain_report", locals: {mountain: @most_snow}%>
     </div>
   </div><br/><br/>
 <!-- End most snow -->
@@ -38,12 +33,7 @@
           <h2><%=mountain.weather_reports.first.high%> ℉</h2>
         </div>
       </div>
-      <div class="large-4 columns text-center" style="padding-top: 3%;">
-        <p>Terrain Report</p>
-        <small>Acres Open : <%=mountain.acres_open%></small><br>
-        <small>Lifts Open : <%=mountain.lifts_open%></small><br>
-        <small>Runs Open : <%=mountain.runs_open%></small>
-      </div>
+      <%= render partial: "shared/panel_terrain_report", locals: {mountain: mountain}%>
     </div>
     <%end%>
   </div>
