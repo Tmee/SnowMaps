@@ -1,0 +1,150 @@
+class WinterParkScraper < ActiveRecord::Base
+
+  def initialize
+    set_documents
+    generate_mountain_information
+    generate_peaks
+    scrape_for_trails
+  end
+
+  def generate_mountain_information
+    snow_report        = find_snow_report
+    lift_trail_acre    = find_lift_trail_acre
+    base_and_condition = find_base_and_condition
+
+    Mountain.create!(name:      "Winter Park Resort",
+                    last_24:        snow_report[0],
+                    overnight:      snow_report[0],
+                    last_48:        snow_report[1],
+                    season_total:   snow_report[3],
+                    last_7_days:    "-",
+                    base_depth:     base_and_condition[0],
+                    snow_condition: base_and_condition[1],
+                    lifts_open:     lift_trail_acre[0],
+                    runs_open:      lift_trail_acre[1],
+                    acres_open:     lift_trail_acre[2],
+                    town:           "Winter Park"
+    )
+  end
+
+  def generate_peaks
+    peaks = ['Winter Park', 'Mary Jane', 'Vasquez Ridge', 'Parsenn Bowl', 'Eagle Wind', 'The Cirque']
+
+    peaks.each do |peak|
+      Peak.create!(name: 'peak',
+                  mountain_id: 7
+      )
+    end
+  end
+
+  def scrape_for_trails
+    scrape_for_winter_park
+    scrape_for_mary_jane
+    scrape_for_vasquez_ridge
+    scrape_for_parsenn_bowl
+    scrape_for_eagle_wind
+    scrape_for_the_cirque
+  end
+
+  def scrape_for_winter_park
+    winter_park_trails = scrape_raw_html("//div[contains(@id, 'trails2Tab')]//div[contains(@id, 'statusTablesTrail')]//section[position() = 1]//tr")
+    format_trails(winter_park_trails)
+    create_trails(winter_park_trails, 38)
+  end
+
+  def scrape_for_mary_jane
+    mary_jane_trails = scrape_raw_html("//div[contains(@id, 'trails2Tab')]//div[contains(@id, 'statusTablesTrail')]//section[position() = 2]//tr")
+    format_trails(mary_jane_trails)
+    create_trails(mary_jane_trails, 39)
+  end
+
+  def scrape_for_vasquez_ridge
+    vasquez_ridge_trails = scrape_raw_html("//div[contains(@id, 'trails2Tab')]//div[contains(@id, 'statusTablesTrail')]//section[position() = 3]//tr")
+    format_trails(vasquez_ridge_trails)
+    create_trails(vasquez_ridge_trails, 40)
+  end
+
+  def scrape_for_parsenn_bowl
+    parsenn_bowl_trails = scrape_raw_html("//div[contains(@id, 'trails2Tab')]//div[contains(@id, 'statusTablesTrail')]//section[position() = 4]//tr")
+    format_trails(parsenn_bowl_trails)
+    create_trails(parsenn_bowl_trails, 41)
+  end
+
+  def scrape_for_eagle_wind
+    eagle_wind_trails = scrape_raw_html("//div[contains(@id, 'trails2Tab')]//div[contains(@id, 'statusTablesTrail')]//section[position() = 5]//tr")
+    format_trails(eagle_wind_trails)
+    create_trails(eagle_wind_trails, 42)
+  end
+
+  def scrape_for_the_cirque
+    the_cirque_trails = scrape_raw_html("//div[contains(@id, 'trails2Tab')]//div[contains(@id, 'statusTablesTrail')]//section[position() = 6]//tr")
+    format_trails(the_cirque_trails)
+    create_trails(the_cirque_trails, 43)
+  end
+
+
+private
+
+  def set_documents
+    @terrain_doc  = Nokogiri::HTML(open("http://www.winterparkresort.com/the-mountain/lift-and-trail-report.aspx"))
+    @mountain_doc = Nokogiri::HTML(open("http://www.winterparkresort.com/the-mountain/snow-weather-report.aspx"))
+  end
+
+  def create_trails(trails, peak_id)
+    trails.each do |trail|
+      Trail.create!(name: trail[:name],
+                    peak_id: peak_id,
+                    open: trail[:open],
+                    difficulty: trail[:difficulty]
+      )
+    end
+  end
+
+  def format_trails(trails)
+    trails.delete_at(0)
+    trails.each do |trail|
+      trail[:name] = trail[:name].text
+      trail[:open] = trail[:open].text
+      trail[:difficulty] = trail[:difficulty].attribute('src').value
+    end
+  end
+
+  def scrape_raw_html(xpath)
+    rows = @terrain_doc.xpath(xpath)
+    trails_array = rows.collect do |row|
+    detail = {}
+    [
+      [:name, 'td[position() = 2]'],
+      [:open, 'td[position() = 4]'],
+      [:difficulty, 'td[position() = 1]//img'],
+    ].each do |name, xpath|
+      detail[name] = row.at_xpath(xpath)
+      end
+    detail
+    end
+  end
+
+  def find_snow_report
+    data = @mountain_doc.xpath("//div[contains(@class, 'conditionBlock')]//span[contains(@class, 'amountNumber')]")
+    data.map do |data|
+      data.child.attribute('data-imperial').value
+    end
+  end
+
+  def find_base_and_condition
+    base_and_condition = []
+    data = @mountain_doc.xpath("//div[contains(@class, 'col snowMeta')]//span[contains(@class, 'data')]").children[0..1]
+    base_and_condition << data[0].attribute('data-imperial').value
+    base_and_condition << data[1].text
+  end
+
+  def find_lift_trail_acre
+    lift_trail_acres = @mountain_doc.xpath("//div[contains(@class, 'cols')]//div[contains(@class, 'col snowMeta')]//span[contains(@class, 'data')]").children
+    lift_trail_acre = []
+    lift_trail_acre << lift_trail_acres[2].text
+    lift_trail_acre << lift_trail_acres[3].text
+    lift_trail_acre << lift_trail_acres[5].attribute('data-imperial').value
+  end
+
+
+end

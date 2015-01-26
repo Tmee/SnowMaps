@@ -23,7 +23,10 @@ class Seed
     puts "Generate A Basin, complete"
 
     LovelandScraper.new
-    puts "Generate Loveland,, complete"
+    puts "Generate Loveland, complete"
+
+    WinterParkScraper.new
+    puts "Generate Winter Park, complete"
   end
 
   def remove_blank_trail_names
@@ -32,7 +35,7 @@ class Seed
 
   def get_the_weather
     Weather.new
-    puts "Got the Weather"
+    puts "Weather Updated"
   end
 end
 
