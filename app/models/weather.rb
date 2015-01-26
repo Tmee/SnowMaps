@@ -13,6 +13,7 @@ class Weather < ActiveRecord::Base
     get_beaver_creek_weather_report
     get_a_basin_weather_report
     get_loveland_weather_report
+    get_winter_park_weather_report
   end
 
   def get_vail_weather_report
@@ -50,6 +51,12 @@ class Weather < ActiveRecord::Base
     forecast = @w_api.forecast_for("CO","Georgetown")['forecast']['simpleforecast']['forecastday']
     current_temp = @w_api.forecast_and_conditions_for("CO","Georgetown")['current_observation']['temp_f']
     create_weather_report(forecast, current_temp, 6)
+  end
+
+  def get_winter_park_weather_report
+    forecast = @w_api.forecast_for("CO","Winter Park")['forecast']['simpleforecast']['forecastday']
+    current_temp = @w_api.forecast_and_conditions_for("CO","Winter Park")['current_observation']['temp_f']
+    create_weather_report(forecast, current_temp, 7)
   end
 
   private

@@ -31,7 +31,7 @@ class WinterParkScraper < ActiveRecord::Base
     peaks = ['Winter Park', 'Mary Jane', 'Vasquez Ridge', 'Parsenn Bowl', 'Eagle Wind', 'The Cirque']
 
     peaks.each do |peak|
-      Peak.create!(name: 'peak',
+      Peak.create!(name: peak,
                   mountain_id: 7
       )
     end
@@ -106,6 +106,23 @@ private
       trail[:name] = trail[:name].text
       trail[:open] = trail[:open].text
       trail[:difficulty] = trail[:difficulty].attribute('src').value
+    end
+    set_the_difficulty(trails)
+  end
+
+  def set_the_difficulty(trails)
+    trails.each do |trail|
+      if trail[:difficulty] == 'http://www.winterparkresort.com/~/media/e1a39a124dd04adc8651bb5d73a43f5e.gif?h=12&w=12'
+        trail[:difficulty] = 'easy'
+      elsif trail[:difficulty] == 'http://www.winterparkresort.com/~/media/18a6d892d41c4da9bb92caf301354f4a.gif?h=12&w=12'
+        trail[:difficulty] = 'intermediate'
+      elsif trail[:difficulty] =='http://www.winterparkresort.com/~/media/d7f8b12d58cd4933853efe65874094c5.gif?h=12&w=12'
+        trail[:difficulty] = 'intermediate'
+      elsif trail[:difficulty] == 'http://www.winterparkresort.com/~/media/98fc9271e4154ec6ab2c0d634552b904.gif?h=12&w=12'
+        trail[:difficulty] = 'advanced'
+      elsif trail[:difficulty] == 'http://www.winterparkresort.com/~/media/411eb7f0ae444643a4ad3fd96e206d37.gif?h=12&w=12'
+        trail[:difficulty] = 'double diamound'
+      end
     end
   end
 
