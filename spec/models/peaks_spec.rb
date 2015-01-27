@@ -1,5 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Peak, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:peak) do
+    Peak.new(name: 'Tim')
+  end
+
+
+  it "is valid" do
+    expect(peak).to be_valid
+  end
+
+  it "is invalid without a name" do
+    peak.name = nil
+    expect(peak).not_to be_valid
+  end
 end

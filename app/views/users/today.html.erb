@@ -16,7 +16,7 @@
         <%= render partial: "shared/panel_terrain_report", locals: {mountain: @most_snow}%>
       </div>
     </div><br/><br/>
-  <!-- End most snow -->
+<!-- End most snow -->
     <div class="row" data-equalizer>
       <%@mountains[1..-1].each do |mountain| %>
         <%= render partial: "shared/mountain_info_panel", locals: {mountain: mountain}%>

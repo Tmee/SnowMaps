@@ -5,23 +5,24 @@ class Trail < ActiveRecord::Base
   validates :peak_id, :presence => true
 
 
+
   def beginner?
-    array = ['easiest', 'beginner', 'beg'].map {|x| x == difficulty}
+    array = ['easiest', 'beginner', 'beg', 'levelNovice'].map {|x| x == difficulty}
     array.include? true
   end
 
   def intermediate?
-    array = ['int', 'intermediate', 'moreDifficult'].map {|x| x == difficulty}
+    array = ['int', 'intermediate', 'moreDifficult', 'levelIntermediate'].map {|x| x == difficulty}
     array.include? true
   end
 
   def advanced?
-    array = ['adv', 'advanced', 'mostDifficult'].map {|x| x == difficulty}
+    array = ['adv', 'advanced', 'mostDifficult', 'levelExpert'].map {|x| x == difficulty}
     array.include? true
   end
 
   def expert?
-    array = ['expert', 'exp', 'doubleDiamond'].map {|x| x == difficulty}
+    array = ['expert', 'exp', 'doubleDiamond', 'levelExtreme'].map {|x| x == difficulty}
     array.include? true
   end
 
@@ -31,7 +32,7 @@ class Trail < ActiveRecord::Base
   end
 
   def open?
-    open_status_array = ['yesStatus', 'open'].map {|x| x == open}
+    open_status_array = ['yesStatus', 'open', 'keyOpen'].map {|x| x == open}
     open_status_array.include? true
   end
 

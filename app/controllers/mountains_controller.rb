@@ -1,4 +1,5 @@
 class MountainsController < ApplicationController
+  before_action :set_mountains
 
   def new
   end
@@ -13,6 +14,5 @@ class MountainsController < ApplicationController
   def show
     format_time
     @mountain  = Mountain.find_by slug: params[:mountain]
-    @mountains = Mountain.all
   end
 end
