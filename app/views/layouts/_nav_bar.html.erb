@@ -4,7 +4,7 @@
   <section class="top-bar-section">
     <ul class="right" id="white">
       <%if current_user.present?%>
-        <%=current_user.name%>
+        <%=current_user.name%> <i class='fi-x-circle'></i>
       <%else%>
         <li><%=link_to "Login with Twitter <i class='fi-social-twitter'></i>".html_safe, "/auth/twitter"%></a></li>
       <% end %>

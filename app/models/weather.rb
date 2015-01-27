@@ -8,12 +8,27 @@ class Weather < ActiveRecord::Base
   def gather_mountain_weather_reports
     @w_api = Wunderground.new
     get_vail_weather_report
+    puts 'vail'
     get_keystone_weather_report
+    puts 'keystoen'
     get_breckenridge_weather_report
+    puts 'breck'
     get_beaver_creek_weather_report
+    puts 'beaver'
+    sleep(35.seconds)
     get_a_basin_weather_report
+    puts 'basin'
     get_loveland_weather_report
+    puts 'valoveil'
     get_winter_park_weather_report
+    puts 'winte'
+    sleep(35.seconds)
+    get_telluride_weather_report
+    puts 'telli'
+    get_copper_weather_report
+    puts 'caopper'
+    get_powderhorn_weather_report
+    puts 'powder'
   end
 
   def get_vail_weather_report
@@ -41,7 +56,7 @@ class Weather < ActiveRecord::Base
   end
 
   def get_a_basin_weather_report
-    forecast = @w_api.forecast_for("CO","Keystone")['forecast']['simpleforecast']['forecastday']
+    forecast = @w_api.forecast_and_conditions_for("CO","Keystone")['forecast']['simpleforecast']['forecastday']
     current_temp = @w_api.forecast_and_conditions_for("CO","Keystone")['current_observation']['temp_f']
     create_weather_report(forecast, current_temp, 5)
   end
@@ -57,6 +72,24 @@ class Weather < ActiveRecord::Base
     forecast = @w_api.forecast_for("CO","Winter Park")['forecast']['simpleforecast']['forecastday']
     current_temp = @w_api.forecast_and_conditions_for("CO","Winter Park")['current_observation']['temp_f']
     create_weather_report(forecast, current_temp, 7)
+  end
+
+  def get_telluride_weather_report
+    forecast = @w_api.forecast_for("CO","Telluride")['forecast']['simpleforecast']['forecastday']
+    current_temp = @w_api.forecast_and_conditions_for("CO","Telluride")['current_observation']['temp_f']
+    create_weather_report(forecast, current_temp, 8)
+  end
+
+  def get_powderhorn_weather_report
+    forecast = @w_api.forecast_for("CO","Mesa")['forecast']['simpleforecast']['forecastday']
+    current_temp = @w_api.forecast_and_conditions_for("CO","Mesa")['current_observation']['temp_f']
+    create_weather_report(forecast, current_temp, 9)
+  end
+
+  def get_copper_weather_report
+    forecast = @w_api.forecast_for("CO","Copper Mountain")['forecast']['simpleforecast']['forecastday']
+    current_temp = @w_api.forecast_and_conditions_for("CO","Copper Mountain")['current_observation']['temp_f']
+    create_weather_report(forecast, current_temp, 10)
   end
 
   private

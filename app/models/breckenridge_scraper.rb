@@ -28,14 +28,14 @@ class BreckenridgeScraper < ActiveRecord::Base
   def scrape_for_snow_report_data
     snow_report_array = @mountain_doc.xpath("//div[contains(@class, 'snowReportDataColumn2')]//tr//td[position() = 2]")
     snow_report_formatted = snow_report_array.map do |report|
-      report.text.gsub(/\s/, "")
+      report.text.gsub(/\s{2}/, "")
     end
     snow_report_formatted.delete('')
     snow_report_formatted
   end
 
   def scrape_for_snow_condition
-    snow_condition =  @mountain_doc.xpath("//div[contains(@class, 'snowConditions')]//tr[position() = 2]//td[position() = 1]//text()").to_s.gsub("\r\n", "").gsub(/\s/, "")
+    snow_condition =  @mountain_doc.xpath("//div[contains(@class, 'snowConditions')]//tr[position() = 2]//td[position() = 1]//text()").to_s.gsub("\r\n", "").gsub(/\s{2}/, "")
   end
 
   def generate_peaks

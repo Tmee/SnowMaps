@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150126002046) do
+ActiveRecord::Schema.define(version: 20150126220308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,11 @@ ActiveRecord::Schema.define(version: 20150126002046) do
   end
 
   create_table "breckenridge_scrapers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "copper_scrapers", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,6 +72,21 @@ ActiveRecord::Schema.define(version: 20150126002046) do
   create_table "peaks", force: true do |t|
     t.string   "name"
     t.integer  "mountain_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "powderhorn_scrapers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "snowmass_scrapers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "telluride_scrapers", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

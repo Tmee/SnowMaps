@@ -27,6 +27,15 @@ class Seed
 
     WinterParkScraper.new
     puts "Generate Winter Park, complete"
+
+    TellurideScraper.new
+    puts "Generate Telluride, complete"
+
+    PowderhornScraper.new
+    puts "Generate Powderhorn, complete"
+
+    CopperScraper.new
+    puts "Generate Copper, complete"
   end
 
   def remove_blank_trail_names
