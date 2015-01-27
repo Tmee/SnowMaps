@@ -3,6 +3,10 @@ class MountainsController < ApplicationController
   def new
   end
 
+  def index
+    @mountains = Mountain.all
+  end
+
   def create
   end
 

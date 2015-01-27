@@ -9,15 +9,15 @@ class PowderhornScraper < ActiveRecord::Base
   end
 
   def create_mountain_information
-    overnight   = @mountain_doc.xpath("//div//section[contains(@class, 'field-name-field-24hr-inches')]//div[contains(@class, 'field-items')]").map {|x|x.text}
-    hr_48        = @mountain_doc.xpath("//div//section[contains(@class, 'field-name-field-48hr-inches')]//div[contains(@class, 'field-items')]").map {|x|x.text}
+    overnight   = @mountain_doc.xpath("//div//section[contains(@class, 'field-name-field-24hr-inches')]//div[contains(@class, 'field-items')]").map {|x|x.text.scan(/\d/).join}
+    hr_48        = @mountain_doc.xpath("//div//section[contains(@class, 'field-name-field-48hr-inches')]//div[contains(@class, 'field-items')]").map {|x|x.text.scan(/\d/).join}
     base        = @mountain_doc.xpath("//div//section[contains(@class, 'field-name-field-base-inches')]//div[contains(@class, 'field-items')]").map {|x|x.text}
     acres       = @mountain_doc.xpath("//div//section[contains(@class, 'field-name-field-percent-open ')]//div[contains(@class, 'field-items')]").map {|x|x.text}
     conditions  = @mountain_doc.xpath("//div//section[contains(@class, 'field-name-field-surface-conditions')]//div[contains(@class, 'field-items')]").map {|x|x.text}
     lifts       = @mountain_doc.xpath("//div//section[contains(@class, 'field-name-field-lifts-open')]//div[contains(@class, 'field-items')]").map {|x|x.text}
 
-    @mountain.update(last_24:       overnight[0],
-                    overnight:      overnight[0],
+    @mountain.update(last_24:       "#{overnight[0]}\"",
+                    overnight:      "#{overnight[0]}\"",
                     last_48:        hr_48[0],
                     last_7_days:    '-',
                     base_depth:     base[0],
