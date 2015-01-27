@@ -13,6 +13,6 @@ class MountainsController < ApplicationController
 
   def show
     format_time
-    @mountain  = Mountain.find_by slug: params[:mountain]
+    @mountain  = Mountain.find_by slug: params[:mountain].order(asc)
   end
 end
