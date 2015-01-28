@@ -109,6 +109,18 @@
   border: 4px solid #fff;
  }
 
+.diff {
+  padding-right: 2px;
+  padding-left: 2px;
+  width: 64px;
+}
+
+.status {
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 35px;
+}
+
 .snow-in{
   max-width: 300px;
   max-height: 300px;

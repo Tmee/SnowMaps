@@ -36,8 +36,8 @@ class Weather < ActiveRecord::Base
   end
 
   def get_breckenridge_weather_report
-    forecast     = @w_api.forecast_for("CO","Breckenridge")['forecast']['simpleforecast']['forecastday']
-    current_temp = @w_api.forecast_and_conditions_for("CO","Breckenridge")['current_observation']['temp_f']
+    forecast     = @w_api.forecast_for("CO","Breckenridge Ski Area")['forecast']['simpleforecast']['forecastday']
+    current_temp = @w_api.forecast_and_conditions_for("CO","Breckenridge Ski Area")['current_observation']['temp_f']
     create_weather_report(forecast, current_temp, 3)
   end
 
@@ -48,8 +48,8 @@ class Weather < ActiveRecord::Base
   end
 
   def get_a_basin_weather_report
-    forecast     = @w_api.forecast_and_conditions_for("CO","Keystone")['forecast']['simpleforecast']['forecastday']
-    current_temp = @w_api.forecast_and_conditions_for("CO","Keystone")['current_observation']['temp_f']
+    forecast     = @w_api.forecast_and_conditions_for("CO","Arapahoe Basin Ski Area")['forecast']['simpleforecast']['forecastday']
+    current_temp = @w_api.forecast_and_conditions_for("CO","Arapahoe Basin Ski Area")['current_observation']['temp_f']
     create_weather_report(forecast, current_temp, 5)
   end
 

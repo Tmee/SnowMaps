@@ -4,7 +4,7 @@
     <dl class="accordion" data-accordion>
       <dd class="accordion-navigation text-center">
         <a href="#panel2b">
-          <h1><strong><%=@mountain.name%></strong> | ℉</h1><br><br>
+          <h1><strong><%=@mountain.name%></strong> | <%= @mountain.weather_reports.first.current_temp%> ℉</h1><br><br>
           Weather <i class="fi-thumbnails"></i> Forecast
         </a>
         <div id="panel2b" class="content text-center">
@@ -35,7 +35,9 @@
           <dd><a href="#panel<%=peak.id%>" class="trail-name"><%=peak.name%></a></dd>
         <%end%>
       </dl>
-      <%= render partial: "trails_table" %>
+      <div class="row">
+        <%= render partial: "trails_table" %>
+      </div>
     </div>
   </div>
   <br><br>
