@@ -1,5 +1,7 @@
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start 'rails' do
+   add_filter "/spec/models/arapahoe_basin_scraper_spec"
+end
 
 RSpec.configure do |config|
 

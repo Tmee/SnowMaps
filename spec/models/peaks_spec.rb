@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Peak, :type => :model do
   let(:peak) do
-    Peak.new(name: 'Tim')
+    Peak.new(name: "The Peak")
   end
 
 

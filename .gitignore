@@ -16,5 +16,6 @@
 /tmp
 
 /config/config.yml
-
+error.log
+cron.log
 .env

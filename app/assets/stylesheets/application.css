@@ -64,6 +64,12 @@
   min-height: 100%;
  }
 
+ .terrain-report{
+  padding-top: 3%;
+  padding-right: 0px;
+  padding-left: 0px;
+ }
+
  .today-temp {
   padding-left: 0px;
   padding-right: 40px;
@@ -77,6 +83,7 @@
   max-width: 50%;
   background-color: #FFFFFF;
   margin-left: 25%;
+  padding-top: 1%;
   padding-left: 1%;
   -webkit-box-shadow: 0 10px 10px -3px black;
   -moz-box-shadow: 0 10px 10px -3px black;

@@ -102,10 +102,11 @@ ActiveRecord::Schema.define(version: 20150126220308) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "uid"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "name"
+    t.string "uid"
+    t.string "provider"
+    t.string "profile_image_url"
+    t.string "location"
   end
 
   create_table "vail_scrapers", force: true do |t|

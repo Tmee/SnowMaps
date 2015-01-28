@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Mountain, :type => :model do
   let(:mountain) do
-    Mountain.new(name: 'Tim')
+    Mountain.create!(name: 'Tim Tim')
   end
 
 
@@ -15,4 +15,7 @@ RSpec.describe Mountain, :type => :model do
     expect(mountain).not_to be_valid
   end
 
+  it "generates slug" do
+    expect(mountain.slug).to eq("tim-tim")
+  end
 end

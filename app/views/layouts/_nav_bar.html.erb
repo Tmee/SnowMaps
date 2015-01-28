@@ -7,7 +7,9 @@
         <%if current_user%>
           <%=current_user.name%> <%= link_to "<i class='fi-x-circle'></i>".html_safe, logout_path, id: 'logout', method: 'delete' %>
         <%else%>
-          <li><%=link_to "Login with Twitter <i class='fi-social-twitter'></i>".html_safe, "/auth/twitter"%></a></li>
+          <li>
+            <a href="/auth/twitter">Login with Twitter <i class='fi-social-twitter'></i></a>
+          </li>
         <% end %>
       </li>
       <li class="has-dropdown">
