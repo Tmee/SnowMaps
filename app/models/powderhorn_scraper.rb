@@ -2,7 +2,6 @@ class PowderhornScraper < ActiveRecord::Base
 
   def initialize
     set_documents
-    # @mountain = Mountain.find(9)
     create_mountain_information
     generate_peaks
     scrape_for_trails
