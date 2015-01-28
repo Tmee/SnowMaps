@@ -107,6 +107,8 @@ ActiveRecord::Schema.define(version: 20150126220308) do
     t.string "provider"
     t.string "profile_image_url"
     t.string "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "vail_scrapers", force: true do |t|

@@ -37,6 +37,10 @@
   color: blue;
  }
 
+ .white {
+  color: white;
+ }
+
  .nav-padding {
   padding-left: 0px;
   padding-right: 0px;

@@ -5,11 +5,16 @@
     <ul class="right" id="white">
       <li>
         <%if current_user%>
-          <%=current_user.name%> <%= link_to "<i class='fi-x-circle'></i>".html_safe, logout_path, id: 'logout', method: 'delete' %>
-        <%else%>
-          <li>
-            <a href="/auth/twitter">Login with Twitter <i class='fi-social-twitter'></i></a>
-          </li>
+        <ul>
+          <%=current_user.name%>
+        </ul>
+        <ul>
+          <%= link_to "<i class='fi-x-circle medium'></i>".html_safe, logout_path, id: 'logout', method: 'delete' %>
+        </ul>
+      <%else%>
+        <ul>
+          <a href="/auth/twitter" class="white">Login with Twitter <i class='fi-social-twitter'></i></a>
+        </ul>
         <% end %>
       </li>
       <li class="has-dropdown">
