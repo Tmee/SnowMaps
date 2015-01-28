@@ -42,6 +42,7 @@ class CopperScraper < ActiveRecord::Base
     create_intermediate
     create_advanced
     create_expert
+    create_extreme
   end
 
   def scrape_all_trails
@@ -51,27 +52,27 @@ class CopperScraper < ActiveRecord::Base
 
   def create_beginner
     trail_set = get_trails('beginner')
-    create_trails(trail_set, 50)
+    create_trails(trail_set, 51)
   end
 
   def create_intermediate
     trail_set = get_trails('intermediate')
-    create_trails(trail_set, 51)
+    create_trails(trail_set, 52)
   end
 
   def create_advanced
     trail_set = get_trails('advanced')
-    create_trails(trail_set, 52)
+    create_trails(trail_set, 53)
   end
 
   def create_extreme
     trail_set = get_trails('extreme')
-    create_trails(trail_set, 53)
+    create_trails(trail_set, 54)
   end
 
   def create_expert
     trail_set = get_trails('expert')
-    create_trails(trail_set, 53)
+    create_trails(trail_set, 55)
   end
 
 

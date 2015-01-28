@@ -17,6 +17,4 @@ class ApplicationController < ActionController::Base
   def set_mountains
     @mountains = Mountain.all.order('name ASC')
   end
-
-  protected
 end

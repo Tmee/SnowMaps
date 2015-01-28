@@ -51,7 +51,7 @@ class PowderhornScraper < ActiveRecord::Base
     status = @mountain_doc.xpath("//div//fieldset[contains(@class, 'group-snow-green')]//div[contains(@class, 'fieldset-wrapper')]//div//span").map {|x| x.text}
 
     array = create_trail_array(names, status, 'beginner')
-    create_trails(array, 47)
+    create_trails(array, 48)
   end
 
   def scrape_for_intermediate
@@ -59,7 +59,7 @@ class PowderhornScraper < ActiveRecord::Base
     status = @mountain_doc.xpath("//div//fieldset[contains(@class, 'group-snow-blue')]//div[contains(@class, 'fieldset-wrapper')]//div//span").map {|x| x.text}
 
     array = create_trail_array(names, status, 'intermediate')
-    create_trails(array, 48)
+    create_trails(array, 49)
   end
 
   def scrape_for_expert
@@ -67,7 +67,7 @@ class PowderhornScraper < ActiveRecord::Base
     status = @mountain_doc.xpath("//div//fieldset[contains(@class, 'group-snow-black')]//div[contains(@class, 'fieldset-wrapper')]//div//span").map {|x| x.text}
 
     array = create_trail_array(names, status, 'expert')
-    create_trails(array, 49)
+    create_trails(array, 50)
   end
 
 

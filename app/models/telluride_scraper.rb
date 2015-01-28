@@ -29,7 +29,7 @@ class TellurideScraper < ActiveRecord::Base
   end
 
   def generate_peaks
-    telluride_peak_names = ['Beginner', 'Intermediate', 'Expert']
+    telluride_peak_names = ['Beginner', 'Intermediate', 'Avanced', 'Expert']
     telluride_peak_names.each do |peak|
       Peak.create!(name: peak,
                   mountain_id: 8
@@ -38,41 +38,41 @@ class TellurideScraper < ActiveRecord::Base
   end
 
   def scrape_for_trails
+    scrape_all_trails
+    create_beginner
+    create_intermediate
+    create_advanced
+    create_expert
+  end
+
+  def scrape_all_trails
     trails = scrape_raw_html("//div[contains(@class, 'allTrails')]//ul//li")
     @all_trails = format_trails(trails)
-    scrape_for_beginner
-    scrape_for_intermediate
-    scrape_for_expert
   end
 
-  def scrape_for_beginner
-    beginner = []
-    @all_trails.collect do |trail|
-      if trail[:difficulty] == 'levelNovice'
-        beginner << trail
-      end
-    end
-    create_trails(beginner, 44)
+  def create_beginner
+    trail_set = get_trails('levelNovice')
+    create_trails(trail_set, 44)
   end
 
-  def scrape_for_intermediate
-    intermediate = []
-    @all_trails.collect do |trail|
-      if trail[:difficulty] == 'levelIntermediate' || trail[:difficulty] == 'AdvancedIntermediate'
-        intermediate << trail
-      end
-    end
-    create_trails(intermediate, 45)
+  def create_intermediate
+    trail_set = get_trails('levelIntermediate')
+    create_trails(trail_set, 45)
   end
 
-  def scrape_for_expert
-    expert = []
-    @all_trails.collect do |trail|
-      if trail[:difficulty] == 'levelExpert' ||  trail[:difficulty] == 'levelExtreme'
-        expert << trail
-      end
-    end
-    create_trails(expert, 46)
+  def create_advanced_intermediate
+    trail_set = get_trails('AdvancedIntermediate')
+    create_trails(trail_set, 45) #not a fuck up
+  end
+
+  def create_advanced
+    trail_set = get_trails('levelExpert')
+    create_trails(trail_set, 46)
+  end
+
+  def create_expert
+    trail_set = get_trails('levelExtreme')
+    create_trails(trail_set, 47)
   end
 
 
@@ -102,6 +102,16 @@ class TellurideScraper < ActiveRecord::Base
                     difficulty: trail[:difficulty]
       )
     end
+  end
+
+  def get_trails(target_difficulty)
+    trail_set = []
+    @all_trails.collect do |trail|
+      if trail[:difficulty] == target_difficulty
+        trail_set << trail
+      end
+    end
+    trail_set
   end
 
   def scrape_raw_html(xpath)

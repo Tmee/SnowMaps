@@ -47,37 +47,37 @@ class WinterParkScraper < ActiveRecord::Base
   end
 
   def scrape_for_winter_park
-    winter_park_trails = scrape_raw_html("//div[contains(@id, 'trails2Tab')]//div[contains(@id, 'statusTablesTrail')]//section[position() = 1]//tr")
+    winter_park_trails = scrape_raw_html(1)
     format_trails(winter_park_trails)
     create_trails(winter_park_trails, 38)
   end
 
   def scrape_for_mary_jane
-    mary_jane_trails = scrape_raw_html("//div[contains(@id, 'trails2Tab')]//div[contains(@id, 'statusTablesTrail')]//section[position() = 2]//tr")
+    mary_jane_trails = scrape_raw_html(2)
     format_trails(mary_jane_trails)
     create_trails(mary_jane_trails, 39)
   end
 
   def scrape_for_vasquez_ridge
-    vasquez_ridge_trails = scrape_raw_html("//div[contains(@id, 'trails2Tab')]//div[contains(@id, 'statusTablesTrail')]//section[position() = 3]//tr")
+    vasquez_ridge_trails = scrape_raw_html(3)
     format_trails(vasquez_ridge_trails)
     create_trails(vasquez_ridge_trails, 40)
   end
 
   def scrape_for_parsenn_bowl
-    parsenn_bowl_trails = scrape_raw_html("//div[contains(@id, 'trails2Tab')]//div[contains(@id, 'statusTablesTrail')]//section[position() = 4]//tr")
+    parsenn_bowl_trails = scrape_raw_html(4)
     format_trails(parsenn_bowl_trails)
     create_trails(parsenn_bowl_trails, 41)
   end
 
   def scrape_for_eagle_wind
-    eagle_wind_trails = scrape_raw_html("//div[contains(@id, 'trails2Tab')]//div[contains(@id, 'statusTablesTrail')]//section[position() = 5]//tr")
+    eagle_wind_trails = scrape_raw_html(5)
     format_trails(eagle_wind_trails)
     create_trails(eagle_wind_trails, 42)
   end
 
   def scrape_for_the_cirque
-    the_cirque_trails = scrape_raw_html("//div[contains(@id, 'trails2Tab')]//div[contains(@id, 'statusTablesTrail')]//section[position() = 6]//tr")
+    the_cirque_trails = scrape_raw_html(6)
     format_trails(the_cirque_trails)
     create_trails(the_cirque_trails, 43)
   end
@@ -112,22 +112,23 @@ private
 
   def set_the_difficulty(trails)
     trails.each do |trail|
-      if trail[:difficulty] == 'http://www.winterparkresort.com/~/media/e1a39a124dd04adc8651bb5d73a43f5e.gif?h=12&w=12'
+      case trail[:difficulty]
+      when 'http://www.winterparkresort.com/~/media/e1a39a124dd04adc8651bb5d73a43f5e.gif?h=12&w=12'
         trail[:difficulty] = 'easy'
-      elsif trail[:difficulty] == 'http://www.winterparkresort.com/~/media/18a6d892d41c4da9bb92caf301354f4a.gif?h=12&w=12'
+      when'http://www.winterparkresort.com/~/media/18a6d892d41c4da9bb92caf301354f4a.gif?h=12&w=12'
         trail[:difficulty] = 'intermediate'
-      elsif trail[:difficulty] =='http://www.winterparkresort.com/~/media/d7f8b12d58cd4933853efe65874094c5.gif?h=12&w=12'
+      when'http://www.winterparkresort.com/~/media/d7f8b12d58cd4933853efe65874094c5.gif?h=12&w=12'
         trail[:difficulty] = 'intermediate'
-      elsif trail[:difficulty] == 'http://www.winterparkresort.com/~/media/98fc9271e4154ec6ab2c0d634552b904.gif?h=12&w=12'
+      when 'http://www.winterparkresort.com/~/media/98fc9271e4154ec6ab2c0d634552b904.gif?h=12&w=12'
         trail[:difficulty] = 'advanced'
-      elsif trail[:difficulty] == 'http://www.winterparkresort.com/~/media/411eb7f0ae444643a4ad3fd96e206d37.gif?h=12&w=12'
+      when 'http://www.winterparkresort.com/~/media/411eb7f0ae444643a4ad3fd96e206d37.gif?h=12&w=12'
         trail[:difficulty] = 'double diamound'
       end
     end
   end
 
-  def scrape_raw_html(xpath)
-    rows = @terrain_doc.xpath(xpath)
+  def scrape_raw_html(section)
+    rows = @terrain_doc.xpath("//div[contains(@id, 'trails2Tab')]//div[contains(@id, 'statusTablesTrail')]//section[position() = #{section}]//tr")
     trails_array = rows.collect do |row|
     detail = {}
     [
