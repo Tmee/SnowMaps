@@ -48,55 +48,55 @@
   end
 
   def scrape_for_chair_1
-    chair_1_trails = scrape_raw_html("//div[contains(@id, 'Lift 1')]//tr")
+    chair_1_trails = scrape_raw_html(1)
     format_open_and_difficulty(chair_1_trails)
     create_trails(chair_1_trails, 29)
   end
 
   def scrape_for_chair_2
-    chair_2_trails = scrape_raw_html("//div[contains(@id, 'Lift 2')]//tr")
+    chair_2_trails = scrape_raw_html(2)
     format_open_and_difficulty(chair_2_trails)
     create_trails(chair_2_trails, 30)
   end
 
   def scrape_for_chair_3
-    chair_3_trails = scrape_raw_html("//div[contains(@id, 'Lift 3')]//tr")
+    chair_3_trails = scrape_raw_html(3)
     format_open_and_difficulty(chair_3_trails)
     create_trails(chair_3_trails, 31)
   end
 
   def scrape_for_chair_4
-    chair_4_trails = scrape_raw_html("//div[contains(@id, 'Lift 4')]//tr")
+    chair_4_trails = scrape_raw_html(4)
     format_open_and_difficulty(chair_4_trails)
     create_trails(chair_4_trails, 32)
   end
 
   def scrape_for_chair_6
-    chair_6_trails = scrape_raw_html("//div[contains(@id, 'Lift 6')]//tr")
+    chair_6_trails = scrape_raw_html(6)
     format_open_and_difficulty(chair_6_trails)
     create_trails(chair_6_trails, 33)
   end
 
   def scrape_for_chair_7
-    chair_7_trails = scrape_raw_html("//div[contains(@id, 'Lift 7')]//tr")
+    chair_7_trails = scrape_raw_html(7)
     format_open_and_difficulty(chair_7_trails)
     create_trails(chair_7_trails, 34)
   end
 
   def scrape_for_chair_8
-    chair_8_trails = scrape_raw_html("//div[contains(@id, 'Lift 8')]//tr")
+    chair_8_trails = scrape_raw_html(8)
     format_open_and_difficulty(chair_8_trails)
     create_trails(chair_8_trails, 35)
   end
 
   def scrape_for_chair_9
-    chair_9_trails = scrape_raw_html("//div[contains(@id, 'Lift 9')]//tr")
+    chair_9_trails = scrape_raw_html(9)
     format_open_and_difficulty(chair_9_trails)
     create_trails(chair_9_trails, 36)
   end
 
   def scrape_for_magic_carpet
-    chair_12_trails = scrape_raw_html("//div[contains(@id, 'Lift 12')]//tr")
+    chair_12_trails = scrape_raw_html(12)
     format_open_and_difficulty(chair_12_trails)
     create_trails(chair_12_trails, 37)
   end
@@ -127,8 +127,8 @@
     end
   end
 
-  def scrape_raw_html(xpath)
-    rows = @terrain_doc.xpath(xpath)
+  def scrape_raw_html(lift_number)
+    rows = @terrain_doc.xpath("//div[contains(@id, 'Lift #{lift_number}')]//tr")
     trails_array = rows.collect do |row|
     detail = {}
     [
