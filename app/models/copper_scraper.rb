@@ -49,46 +49,29 @@ class CopperScraper < ActiveRecord::Base
     @all_trails = format_trails(trails)
   end
 
-
   def create_beginner
-    beginner = []
-    @all_trails.collect do |trail|
-      if trail[:difficulty] == 'beginner'
-        beginner << trail
-      end
-    end
-    create_trails(beginner, 50)
+    trail_set = get_trails('beginner')
+    create_trails(trail_set, 50)
   end
 
   def create_intermediate
-    intermediate = []
-    @all_trails.collect do |trail|
-      if trail[:difficulty] == 'intermediate'
-        intermediate << trail
-      end
-    end
-    create_trails(intermediate, 51)
+    trail_set = get_trails('intermediate')
+    create_trails(trail_set, 51)
   end
 
   def create_advanced
-    advanced = []
-    @all_trails.collect do |trail|
-      if trail[:difficulty] == 'advanced'
-        advanced << trail
-      end
-    end
-    create_trails(advanced, 52)
+    trail_set = get_trails('advanced')
+    create_trails(trail_set, 52)
+  end
 
+  def create_extreme
+    trail_set = get_trails('extreme')
+    create_trails(trail_set, 53)
   end
 
   def create_expert
-    expert = []
-    @all_trails.collect do |trail|
-      if trail[:difficulty] == 'expert' || trail[:difficulty] == 'extreme'
-        expert << trail
-      end
-    end
-    create_trails(expert, 53)
+    trail_set = get_trails('expert')
+    create_trails(trail_set, 53)
   end
 
 
@@ -127,6 +110,16 @@ class CopperScraper < ActiveRecord::Base
     end
   end
 
+  def get_trails(target_difficulty)
+    trail_set = []
+    @all_trails.collect do |trail|
+      if trail[:difficulty] == target_difficulty
+        trail_set << trail
+      end
+    end
+    trail_set
+  end
+
   def create_trails(trails, peak_id)
     trails.each do |trail|
       Trail.create!(name: trail[:name],
@@ -135,6 +128,7 @@ class CopperScraper < ActiveRecord::Base
                     difficulty: trail[:difficulty]
       )
     end
+
   end
 
   def find_snow_depth
