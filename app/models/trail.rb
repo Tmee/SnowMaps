@@ -22,7 +22,7 @@ class Trail < ActiveRecord::Base
   end
 
   def expert?
-    array = ['expert', 'exp', 'doubleDiamond', 'levelExtreme'].map {|x| x == difficulty}
+    array = ['expert', 'exp', 'doubleDiamond', 'levelExtreme', 'extreme'].map {|x| x == difficulty}
     array.include? true
   end
 

@@ -28,7 +28,7 @@ class CopperScraper < ActiveRecord::Base
   end
 
   def generate_peaks
-    copper_peak_names = ['Beginner', 'Intermediate', 'Expert']
+    copper_peak_names = ['Beginner', 'Intermediate', 'Advanced', 'Expert']
     copper_peak_names.each do |peak|
       Peak.create!(name: peak,
                   mountain_id: 10
@@ -37,14 +37,20 @@ class CopperScraper < ActiveRecord::Base
   end
 
   def scrape_for_trails
-    trails      = scrape_raw_html("//div//table[contains(@class, 'report-page-status runs')]//tr")
-    @all_trails = format_trails(trails)
-    scrape_for_beginner
-    scrape_for_intermediate
-    scrape_for_expert
+    scrape_all_trails
+    create_beginner
+    create_intermediate
+    create_advanced
+    create_expert
   end
 
-  def scrape_for_beginner
+  def scrape_all_trails
+    trails      = scrape_raw_html("//div//table[contains(@class, 'report-page-status runs')]//tr[position() > 1]")
+    @all_trails = format_trails(trails)
+  end
+
+
+  def create_beginner
     beginner = []
     @all_trails.collect do |trail|
       if trail[:difficulty] == 'beginner'
@@ -54,25 +60,37 @@ class CopperScraper < ActiveRecord::Base
     create_trails(beginner, 50)
   end
 
-  def scrape_for_intermediate
+  def create_intermediate
     intermediate = []
     @all_trails.collect do |trail|
-      if trail[:difficulty] == 'intermediate' || trail[:difficulty] == 'advanced'
+      if trail[:difficulty] == 'intermediate'
         intermediate << trail
       end
     end
     create_trails(intermediate, 51)
   end
 
-  def scrape_for_expert
+  def create_advanced
+    advanced = []
+    @all_trails.collect do |trail|
+      if trail[:difficulty] == 'advanced'
+        advanced << trail
+      end
+    end
+    create_trails(advanced, 52)
+
+  end
+
+  def create_expert
     expert = []
     @all_trails.collect do |trail|
       if trail[:difficulty] == 'expert' || trail[:difficulty] == 'extreme'
         expert << trail
       end
     end
-    create_trails(expert, 52)
+    create_trails(expert, 53)
   end
+
 
   private
 
@@ -81,13 +99,13 @@ class CopperScraper < ActiveRecord::Base
   end
 
   def scrape_raw_html(xpath)
-    rows = @mountain_doc.xpath("//div//table[contains(@class, 'report-page-status runs')]//tr")
+    rows = @mountain_doc.xpath(xpath)
     trails = rows.collect do |row|
     detail = {}
     [
       [:name, "td[contains(@class, 'title')]"],
       [:open, "//td[contains(@class, 'status_icon')]//img"],
-      [:difficulty, "//td[contains(@class, 'trail icon')]//img"],
+      [:difficulty, "td[contains(@class, 'trail icon')]//img"],
     ].each do |name, xpath|
       case name
         when :name

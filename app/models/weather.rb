@@ -9,14 +9,16 @@ class Weather < ActiveRecord::Base
     @w_api = Wunderground.new
     get_vail_weather_report
     get_keystone_weather_report
+    sleep(35.seconds)
     get_breckenridge_weather_report
     get_beaver_creek_weather_report
     sleep(35.seconds)
     get_a_basin_weather_report
     get_loveland_weather_report
-    get_winter_park_weather_report
     sleep(35.seconds)
+    get_winter_park_weather_report
     get_telluride_weather_report
+    sleep(35.seconds)
     get_copper_weather_report
     get_powderhorn_weather_report
   end

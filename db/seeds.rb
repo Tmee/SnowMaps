@@ -3,7 +3,7 @@ class Seed
   def initialize
     generate_mountains_peaks_and_trails
     remove_blank_trail_names
-    get_the_weather
+    # get_the_weather
   end
 
   def generate_mountains_peaks_and_trails

@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_mountains
-    @mountains = Mountain.all
+    @mountains = Mountain.all.order('name ASC')
   end
 
   protected
