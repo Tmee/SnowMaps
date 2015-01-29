@@ -10,8 +10,4 @@ every 2.minutes do
   rake "db:create"
   rake "db:migrate"
   rake "db:seed"
-  command "cd /Users/Tim_Mee/Turing/projects/self_directed/snow_maps && RAILS_ENV=production rake db:drop"
-  command "cd /Users/Tim_Mee/Turing/projects/self_directed/snow_maps && RAILS_ENV=production rake db:create"
-  command "cd /Users/Tim_Mee/Turing/projects/self_directed/snow_maps && RAILS_ENV=production rake db:migrate"
-  command "cd /Users/Tim_Mee/Turing/projects/self_directed/snow_maps && RAILS_ENV=production rake db:seed"
 end

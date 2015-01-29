@@ -15,11 +15,6 @@ RSpec.describe Trail, :type => :model do
     expect(trail).to be_valid
   end
 
-  it "is invalid without a name" do
-    trail.name = nil
-    expect(trail).not_to be_valid
-  end
-
   it "is a beginner trail" do
     assert(trail.beginner?)
   end

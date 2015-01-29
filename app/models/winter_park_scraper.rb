@@ -13,12 +13,12 @@ class WinterParkScraper < ActiveRecord::Base
     base_and_condition = find_base_and_condition
 
     Mountain.create!(name:      "Winter Park Resort",
-                    last_24:        snow_report[0],
-                    overnight:      snow_report[0],
-                    last_48:        snow_report[1],
-                    season_total:   snow_report[3],
+                    last_24:        "#{snow_report[0]} \"",
+                    overnight:      "#{snow_report[0]} \"",
+                    last_48:        "#{snow_report[1]} \"",
+                    season_total:   "#{snow_report[3]} \"",
                     last_7_days:    "-",
-                    base_depth:     base_and_condition[0],
+                    base_depth:     "#{base_and_condition[0]} \"",
                     snow_condition: base_and_condition[1],
                     lifts_open:     lift_trail_acre[0],
                     runs_open:      lift_trail_acre[1],

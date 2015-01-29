@@ -13,12 +13,12 @@ class CopperScraper < ActiveRecord::Base
     snow_depth     = find_snow_depth
 
     Mountain.create!(name:      "Copper Mountain",
-                    last_24:        snow_report[1],
-                    overnight:      snow_report[8],
-                    last_48:        snow_report[9],
-                    last_7_days:    snow_report[11],
+                    last_24:        "#{snow_report[1]} \"",
+                    overnight:      "#{snow_report[8]} \"",
+                    last_48:        "#{snow_report[9]} \"",
+                    last_7_days:    "#{snow_report[11]} \"",
                     base_depth:     snow_depth,
-                    season_total:   snow_report[13],
+                    season_total:   "#{snow_report[13]} \"",
                     acres_open:     terrain_status[2],
                     lifts_open:     terrain_status[0],
                     runs_open:      terrain_status[1],
@@ -146,6 +146,6 @@ class CopperScraper < ActiveRecord::Base
   end
 
   def format_terrain(data)
-    data.map {|data| data.gsub(/\s/, '')}
+    data.map {|data| data.gsub(/\s{2}/, '')}
   end
 end
