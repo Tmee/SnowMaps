@@ -15,7 +15,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'nokogiri'
 gem 'wunderground'
-gem 'whenever'
+gem 'whenever', :require => false
 
 gem 'spring',        group: :development
 

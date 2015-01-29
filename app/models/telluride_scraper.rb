@@ -3,7 +3,7 @@ class TellurideScraper < ActiveRecord::Base
   def initialize
     set_documents
     create_mountain_information
-    generate_peaks
+    # generate_peaks
     scrape_for_trails
   end
 
@@ -13,18 +13,16 @@ class TellurideScraper < ActiveRecord::Base
     snow_report         = find_snow_report
     base_and_conditions = find_snow_surface
 
-    Mountain.create!(name:          "Telluride Ski Resort",
-                    last_24:        snow_report[1],
-                    overnight:      snow_report[0],
-                    last_48:        snow_report[2],
-                    last_7_days:    snow_report[4],
-                    base_depth:     base_and_conditions[0],
-                    season_total:   snow_report[5],
-                    acres_open:     '-',
-                    lifts_open:     "#{lifts_open} of 18",
-                    runs_open:      "#{trails_open} of 148",
-                    snow_condition: base_and_conditions[1],
-                    town:           'Telluride'
+    Mountain.find(8).update(last_24:        snow_report[1],
+                            overnight:      snow_report[0],
+                            last_48:        snow_report[2],
+                            last_7_days:    snow_report[4],
+                            base_depth:     base_and_conditions[0],
+                            season_total:   snow_report[5],
+                            acres_open:     '-',
+                            lifts_open:     "#{lifts_open} of 18",
+                            runs_open:      "#{trails_open} of 148",
+                            snow_condition: base_and_conditions[1]
     )
   end
 
@@ -96,11 +94,11 @@ class TellurideScraper < ActiveRecord::Base
 
   def create_trails(trails, peak_id)
     trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: peak_id,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
+      unless trail[:name] == ''
+        Trail.find_by(name: trail[:name]).update(open: trail[:open],
+                                                difficulty: trail[:difficulty]
+        )
+      end
     end
   end
 

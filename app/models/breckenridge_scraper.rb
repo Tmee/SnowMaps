@@ -3,7 +3,7 @@ class BreckenridgeScraper < ActiveRecord::Base
   def initialize
     set_documents
     create_mountain_information
-    generate_peaks
+    # generate_peaks
     scrape_for_trails
   end
 
@@ -11,18 +11,16 @@ class BreckenridgeScraper < ActiveRecord::Base
     snow_condition = scrape_for_snow_condition
     report         = scrape_for_snow_report_data
 
-    Mountain.create!(name:   "Breckenridge Resort",
-                    last_24:        report[0],
-                    overnight:      report[1],
-                    last_48:        report[2],
-                    last_7_days:    report[3],
-                    season_total:   report[4],
-                    acres_open:     report[5],
-                    lifts_open:     report[6],
-                    runs_open:      report[7],
-                    snow_condition: snow_condition,
-                    town:           'Breckenridge'
-    )
+    Mountain.find(3).update(last_24:        report[0],
+                            overnight:      report[1],
+                            last_48:        report[2],
+                            last_7_days:    report[3],
+                            season_total:   report[4],
+                            acres_open:     report[5],
+                            lifts_open:     report[6],
+                            runs_open:      report[7],
+                            snow_condition: snow_condition
+            )
   end
 
   def scrape_for_snow_report_data
@@ -115,11 +113,11 @@ class BreckenridgeScraper < ActiveRecord::Base
 
   def create_trails(trails, peak_id)
     trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: peak_id,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
+      unless trail[:name] == ''
+        Trail.find_by(name: trail[:name]).update(open: trail[:open],
+                                               difficulty: trail[:difficulty]
+        )
+      end
     end
   end
 

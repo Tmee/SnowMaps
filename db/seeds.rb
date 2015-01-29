@@ -3,48 +3,42 @@ class Seed
   def initialize
     generate_mountains_peaks_and_trails
     remove_blank_trail_names
-    get_the_weather
   end
 
   def generate_mountains_peaks_and_trails
-    VailScraper.new
+    VailScraper.new          #1
     puts "Generate Vail, complete"
 
-    KeystoneScraper.new
+    KeystoneScraper.new      #2
     puts "Generate Keystone, complete"
 
-    BreckenridgeScraper.new
+    BreckenridgeScraper.new  #3
     puts "Generate Breckenridge, complete"
 
-    BeaverCreekScraper.new
+    BeaverCreekScraper.new   #4
     puts "Generate Beaver Creek, complete"
 
-    ArapahoeBasinScraper.new
+    ArapahoeBasinScraper.new #5
     puts "Generate A Basin, complete"
 
-    LovelandScraper.new
+    LovelandScraper.new      #6
     puts "Generate Loveland, complete"
 
-    WinterParkScraper.new
+    WinterParkScraper.new    #7
     puts "Generate Winter Park, complete"
 
-    TellurideScraper.new
+    TellurideScraper.new     #8
     puts "Generate Telluride, complete"
 
-    PowderhornScraper.new
+    PowderhornScraper.new    #9
     puts "Generate Powderhorn, complete"
 
-    CopperScraper.new
+    CopperScraper.new        #10
     puts "Generate Copper, complete"
   end
 
   def remove_blank_trail_names
     Trail.where(name: '').destroy_all
-  end
-
-  def get_the_weather
-    Weather.new
-    puts "Weather Updated"
   end
 end
 

@@ -1,0 +1,1136 @@
+== 20150111042454 CreateUsers: migrating ======================================
+-- create_table(:users)
+   -> 0.0069s
+== 20150111042454 CreateUsers: migrated (0.0070s) =============================
+
+== 20150113040510 CreateMountains: migrating ==================================
+-- create_table(:mountains)
+   -> 0.0034s
+== 20150113040510 CreateMountains: migrated (0.0035s) =========================
+
+== 20150114175620 CreatePeaks: migrating ======================================
+-- create_table(:peaks)
+   -> 0.0023s
+== 20150114175620 CreatePeaks: migrated (0.0023s) =============================
+
+== 20150114192942 CreateTrails: migrating =====================================
+-- create_table(:trails)
+   -> 0.0039s
+== 20150114192942 CreateTrails: migrated (0.0040s) ============================
+
+== 20150116053402 AddDifficultyToTrails: migrating ============================
+-- add_column(:trails, :difficulty, :string)
+   -> 0.0005s
+== 20150116053402 AddDifficultyToTrails: migrated (0.0006s) ===================
+
+== 20150117203521 VailScrapers: migrating =====================================
+-- create_table(:vail_scrapers)
+   -> 0.0041s
+== 20150117203521 VailScrapers: migrated (0.0042s) ============================
+
+== 20150117204124 BeaverCreekScrapers: migrating ==============================
+-- create_table(:beaver_creek_scrapers)
+   -> 0.0022s
+== 20150117204124 BeaverCreekScrapers: migrated (0.0022s) =====================
+
+== 20150117204148 BreckenridgeScrapers: migrating =============================
+-- create_table(:breckenridge_scrapers)
+   -> 0.0030s
+== 20150117204148 BreckenridgeScrapers: migrated (0.0031s) ====================
+
+== 20150117204156 KeystoneScrapers: migrating =================================
+-- create_table(:keystone_scrapers)
+   -> 0.0023s
+== 20150117204156 KeystoneScrapers: migrated (0.0024s) ========================
+
+== 20150118223256 CreateArapahoeBasinScrapers: migrating ======================
+-- create_table(:arapahoe_basin_scrapers)
+   -> 0.0031s
+== 20150118223256 CreateArapahoeBasinScrapers: migrated (0.0032s) =============
+
+== 20150121154841 CreateLovelandScrapers: migrating ===========================
+-- create_table(:loveland_scrapers)
+   -> 0.0034s
+== 20150121154841 CreateLovelandScrapers: migrated (0.0035s) ==================
+
+== 20150122204005 AddTownToMountains: migrating ===============================
+-- add_column(:mountains, :town, :string)
+   -> 0.0008s
+== 20150122204005 AddTownToMountains: migrated (0.0009s) ======================
+
+== 20150125014708 CreateWeatherReports: migrating =============================
+-- create_table(:weather_reports)
+   -> 0.0034s
+== 20150125014708 CreateWeatherReports: migrated (0.0035s) ====================
+
+== 20150125020219 CreateWeathers: migrating ===================================
+-- create_table(:weathers)
+   -> 0.0037s
+== 20150125020219 CreateWeathers: migrated (0.0038s) ==========================
+
+== 20150126002046 CreateWinterParkScrapers: migrating =========================
+-- create_table(:winter_park_scrapers)
+   -> 0.0025s
+== 20150126002046 CreateWinterParkScrapers: migrated (0.0026s) ================
+
+== 20150126024645 CreateCopperScrapers: migrating =============================
+-- create_table(:copper_scrapers)
+   -> 0.0022s
+== 20150126024645 CreateCopperScrapers: migrated (0.0023s) ====================
+
+== 20150126193550 CreateTellurideScrapers: migrating ==========================
+-- create_table(:telluride_scrapers)
+   -> 0.0033s
+== 20150126193550 CreateTellurideScrapers: migrated (0.0033s) =================
+
+== 20150126220308 CreatePowderhornScrapers: migrating =========================
+-- create_table(:powderhorn_scrapers)
+   -> 0.0033s
+== 20150126220308 CreatePowderhornScrapers: migrated (0.0034s) ================
+
+You have 18 pending migrations:
+  20150111042454 CreateUsers
+  20150113040510 CreateMountains
+  20150114175620 CreatePeaks
+  20150114192942 CreateTrails
+  20150116053402 AddDifficultyToTrails
+  20150117203521 VailScrapers
+  20150117204124 BeaverCreekScrapers
+  20150117204148 BreckenridgeScrapers
+  20150117204156 KeystoneScrapers
+  20150118223256 CreateArapahoeBasinScrapers
+  20150121154841 CreateLovelandScrapers
+  20150122204005 AddTownToMountains
+  20150125014708 CreateWeatherReports
+  20150125020219 CreateWeathers
+  20150126002046 CreateWinterParkScrapers
+  20150126024645 CreateCopperScrapers
+  20150126193550 CreateTellurideScrapers
+  20150126220308 CreatePowderhornScrapers
+== 20150111042454 CreateUsers: migrating ======================================
+-- create_table(:users)
+   -> 0.0051s
+== 20150111042454 CreateUsers: migrated (0.0051s) =============================
+
+== 20150113040510 CreateMountains: migrating ==================================
+-- create_table(:mountains)
+   -> 0.0038s
+== 20150113040510 CreateMountains: migrated (0.0039s) =========================
+
+== 20150114175620 CreatePeaks: migrating ======================================
+-- create_table(:peaks)
+   -> 0.0088s
+== 20150114175620 CreatePeaks: migrated (0.0089s) =============================
+
+== 20150114192942 CreateTrails: migrating =====================================
+-- create_table(:trails)
+   -> 0.0026s
+== 20150114192942 CreateTrails: migrated (0.0027s) ============================
+
+== 20150116053402 AddDifficultyToTrails: migrating ============================
+-- add_column(:trails, :difficulty, :string)
+   -> 0.0005s
+== 20150116053402 AddDifficultyToTrails: migrated (0.0006s) ===================
+
+== 20150117203521 VailScrapers: migrating =====================================
+-- create_table(:vail_scrapers)
+   -> 0.0029s
+== 20150117203521 VailScrapers: migrated (0.0030s) ============================
+
+== 20150117204124 BeaverCreekScrapers: migrating ==============================
+-- create_table(:beaver_creek_scrapers)
+   -> 0.0019s
+== 20150117204124 BeaverCreekScrapers: migrated (0.0019s) =====================
+
+== 20150117204148 BreckenridgeScrapers: migrating =============================
+-- create_table(:breckenridge_scrapers)
+   -> 0.0019s
+== 20150117204148 BreckenridgeScrapers: migrated (0.0019s) ====================
+
+== 20150117204156 KeystoneScrapers: migrating =================================
+-- create_table(:keystone_scrapers)
+   -> 0.0030s
+== 20150117204156 KeystoneScrapers: migrated (0.0030s) ========================
+
+== 20150118223256 CreateArapahoeBasinScrapers: migrating ======================
+-- create_table(:arapahoe_basin_scrapers)
+   -> 0.0029s
+== 20150118223256 CreateArapahoeBasinScrapers: migrated (0.0030s) =============
+
+== 20150121154841 CreateLovelandScrapers: migrating ===========================
+-- create_table(:loveland_scrapers)
+   -> 0.0030s
+== 20150121154841 CreateLovelandScrapers: migrated (0.0031s) ==================
+
+== 20150122204005 AddTownToMountains: migrating ===============================
+-- add_column(:mountains, :town, :string)
+   -> 0.0008s
+== 20150122204005 AddTownToMountains: migrated (0.0009s) ======================
+
+== 20150125014708 CreateWeatherReports: migrating =============================
+-- create_table(:weather_reports)
+   -> 0.0039s
+== 20150125014708 CreateWeatherReports: migrated (0.0040s) ====================
+
+== 20150125020219 CreateWeathers: migrating ===================================
+-- create_table(:weathers)
+   -> 0.0032s
+== 20150125020219 CreateWeathers: migrated (0.0033s) ==========================
+
+== 20150126002046 CreateWinterParkScrapers: migrating =========================
+-- create_table(:winter_park_scrapers)
+   -> 0.0025s
+== 20150126002046 CreateWinterParkScrapers: migrated (0.0025s) ================
+
+== 20150126024645 CreateCopperScrapers: migrating =============================
+-- create_table(:copper_scrapers)
+   -> 0.0017s
+== 20150126024645 CreateCopperScrapers: migrated (0.0018s) ====================
+
+== 20150126193550 CreateTellurideScrapers: migrating ==========================
+-- create_table(:telluride_scrapers)
+   -> 0.0029s
+== 20150126193550 CreateTellurideScrapers: migrated (0.0030s) =================
+
+== 20150126220308 CreatePowderhornScrapers: migrating =========================
+-- create_table(:powderhorn_scrapers)
+   -> 0.0022s
+== 20150126220308 CreatePowderhornScrapers: migrated (0.0022s) ================
+
+You have 18 pending migrations:
+  20150111042454 CreateUsers
+  20150113040510 CreateMountains
+  20150114175620 CreatePeaks
+  20150114192942 CreateTrails
+  20150116053402 AddDifficultyToTrails
+  20150117203521 VailScrapers
+  20150117204124 BeaverCreekScrapers
+  20150117204148 BreckenridgeScrapers
+  20150117204156 KeystoneScrapers
+  20150118223256 CreateArapahoeBasinScrapers
+  20150121154841 CreateLovelandScrapers
+  20150122204005 AddTownToMountains
+  20150125014708 CreateWeatherReports
+  20150125020219 CreateWeathers
+  20150126002046 CreateWinterParkScrapers
+  20150126024645 CreateCopperScrapers
+  20150126193550 CreateTellurideScrapers
+  20150126220308 CreatePowderhornScrapers
+== 20150111042454 CreateUsers: migrating ======================================
+-- create_table(:users)
+   -> 0.0051s
+== 20150111042454 CreateUsers: migrated (0.0051s) =============================
+
+== 20150113040510 CreateMountains: migrating ==================================
+-- create_table(:mountains)
+   -> 0.0041s
+== 20150113040510 CreateMountains: migrated (0.0041s) =========================
+
+== 20150114175620 CreatePeaks: migrating ======================================
+-- create_table(:peaks)
+   -> 0.0021s
+== 20150114175620 CreatePeaks: migrated (0.0022s) =============================
+
+== 20150114192942 CreateTrails: migrating =====================================
+-- create_table(:trails)
+   -> 0.0031s
+== 20150114192942 CreateTrails: migrated (0.0032s) ============================
+
+== 20150116053402 AddDifficultyToTrails: migrating ============================
+-- add_column(:trails, :difficulty, :string)
+   -> 0.0005s
+== 20150116053402 AddDifficultyToTrails: migrated (0.0005s) ===================
+
+== 20150117203521 VailScrapers: migrating =====================================
+-- create_table(:vail_scrapers)
+   -> 0.0034s
+== 20150117203521 VailScrapers: migrated (0.0035s) ============================
+
+== 20150117204124 BeaverCreekScrapers: migrating ==============================
+-- create_table(:beaver_creek_scrapers)
+   -> 0.0018s
+== 20150117204124 BeaverCreekScrapers: migrated (0.0019s) =====================
+
+== 20150117204148 BreckenridgeScrapers: migrating =============================
+-- create_table(:breckenridge_scrapers)
+   -> 0.0019s
+== 20150117204148 BreckenridgeScrapers: migrated (0.0020s) ====================
+
+== 20150117204156 KeystoneScrapers: migrating =================================
+-- create_table(:keystone_scrapers)
+   -> 0.0029s
+== 20150117204156 KeystoneScrapers: migrated (0.0029s) ========================
+
+== 20150118223256 CreateArapahoeBasinScrapers: migrating ======================
+-- create_table(:arapahoe_basin_scrapers)
+   -> 0.0019s
+== 20150118223256 CreateArapahoeBasinScrapers: migrated (0.0020s) =============
+
+== 20150121154841 CreateLovelandScrapers: migrating ===========================
+-- create_table(:loveland_scrapers)
+   -> 0.0023s
+== 20150121154841 CreateLovelandScrapers: migrated (0.0024s) ==================
+
+== 20150122204005 AddTownToMountains: migrating ===============================
+-- add_column(:mountains, :town, :string)
+   -> 0.0005s
+== 20150122204005 AddTownToMountains: migrated (0.0006s) ======================
+
+== 20150125014708 CreateWeatherReports: migrating =============================
+-- create_table(:weather_reports)
+   -> 0.0031s
+== 20150125014708 CreateWeatherReports: migrated (0.0031s) ====================
+
+== 20150125020219 CreateWeathers: migrating ===================================
+-- create_table(:weathers)
+   -> 0.0020s
+== 20150125020219 CreateWeathers: migrated (0.0020s) ==========================
+
+== 20150126002046 CreateWinterParkScrapers: migrating =========================
+-- create_table(:winter_park_scrapers)
+   -> 0.0024s
+== 20150126002046 CreateWinterParkScrapers: migrated (0.0025s) ================
+
+== 20150126024645 CreateCopperScrapers: migrating =============================
+-- create_table(:copper_scrapers)
+   -> 0.0030s
+== 20150126024645 CreateCopperScrapers: migrated (0.0031s) ====================
+
+== 20150126193550 CreateTellurideScrapers: migrating ==========================
+-- create_table(:telluride_scrapers)
+   -> 0.0029s
+== 20150126193550 CreateTellurideScrapers: migrated (0.0029s) =================
+
+== 20150126220308 CreatePowderhornScrapers: migrating =========================
+-- create_table(:powderhorn_scrapers)
+   -> 0.0023s
+== 20150126220308 CreatePowderhornScrapers: migrated (0.0023s) ================
+
+You have 12 pending migrations:
+  20150117204124 BeaverCreekScrapers
+  20150117204148 BreckenridgeScrapers
+  20150117204156 KeystoneScrapers
+  20150118223256 CreateArapahoeBasinScrapers
+  20150121154841 CreateLovelandScrapers
+  20150122204005 AddTownToMountains
+  20150125014708 CreateWeatherReports
+  20150125020219 CreateWeathers
+  20150126002046 CreateWinterParkScrapers
+  20150126024645 CreateCopperScrapers
+  20150126193550 CreateTellurideScrapers
+  20150126220308 CreatePowderhornScrapers
+== 20150111042454 CreateUsers: migrating ======================================
+-- create_table(:users)
+   -> 0.0043s
+== 20150111042454 CreateUsers: migrated (0.0043s) =============================
+
+== 20150113040510 CreateMountains: migrating ==================================
+-- create_table(:mountains)
+   -> 0.0036s
+== 20150113040510 CreateMountains: migrated (0.0036s) =========================
+
+== 20150114175620 CreatePeaks: migrating ======================================
+-- create_table(:peaks)
+   -> 0.0019s
+== 20150114175620 CreatePeaks: migrated (0.0020s) =============================
+
+== 20150114192942 CreateTrails: migrating =====================================
+-- create_table(:trails)
+   -> 0.0034s
+== 20150114192942 CreateTrails: migrated (0.0034s) ============================
+
+== 20150116053402 AddDifficultyToTrails: migrating ============================
+-- add_column(:trails, :difficulty, :string)
+   -> 0.0006s
+== 20150116053402 AddDifficultyToTrails: migrated (0.0007s) ===================
+
+== 20150117203521 VailScrapers: migrating =====================================
+-- create_table(:vail_scrapers)
+   -> 0.0036s
+== 20150117203521 VailScrapers: migrated (0.0036s) ============================
+
+== 20150117204124 BeaverCreekScrapers: migrating ==============================
+-- create_table(:beaver_creek_scrapers)
+   -> 0.0024s
+== 20150117204124 BeaverCreekScrapers: migrated (0.0024s) =====================
+
+== 20150117204148 BreckenridgeScrapers: migrating =============================
+-- create_table(:breckenridge_scrapers)
+   -> 0.0023s
+== 20150117204148 BreckenridgeScrapers: migrated (0.0023s) ====================
+
+== 20150117204156 KeystoneScrapers: migrating =================================
+-- create_table(:keystone_scrapers)
+   -> 0.0025s
+== 20150117204156 KeystoneScrapers: migrated (0.0026s) ========================
+
+== 20150118223256 CreateArapahoeBasinScrapers: migrating ======================
+-- create_table(:arapahoe_basin_scrapers)
+   -> 0.0020s
+== 20150118223256 CreateArapahoeBasinScrapers: migrated (0.0020s) =============
+
+== 20150121154841 CreateLovelandScrapers: migrating ===========================
+-- create_table(:loveland_scrapers)
+   -> 0.0032s
+== 20150121154841 CreateLovelandScrapers: migrated (0.0032s) ==================
+
+== 20150122204005 AddTownToMountains: migrating ===============================
+-- add_column(:mountains, :town, :string)
+   -> 0.0005s
+== 20150122204005 AddTownToMountains: migrated (0.0006s) ======================
+
+== 20150125014708 CreateWeatherReports: migrating =============================
+-- create_table(:weather_reports)
+   -> 0.0030s
+== 20150125014708 CreateWeatherReports: migrated (0.0031s) ====================
+
+== 20150125020219 CreateWeathers: migrating ===================================
+-- create_table(:weathers)
+   -> 0.0023s
+== 20150125020219 CreateWeathers: migrated (0.0023s) ==========================
+
+== 20150126002046 CreateWinterParkScrapers: migrating =========================
+-- create_table(:winter_park_scrapers)
+   -> 0.0019s
+== 20150126002046 CreateWinterParkScrapers: migrated (0.0019s) ================
+
+== 20150126024645 CreateCopperScrapers: migrating =============================
+-- create_table(:copper_scrapers)
+   -> 0.0027s
+== 20150126024645 CreateCopperScrapers: migrated (0.0028s) ====================
+
+== 20150126193550 CreateTellurideScrapers: migrating ==========================
+-- create_table(:telluride_scrapers)
+   -> 0.0019s
+== 20150126193550 CreateTellurideScrapers: migrated (0.0019s) =================
+
+== 20150126220308 CreatePowderhornScrapers: migrating =========================
+-- create_table(:powderhorn_scrapers)
+   -> 0.0028s
+== 20150126220308 CreatePowderhornScrapers: migrated (0.0029s) ================
+
+You have 18 pending migrations:
+  20150111042454 CreateUsers
+  20150113040510 CreateMountains
+  20150114175620 CreatePeaks
+  20150114192942 CreateTrails
+  20150116053402 AddDifficultyToTrails
+  20150117203521 VailScrapers
+  20150117204124 BeaverCreekScrapers
+  20150117204148 BreckenridgeScrapers
+  20150117204156 KeystoneScrapers
+  20150118223256 CreateArapahoeBasinScrapers
+  20150121154841 CreateLovelandScrapers
+  20150122204005 AddTownToMountains
+  20150125014708 CreateWeatherReports
+  20150125020219 CreateWeathers
+  20150126002046 CreateWinterParkScrapers
+  20150126024645 CreateCopperScrapers
+  20150126193550 CreateTellurideScrapers
+  20150126220308 CreatePowderhornScrapers
+You have 18 pending migrations:
+  20150111042454 CreateUsers
+  20150113040510 CreateMountains
+  20150114175620 CreatePeaks
+  20150114192942 CreateTrails
+  20150116053402 AddDifficultyToTrails
+  20150117203521 VailScrapers
+  20150117204124 BeaverCreekScrapers
+  20150117204148 BreckenridgeScrapers
+  20150117204156 KeystoneScrapers
+  20150118223256 CreateArapahoeBasinScrapers
+  20150121154841 CreateLovelandScrapers
+  20150122204005 AddTownToMountains
+  20150125014708 CreateWeatherReports
+  20150125020219 CreateWeathers
+  20150126002046 CreateWinterParkScrapers
+  20150126024645 CreateCopperScrapers
+  20150126193550 CreateTellurideScrapers
+  20150126220308 CreatePowderhornScrapers
+== 20150111042454 CreateUsers: migrating ======================================
+-- create_table(:users)
+   -> 0.0057s
+== 20150111042454 CreateUsers: migrated (0.0058s) =============================
+
+== 20150113040510 CreateMountains: migrating ==================================
+-- create_table(:mountains)
+   -> 0.0038s
+== 20150113040510 CreateMountains: migrated (0.0039s) =========================
+
+== 20150114175620 CreatePeaks: migrating ======================================
+-- create_table(:peaks)
+   -> 0.0024s
+== 20150114175620 CreatePeaks: migrated (0.0025s) =============================
+
+== 20150114192942 CreateTrails: migrating =====================================
+-- create_table(:trails)
+   -> 0.0035s
+== 20150114192942 CreateTrails: migrated (0.0036s) ============================
+
+== 20150116053402 AddDifficultyToTrails: migrating ============================
+-- add_column(:trails, :difficulty, :string)
+   -> 0.0007s
+== 20150116053402 AddDifficultyToTrails: migrated (0.0008s) ===================
+
+== 20150117203521 VailScrapers: migrating =====================================
+-- create_table(:vail_scrapers)
+   -> 0.0030s
+== 20150117203521 VailScrapers: migrated (0.0031s) ============================
+
+== 20150117204124 BeaverCreekScrapers: migrating ==============================
+-- create_table(:beaver_creek_scrapers)
+   -> 0.0021s
+== 20150117204124 BeaverCreekScrapers: migrated (0.0022s) =====================
+
+== 20150117204148 BreckenridgeScrapers: migrating =============================
+-- create_table(:breckenridge_scrapers)
+   -> 0.0022s
+== 20150117204148 BreckenridgeScrapers: migrated (0.0023s) ====================
+
+== 20150117204156 KeystoneScrapers: migrating =================================
+-- create_table(:keystone_scrapers)
+   -> 0.0032s
+== 20150117204156 KeystoneScrapers: migrated (0.0032s) ========================
+
+== 20150118223256 CreateArapahoeBasinScrapers: migrating ======================
+-- create_table(:arapahoe_basin_scrapers)
+   -> 0.0031s
+== 20150118223256 CreateArapahoeBasinScrapers: migrated (0.0031s) =============
+
+== 20150121154841 CreateLovelandScrapers: migrating ===========================
+-- create_table(:loveland_scrapers)
+   -> 0.0029s
+== 20150121154841 CreateLovelandScrapers: migrated (0.0029s) ==================
+
+== 20150122204005 AddTownToMountains: migrating ===============================
+-- add_column(:mountains, :town, :string)
+   -> 0.0007s
+== 20150122204005 AddTownToMountains: migrated (0.0008s) ======================
+
+== 20150125014708 CreateWeatherReports: migrating =============================
+-- create_table(:weather_reports)
+   -> 0.0041s
+== 20150125014708 CreateWeatherReports: migrated (0.0041s) ====================
+
+== 20150125020219 CreateWeathers: migrating ===================================
+-- create_table(:weathers)
+   -> 0.0031s
+== 20150125020219 CreateWeathers: migrated (0.0032s) ==========================
+
+== 20150126002046 CreateWinterParkScrapers: migrating =========================
+-- create_table(:winter_park_scrapers)
+   -> 0.0030s
+== 20150126002046 CreateWinterParkScrapers: migrated (0.0031s) ================
+
+== 20150126024645 CreateCopperScrapers: migrating =============================
+-- create_table(:copper_scrapers)
+   -> 0.0023s
+== 20150126024645 CreateCopperScrapers: migrated (0.0023s) ====================
+
+== 20150126193550 CreateTellurideScrapers: migrating ==========================
+-- create_table(:telluride_scrapers)
+   -> 0.0020s
+== 20150126193550 CreateTellurideScrapers: migrated (0.0021s) =================
+
+== 20150126220308 CreatePowderhornScrapers: migrating =========================
+-- create_table(:powderhorn_scrapers)
+   -> 0.0028s
+== 20150126220308 CreatePowderhornScrapers: migrated (0.0029s) ================
+
+== 20150111042454 CreateUsers: migrating ======================================
+-- create_table(:users)
+   -> 0.0049s
+== 20150111042454 CreateUsers: migrated (0.0049s) =============================
+
+== 20150113040510 CreateMountains: migrating ==================================
+-- create_table(:mountains)
+   -> 0.0043s
+== 20150113040510 CreateMountains: migrated (0.0044s) =========================
+
+== 20150114175620 CreatePeaks: migrating ======================================
+-- create_table(:peaks)
+   -> 0.0021s
+== 20150114175620 CreatePeaks: migrated (0.0021s) =============================
+
+== 20150114192942 CreateTrails: migrating =====================================
+-- create_table(:trails)
+   -> 0.0037s
+== 20150114192942 CreateTrails: migrated (0.0037s) ============================
+
+== 20150116053402 AddDifficultyToTrails: migrating ============================
+-- add_column(:trails, :difficulty, :string)
+   -> 0.0006s
+== 20150116053402 AddDifficultyToTrails: migrated (0.0006s) ===================
+
+== 20150117203521 VailScrapers: migrating =====================================
+-- create_table(:vail_scrapers)
+   -> 0.0036s
+== 20150117203521 VailScrapers: migrated (0.0037s) ============================
+
+== 20150117204124 BeaverCreekScrapers: migrating ==============================
+-- create_table(:beaver_creek_scrapers)
+   -> 0.0021s
+== 20150117204124 BeaverCreekScrapers: migrated (0.0022s) =====================
+
+== 20150117204148 BreckenridgeScrapers: migrating =============================
+-- create_table(:breckenridge_scrapers)
+   -> 0.0022s
+== 20150117204148 BreckenridgeScrapers: migrated (0.0023s) ====================
+
+== 20150117204156 KeystoneScrapers: migrating =================================
+-- create_table(:keystone_scrapers)
+   -> 0.0030s
+== 20150117204156 KeystoneScrapers: migrated (0.0030s) ========================
+
+== 20150118223256 CreateArapahoeBasinScrapers: migrating ======================
+-- create_table(:arapahoe_basin_scrapers)
+   -> 0.0027s
+== 20150118223256 CreateArapahoeBasinScrapers: migrated (0.0028s) =============
+
+== 20150121154841 CreateLovelandScrapers: migrating ===========================
+-- create_table(:loveland_scrapers)
+   -> 0.0032s
+== 20150121154841 CreateLovelandScrapers: migrated (0.0032s) ==================
+
+== 20150122204005 AddTownToMountains: migrating ===============================
+-- add_column(:mountains, :town, :string)
+   -> 0.0007s
+== 20150122204005 AddTownToMountains: migrated (0.0008s) ======================
+
+== 20150125014708 CreateWeatherReports: migrating =============================
+-- create_table(:weather_reports)
+   -> 0.0034s
+== 20150125014708 CreateWeatherReports: migrated (0.0035s) ====================
+
+== 20150125020219 CreateWeathers: migrating ===================================
+-- create_table(:weathers)
+   -> 0.0031s
+== 20150125020219 CreateWeathers: migrated (0.0031s) ==========================
+
+== 20150126002046 CreateWinterParkScrapers: migrating =========================
+-- create_table(:winter_park_scrapers)
+   -> 0.0035s
+== 20150126002046 CreateWinterParkScrapers: migrated (0.0036s) ================
+
+== 20150126024645 CreateCopperScrapers: migrating =============================
+-- create_table(:copper_scrapers)
+   -> 0.0020s
+== 20150126024645 CreateCopperScrapers: migrated (0.0020s) ====================
+
+== 20150126193550 CreateTellurideScrapers: migrating ==========================
+-- create_table(:telluride_scrapers)
+   -> 0.0019s
+== 20150126193550 CreateTellurideScrapers: migrated (0.0020s) =================
+
+== 20150126220308 CreatePowderhornScrapers: migrating =========================
+-- create_table(:powderhorn_scrapers)
+   -> 0.0027s
+== 20150126220308 CreatePowderhornScrapers: migrated (0.0028s) ================
+
+== 20150111042454 CreateUsers: migrating ======================================
+-- create_table(:users)
+   -> 0.0056s
+== 20150111042454 CreateUsers: migrated (0.0057s) =============================
+
+== 20150113040510 CreateMountains: migrating ==================================
+-- create_table(:mountains)
+   -> 0.0051s
+== 20150113040510 CreateMountains: migrated (0.0051s) =========================
+
+== 20150114175620 CreatePeaks: migrating ======================================
+-- create_table(:peaks)
+   -> 0.0029s
+== 20150114175620 CreatePeaks: migrated (0.0030s) =============================
+
+== 20150114192942 CreateTrails: migrating =====================================
+-- create_table(:trails)
+   -> 0.0044s
+== 20150114192942 CreateTrails: migrated (0.0045s) ============================
+
+== 20150116053402 AddDifficultyToTrails: migrating ============================
+-- add_column(:trails, :difficulty, :string)
+   -> 0.0010s
+== 20150116053402 AddDifficultyToTrails: migrated (0.0011s) ===================
+
+== 20150117203521 VailScrapers: migrating =====================================
+-- create_table(:vail_scrapers)
+   -> 0.0039s
+== 20150117203521 VailScrapers: migrated (0.0040s) ============================
+
+== 20150117204124 BeaverCreekScrapers: migrating ==============================
+-- create_table(:beaver_creek_scrapers)
+   -> 0.0022s
+== 20150117204124 BeaverCreekScrapers: migrated (0.0022s) =====================
+
+== 20150117204148 BreckenridgeScrapers: migrating =============================
+-- create_table(:breckenridge_scrapers)
+   -> 0.0021s
+== 20150117204148 BreckenridgeScrapers: migrated (0.0021s) ====================
+
+== 20150117204156 KeystoneScrapers: migrating =================================
+-- create_table(:keystone_scrapers)
+   -> 0.0028s
+== 20150117204156 KeystoneScrapers: migrated (0.0028s) ========================
+
+== 20150118223256 CreateArapahoeBasinScrapers: migrating ======================
+-- create_table(:arapahoe_basin_scrapers)
+   -> 0.0022s
+== 20150118223256 CreateArapahoeBasinScrapers: migrated (0.0023s) =============
+
+== 20150121154841 CreateLovelandScrapers: migrating ===========================
+-- create_table(:loveland_scrapers)
+   -> 0.0031s
+== 20150121154841 CreateLovelandScrapers: migrated (0.0031s) ==================
+
+== 20150122204005 AddTownToMountains: migrating ===============================
+-- add_column(:mountains, :town, :string)
+   -> 0.0005s
+== 20150122204005 AddTownToMountains: migrated (0.0006s) ======================
+
+== 20150125014708 CreateWeatherReports: migrating =============================
+-- create_table(:weather_reports)
+   -> 0.0034s
+== 20150125014708 CreateWeatherReports: migrated (0.0034s) ====================
+
+== 20150125020219 CreateWeathers: migrating ===================================
+-- create_table(:weathers)
+   -> 0.0045s
+== 20150125020219 CreateWeathers: migrated (0.0047s) ==========================
+
+== 20150126002046 CreateWinterParkScrapers: migrating =========================
+-- create_table(:winter_park_scrapers)
+   -> 0.0022s
+== 20150126002046 CreateWinterParkScrapers: migrated (0.0023s) ================
+
+== 20150126024645 CreateCopperScrapers: migrating =============================
+-- create_table(:copper_scrapers)
+   -> 0.0025s
+== 20150126024645 CreateCopperScrapers: migrated (0.0026s) ====================
+
+== 20150126193550 CreateTellurideScrapers: migrating ==========================
+-- create_table(:telluride_scrapers)
+   -> 0.0026s
+== 20150126193550 CreateTellurideScrapers: migrated (0.0027s) =================
+
+== 20150126220308 CreatePowderhornScrapers: migrating =========================
+-- create_table(:powderhorn_scrapers)
+   -> 0.0022s
+== 20150126220308 CreatePowderhornScrapers: migrated (0.0022s) ================
+
+You have 18 pending migrations:
+  20150111042454 CreateUsers
+  20150113040510 CreateMountains
+  20150114175620 CreatePeaks
+  20150114192942 CreateTrails
+  20150116053402 AddDifficultyToTrails
+  20150117203521 VailScrapers
+  20150117204124 BeaverCreekScrapers
+  20150117204148 BreckenridgeScrapers
+  20150117204156 KeystoneScrapers
+  20150118223256 CreateArapahoeBasinScrapers
+  20150121154841 CreateLovelandScrapers
+  20150122204005 AddTownToMountains
+  20150125014708 CreateWeatherReports
+  20150125020219 CreateWeathers
+  20150126002046 CreateWinterParkScrapers
+  20150126024645 CreateCopperScrapers
+  20150126193550 CreateTellurideScrapers
+  20150126220308 CreatePowderhornScrapers
+== 20150111042454 CreateUsers: migrating ======================================
+-- create_table(:users)
+   -> 0.0050s
+== 20150111042454 CreateUsers: migrated (0.0050s) =============================
+
+== 20150113040510 CreateMountains: migrating ==================================
+-- create_table(:mountains)
+   -> 0.0035s
+== 20150113040510 CreateMountains: migrated (0.0036s) =========================
+
+== 20150114175620 CreatePeaks: migrating ======================================
+-- create_table(:peaks)
+   -> 0.0021s
+== 20150114175620 CreatePeaks: migrated (0.0022s) =============================
+
+== 20150114192942 CreateTrails: migrating =====================================
+-- create_table(:trails)
+   -> 0.0035s
+== 20150114192942 CreateTrails: migrated (0.0036s) ============================
+
+== 20150116053402 AddDifficultyToTrails: migrating ============================
+-- add_column(:trails, :difficulty, :string)
+   -> 0.0005s
+== 20150116053402 AddDifficultyToTrails: migrated (0.0006s) ===================
+
+== 20150117203521 VailScrapers: migrating =====================================
+-- create_table(:vail_scrapers)
+   -> 0.0038s
+== 20150117203521 VailScrapers: migrated (0.0039s) ============================
+
+== 20150117204124 BeaverCreekScrapers: migrating ==============================
+-- create_table(:beaver_creek_scrapers)
+   -> 0.0025s
+== 20150117204124 BeaverCreekScrapers: migrated (0.0025s) =====================
+
+== 20150117204148 BreckenridgeScrapers: migrating =============================
+-- create_table(:breckenridge_scrapers)
+   -> 0.0027s
+== 20150117204148 BreckenridgeScrapers: migrated (0.0028s) ====================
+
+== 20150117204156 KeystoneScrapers: migrating =================================
+-- create_table(:keystone_scrapers)
+   -> 0.0021s
+== 20150117204156 KeystoneScrapers: migrated (0.0021s) ========================
+
+== 20150118223256 CreateArapahoeBasinScrapers: migrating ======================
+-- create_table(:arapahoe_basin_scrapers)
+   -> 0.0022s
+== 20150118223256 CreateArapahoeBasinScrapers: migrated (0.0022s) =============
+
+== 20150121154841 CreateLovelandScrapers: migrating ===========================
+-- create_table(:loveland_scrapers)
+   -> 0.0029s
+== 20150121154841 CreateLovelandScrapers: migrated (0.0030s) ==================
+
+== 20150122204005 AddTownToMountains: migrating ===============================
+-- add_column(:mountains, :town, :string)
+   -> 0.0006s
+== 20150122204005 AddTownToMountains: migrated (0.0007s) ======================
+
+== 20150125014708 CreateWeatherReports: migrating =============================
+-- create_table(:weather_reports)
+   -> 0.0033s
+== 20150125014708 CreateWeatherReports: migrated (0.0034s) ====================
+
+== 20150125020219 CreateWeathers: migrating ===================================
+-- create_table(:weathers)
+   -> 0.0039s
+== 20150125020219 CreateWeathers: migrated (0.0040s) ==========================
+
+== 20150126002046 CreateWinterParkScrapers: migrating =========================
+-- create_table(:winter_park_scrapers)
+   -> 0.0027s
+== 20150126002046 CreateWinterParkScrapers: migrated (0.0027s) ================
+
+== 20150126024645 CreateCopperScrapers: migrating =============================
+-- create_table(:copper_scrapers)
+   -> 0.0021s
+== 20150126024645 CreateCopperScrapers: migrated (0.0022s) ====================
+
+== 20150126193550 CreateTellurideScrapers: migrating ==========================
+-- create_table(:telluride_scrapers)
+   -> 0.0026s
+== 20150126193550 CreateTellurideScrapers: migrated (0.0027s) =================
+
+== 20150126220308 CreatePowderhornScrapers: migrating =========================
+-- create_table(:powderhorn_scrapers)
+   -> 0.0023s
+== 20150126220308 CreatePowderhornScrapers: migrated (0.0024s) ================
+
+You have 8 pending migrations:
+  20150121154841 CreateLovelandScrapers
+  20150122204005 AddTownToMountains
+  20150125014708 CreateWeatherReports
+  20150125020219 CreateWeathers
+  20150126002046 CreateWinterParkScrapers
+  20150126024645 CreateCopperScrapers
+  20150126193550 CreateTellurideScrapers
+  20150126220308 CreatePowderhornScrapers
+== 20150111042454 CreateUsers: migrating ======================================
+-- create_table(:users)
+   -> 0.0045s
+== 20150111042454 CreateUsers: migrated (0.0046s) =============================
+
+== 20150113040510 CreateMountains: migrating ==================================
+-- create_table(:mountains)
+   -> 0.0033s
+== 20150113040510 CreateMountains: migrated (0.0033s) =========================
+
+== 20150114175620 CreatePeaks: migrating ======================================
+-- create_table(:peaks)
+   -> 0.0023s
+== 20150114175620 CreatePeaks: migrated (0.0024s) =============================
+
+== 20150114192942 CreateTrails: migrating =====================================
+-- create_table(:trails)
+   -> 0.0039s
+== 20150114192942 CreateTrails: migrated (0.0040s) ============================
+
+== 20150116053402 AddDifficultyToTrails: migrating ============================
+-- add_column(:trails, :difficulty, :string)
+   -> 0.0005s
+== 20150116053402 AddDifficultyToTrails: migrated (0.0006s) ===================
+
+== 20150117203521 VailScrapers: migrating =====================================
+-- create_table(:vail_scrapers)
+   -> 0.0037s
+== 20150117203521 VailScrapers: migrated (0.0037s) ============================
+
+== 20150117204124 BeaverCreekScrapers: migrating ==============================
+-- create_table(:beaver_creek_scrapers)
+   -> 0.0021s
+== 20150117204124 BeaverCreekScrapers: migrated (0.0022s) =====================
+
+== 20150117204148 BreckenridgeScrapers: migrating =============================
+-- create_table(:breckenridge_scrapers)
+   -> 0.0025s
+== 20150117204148 BreckenridgeScrapers: migrated (0.0025s) ====================
+
+== 20150117204156 KeystoneScrapers: migrating =================================
+-- create_table(:keystone_scrapers)
+   -> 0.0021s
+== 20150117204156 KeystoneScrapers: migrated (0.0021s) ========================
+
+== 20150118223256 CreateArapahoeBasinScrapers: migrating ======================
+-- create_table(:arapahoe_basin_scrapers)
+   -> 0.0020s
+== 20150118223256 CreateArapahoeBasinScrapers: migrated (0.0021s) =============
+
+== 20150121154841 CreateLovelandScrapers: migrating ===========================
+-- create_table(:loveland_scrapers)
+   -> 0.0032s
+== 20150121154841 CreateLovelandScrapers: migrated (0.0033s) ==================
+
+== 20150122204005 AddTownToMountains: migrating ===============================
+-- add_column(:mountains, :town, :string)
+   -> 0.0006s
+== 20150122204005 AddTownToMountains: migrated (0.0006s) ======================
+
+== 20150125014708 CreateWeatherReports: migrating =============================
+-- create_table(:weather_reports)
+   -> 0.0039s
+== 20150125014708 CreateWeatherReports: migrated (0.0039s) ====================
+
+== 20150125020219 CreateWeathers: migrating ===================================
+-- create_table(:weathers)
+   -> 0.0021s
+== 20150125020219 CreateWeathers: migrated (0.0021s) ==========================
+
+== 20150126002046 CreateWinterParkScrapers: migrating =========================
+-- create_table(:winter_park_scrapers)
+   -> 0.0024s
+== 20150126002046 CreateWinterParkScrapers: migrated (0.0024s) ================
+
+== 20150126024645 CreateCopperScrapers: migrating =============================
+-- create_table(:copper_scrapers)
+   -> 0.0026s
+== 20150126024645 CreateCopperScrapers: migrated (0.0026s) ====================
+
+== 20150126193550 CreateTellurideScrapers: migrating ==========================
+-- create_table(:telluride_scrapers)
+   -> 0.0025s
+== 20150126193550 CreateTellurideScrapers: migrated (0.0026s) =================
+
+== 20150126220308 CreatePowderhornScrapers: migrating =========================
+-- create_table(:powderhorn_scrapers)
+   -> 0.0022s
+== 20150126220308 CreatePowderhornScrapers: migrated (0.0022s) ================
+
+== 20150111042454 CreateUsers: migrating ======================================
+-- create_table(:users)
+   -> 0.0046s
+== 20150111042454 CreateUsers: migrated (0.0047s) =============================
+
+== 20150113040510 CreateMountains: migrating ==================================
+-- create_table(:mountains)
+   -> 0.0039s
+== 20150113040510 CreateMountains: migrated (0.0039s) =========================
+
+== 20150114175620 CreatePeaks: migrating ======================================
+-- create_table(:peaks)
+   -> 0.0020s
+== 20150114175620 CreatePeaks: migrated (0.0021s) =============================
+
+== 20150114192942 CreateTrails: migrating =====================================
+-- create_table(:trails)
+   -> 0.0037s
+== 20150114192942 CreateTrails: migrated (0.0037s) ============================
+
+== 20150116053402 AddDifficultyToTrails: migrating ============================
+-- add_column(:trails, :difficulty, :string)
+   -> 0.0005s
+== 20150116053402 AddDifficultyToTrails: migrated (0.0006s) ===================
+
+== 20150117203521 VailScrapers: migrating =====================================
+-- create_table(:vail_scrapers)
+   -> 0.0042s
+== 20150117203521 VailScrapers: migrated (0.0043s) ============================
+
+== 20150117204124 BeaverCreekScrapers: migrating ==============================
+-- create_table(:beaver_creek_scrapers)
+   -> 0.0022s
+== 20150117204124 BeaverCreekScrapers: migrated (0.0023s) =====================
+
+== 20150117204148 BreckenridgeScrapers: migrating =============================
+-- create_table(:breckenridge_scrapers)
+   -> 0.0028s
+== 20150117204148 BreckenridgeScrapers: migrated (0.0029s) ====================
+
+== 20150117204156 KeystoneScrapers: migrating =================================
+-- create_table(:keystone_scrapers)
+   -> 0.0022s
+== 20150117204156 KeystoneScrapers: migrated (0.0022s) ========================
+
+== 20150118223256 CreateArapahoeBasinScrapers: migrating ======================
+-- create_table(:arapahoe_basin_scrapers)
+   -> 0.0030s
+== 20150118223256 CreateArapahoeBasinScrapers: migrated (0.0030s) =============
+
+== 20150121154841 CreateLovelandScrapers: migrating ===========================
+-- create_table(:loveland_scrapers)
+   -> 0.0022s
+== 20150121154841 CreateLovelandScrapers: migrated (0.0022s) ==================
+
+== 20150122204005 AddTownToMountains: migrating ===============================
+-- add_column(:mountains, :town, :string)
+   -> 0.0009s
+== 20150122204005 AddTownToMountains: migrated (0.0009s) ======================
+
+== 20150125014708 CreateWeatherReports: migrating =============================
+-- create_table(:weather_reports)
+   -> 0.0032s
+== 20150125014708 CreateWeatherReports: migrated (0.0033s) ====================
+
+== 20150125020219 CreateWeathers: migrating ===================================
+-- create_table(:weathers)
+   -> 0.0020s
+== 20150125020219 CreateWeathers: migrated (0.0020s) ==========================
+
+== 20150126002046 CreateWinterParkScrapers: migrating =========================
+-- create_table(:winter_park_scrapers)
+   -> 0.0023s
+== 20150126002046 CreateWinterParkScrapers: migrated (0.0023s) ================
+
+== 20150126024645 CreateCopperScrapers: migrating =============================
+-- create_table(:copper_scrapers)
+   -> 0.0031s
+== 20150126024645 CreateCopperScrapers: migrated (0.0032s) ====================
+
+== 20150126193550 CreateTellurideScrapers: migrating ==========================
+-- create_table(:telluride_scrapers)
+   -> 0.0027s
+== 20150126193550 CreateTellurideScrapers: migrated (0.0027s) =================
+
+== 20150126220308 CreatePowderhornScrapers: migrating =========================
+-- create_table(:powderhorn_scrapers)
+   -> 0.0023s
+== 20150126220308 CreatePowderhornScrapers: migrated (0.0023s) ================
+
+Generate Vail, complete
+Generate Keystone, complete
+Generate Breckenridge, complete
+Generate Beaver Creek, complete
+Generate A Basin, complete
+Generate Loveland, complete
+Generate Winter Park, complete
+Generate Telluride, complete
+Generate Powderhorn, complete
+Generate Copper, complete
+You have 18 pending migrations:
+  20150111042454 CreateUsers
+  20150113040510 CreateMountains
+  20150114175620 CreatePeaks
+  20150114192942 CreateTrails
+  20150116053402 AddDifficultyToTrails
+  20150117203521 VailScrapers
+  20150117204124 BeaverCreekScrapers
+  20150117204148 BreckenridgeScrapers
+  20150117204156 KeystoneScrapers
+  20150118223256 CreateArapahoeBasinScrapers
+  20150121154841 CreateLovelandScrapers
+  20150122204005 AddTownToMountains
+  20150125014708 CreateWeatherReports
+  20150125020219 CreateWeathers
+  20150126002046 CreateWinterParkScrapers
+  20150126024645 CreateCopperScrapers
+  20150126193550 CreateTellurideScrapers
+  20150126220308 CreatePowderhornScrapers
+== 20150111042454 CreateUsers: migrating ======================================
+-- create_table(:users)
+   -> 0.0057s
+== 20150111042454 CreateUsers: migrated (0.0057s) =============================
+
+== 20150113040510 CreateMountains: migrating ==================================
+-- create_table(:mountains)
+   -> 0.0033s
+== 20150113040510 CreateMountains: migrated (0.0033s) =========================
+
+== 20150114175620 CreatePeaks: migrating ======================================
+-- create_table(:peaks)
+   -> 0.0020s
+== 20150114175620 CreatePeaks: migrated (0.0021s) =============================
+
+== 20150114192942 CreateTrails: migrating =====================================
+-- create_table(:trails)
+   -> 0.0036s
+== 20150114192942 CreateTrails: migrated (0.0037s) ============================
+
+== 20150116053402 AddDifficultyToTrails: migrating ============================
+-- add_column(:trails, :difficulty, :string)
+   -> 0.0005s
+== 20150116053402 AddDifficultyToTrails: migrated (0.0006s) ===================
+
+== 20150117203521 VailScrapers: migrating =====================================
+-- create_table(:vail_scrapers)
+   -> 0.0035s
+== 20150117203521 VailScrapers: migrated (0.0035s) ============================
+
+== 20150117204124 BeaverCreekScrapers: migrating ==============================
+-- create_table(:beaver_creek_scrapers)
+   -> 0.0021s
+== 20150117204124 BeaverCreekScrapers: migrated (0.0022s) =====================
+
+== 20150117204148 BreckenridgeScrapers: migrating =============================
+-- create_table(:breckenridge_scrapers)
+   -> 0.0031s
+== 20150117204148 BreckenridgeScrapers: migrated (0.0032s) ====================
+
+== 20150117204156 KeystoneScrapers: migrating =================================
+-- create_table(:keystone_scrapers)
+   -> 0.0041s
+== 20150117204156 KeystoneScrapers: migrated (0.0045s) ========================
+
+== 20150118223256 CreateArapahoeBasinScrapers: migrating ======================
+-- create_table(:arapahoe_basin_scrapers)
+   -> 0.0037s
+== 20150118223256 CreateArapahoeBasinScrapers: migrated (0.0037s) =============
+
+== 20150121154841 CreateLovelandScrapers: migrating ===========================
+-- create_table(:loveland_scrapers)
+   -> 0.0029s
+== 20150121154841 CreateLovelandScrapers: migrated (0.0029s) ==================
+
+== 20150122204005 AddTownToMountains: migrating ===============================
+-- add_column(:mountains, :town, :string)
+   -> 0.0005s
+== 20150122204005 AddTownToMountains: migrated (0.0005s) ======================
+
+== 20150125014708 CreateWeatherReports: migrating =============================
+-- create_table(:weather_reports)
+   -> 0.0072s
+== 20150125014708 CreateWeatherReports: migrated (0.0072s) ====================
+
+== 20150125020219 CreateWeathers: migrating ===================================
+-- create_table(:weathers)
+   -> 0.0056s
+== 20150125020219 CreateWeathers: migrated (0.0070s) ==========================
+
+== 20150126002046 CreateWinterParkScrapers: migrating =========================
+-- create_table(:winter_park_scrapers)
+   -> 0.0023s
+== 20150126002046 CreateWinterParkScrapers: migrated (0.0024s) ================
+
+== 20150126024645 CreateCopperScrapers: migrating =============================
+-- create_table(:copper_scrapers)
+   -> 0.0019s
+== 20150126024645 CreateCopperScrapers: migrated (0.0019s) ====================
+
+== 20150126193550 CreateTellurideScrapers: migrating ==========================
+-- create_table(:telluride_scrapers)
+   -> 0.0019s
+== 20150126193550 CreateTellurideScrapers: migrated (0.0019s) =================
+
+== 20150126220308 CreatePowderhornScrapers: migrating =========================
+-- create_table(:powderhorn_scrapers)
+   -> 0.0029s
+== 20150126220308 CreatePowderhornScrapers: migrated (0.0030s) ================
+

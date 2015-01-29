@@ -21,11 +21,6 @@ ActiveRecord::Schema.define(version: 20150126220308) do
     t.datetime "updated_at"
   end
 
-  create_table "aspen_scrapers", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "beaver_creek_scrapers", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -81,11 +76,6 @@ ActiveRecord::Schema.define(version: 20150126220308) do
     t.datetime "updated_at"
   end
 
-  create_table "snowmass_scrapers", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "telluride_scrapers", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -102,11 +92,11 @@ ActiveRecord::Schema.define(version: 20150126220308) do
   end
 
   create_table "users", force: true do |t|
-    t.string "name"
-    t.string "uid"
-    t.string "provider"
-    t.string "profile_image_url"
-    t.string "location"
+    t.string   "name"
+    t.string   "uid"
+    t.string   "provider"
+    t.string   "profile_image_url"
+    t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

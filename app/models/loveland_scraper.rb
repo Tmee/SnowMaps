@@ -3,25 +3,23 @@
   def initialize
     set_documents
     create_mountain_information
-    generate_peaks
+    # generate_peaks
     scrape_for_trails
   end
 
   def create_mountain_information
     report = scrape_mountain_information
 
-    Mountain.create!(name:   "Loveland Ski Area",
-                    last_24:        "#{report[0]}\"",
-                    overnight:      "#{report[0]}\"",
-                    last_48:        "#{report[1]}\"",
-                    last_7_days:    '-',
-                    base_depth:     "#{report[3]}\"",
-                    season_total:   "#{report[4]}\"",
-                    acres_open:     report[8],
-                    lifts_open:     report[5],
-                    runs_open:      report[6],
-                    snow_condition: report[7],
-                    town:           'Georgetown'
+    Mountain.find(6).update(last_24:        "#{report[0]}\"",
+                            overnight:      "#{report[0]}\"",
+                            last_48:        "#{report[1]}\"",
+                            last_7_days:    '-',
+                            base_depth:     "#{report[3]}\"",
+                            season_total:   "#{report[4]}\"",
+                            acres_open:     report[8],
+                            lifts_open:     report[5],
+                            runs_open:      report[6],
+                            snow_condition: report[7]
     )
   end
 
@@ -111,11 +109,11 @@
 
   def create_trails(trails, peak_id)
     trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: peak_id,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
+      unless trail[:name] == ''
+        Trail.find_by(name: trail[:name]).update(open: trail[:open],
+                                                difficulty: trail[:difficulty]
+        )
+      end
     end
   end
 

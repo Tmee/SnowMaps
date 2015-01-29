@@ -3,7 +3,7 @@ class PowderhornScraper < ActiveRecord::Base
   def initialize
     set_documents
     create_mountain_information
-    generate_peaks
+    # generate_peaks
     scrape_for_trails
   end
 
@@ -15,18 +15,16 @@ class PowderhornScraper < ActiveRecord::Base
     conditions  = @mountain_doc.xpath("//div//section[contains(@class, 'field-name-field-surface-conditions')]//div[contains(@class, 'field-items')]").map {|x|x.text}
     lifts       = @mountain_doc.xpath("//div//section[contains(@class, 'field-name-field-lifts-open')]//div[contains(@class, 'field-items')]").map {|x|x.text}
 
-    Mountain.create!(name: "Powderhorn Mountain Resort",
-                    last_24:       "#{overnight[0]}\"",
-                    overnight:      "#{overnight[0]}\"",
-                    last_48:        hr_48[0],
-                    last_7_days:    '-',
-                    base_depth:     base[0],
-                    season_total:   '-',
-                    acres_open:     acres[0],
-                    lifts_open:     lifts[0],
-                    runs_open:      "-",
-                    snow_condition: conditions[0],
-                    town:           'Mesa'
+    Mountain.find(9).update(last_24:       "#{overnight[0]}\"",
+                            overnight:      "#{overnight[0]}\"",
+                            last_48:        hr_48[0],
+                            last_7_days:    '-',
+                            base_depth:     base[0],
+                            season_total:   '-',
+                            acres_open:     acres[0],
+                            lifts_open:     lifts[0],
+                            runs_open:      "-",
+                            snow_condition: conditions[0]
     )
   end
 
@@ -90,11 +88,11 @@ class PowderhornScraper < ActiveRecord::Base
 
   def create_trails(trails, peak_id)
     trails.each do |trail|
-      Trail.create!(name: trail[:name],
-                    peak_id: peak_id,
-                    open: trail[:open],
-                    difficulty: trail[:difficulty]
-      )
+      unless trail[:name] == ''
+        Trail.find_by(name: trail[:name]).update(open: trail[:open],
+                                                difficulty: trail[:difficulty]
+        )
+      end
     end
   end
 end

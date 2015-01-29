@@ -4,6 +4,7 @@ class Weather < ActiveRecord::Base
     @w_api = Wunderground.new
     clear_old_reports
     gather_mountain_weather_reports
+    puts "Got the weather"
   end
 
   def gather_mountain_weather_reports
