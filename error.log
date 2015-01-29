@@ -334,3 +334,579 @@ cannot load such file -- bundler/setup
 /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
 /Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
 (See full trace by running task with --trace)
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs'/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s):  (Could not find 'bundler' (>= 0) among 8 total gem(s)Gem::LoadError ()
+Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs'	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+: 	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+Could not find 'bundler' (>= 0) among 8 total gem(s)	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+ (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:296:in `to_specs': Could not find 'bundler' (>= 0) among 8 total gem(s) (Gem::LoadError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/dependency.rb:307:in `to_spec'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/rubygems/core_ext/kernel_gem.rb:47:in `gem'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/bundle:22:in `<main>'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/Tim_Mee/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+rake aborted!
+cannot load such file -- bundler/setup
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/boot.rb:4:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/config/application.rb:1:in `<top (required)>'
+/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
