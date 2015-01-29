@@ -74,25 +74,10 @@
         null,
         null,
         1,
-        2,
-        null,
-        null,
-        1,
         0,
         null,
-        null
-      ],
-      "/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/app/controllers/sessions_controller.rb": [
-        1,
         null,
         1,
-        3,
-        3,
-        3,
-        null,
-        null,
-        1,
-        0,
         0,
         null,
         null
@@ -178,18 +163,18 @@
         1,
         null,
         1,
-        3,
-        3,
-        3,
-        3,
+        0,
+        0,
+        0,
+        0,
         null,
-        3,
+        0,
         null,
-        null,
-        1,
         null,
         1,
-        3,
+        null,
+        1,
+        0,
         null,
         null
       ],
@@ -201,6 +186,6 @@
         null
       ]
     },
-    "timestamp": 1422492258
+    "timestamp": 1422499771
   }
 }
