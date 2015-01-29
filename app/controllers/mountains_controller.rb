@@ -1,7 +1,10 @@
 class MountainsController < ApplicationController
   before_action :set_mountains
 
-  def new
+  def today
+    format_time
+    @mountains = Mountain.all.order(overnight: :desc)
+    @most_snow = @mountains[0]
   end
 
   def index

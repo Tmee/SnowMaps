@@ -1,9 +1,7 @@
-# require File.expand_path(File.dirname(__FILE__) + "/environment")
+require File.expand_path(File.dirname(__FILE__) + "/environment")
 env :PATH, ENV['PATH']
-
 env :GEM_PATH, ENV['GEM_PATH']
-set :bundle_command, "/Users/Tim_Mee/.rvm/gems/ruby-2.1.2@global/bin/bundle"
-
+# set :bundle_command, "/Users/Tim_Mee/.rvm/wrappers/snow_maps/bundle"
 
 set :output, { error: 'error.log', standard: 'cron.log' }
 

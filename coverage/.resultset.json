@@ -163,6 +163,21 @@
         1,
         1,
         1,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
         null
       ],
       "/Users/Tim_Mee/Turing/projects/self_directed/snow_maps/app/models/weather_report.rb": [
@@ -173,6 +188,6 @@
         null
       ]
     },
-    "timestamp": 1422481307
+    "timestamp": 1422491009
   }
 }
