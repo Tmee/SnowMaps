@@ -7,8 +7,6 @@ class SearchController < ApplicationController
     render :user_search
   end
 
-private
-
   def mountain_search(search)
     mountains = Mountain.where('name ILIKE ?', "%#{search}%")
   end
