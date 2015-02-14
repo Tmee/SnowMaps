@@ -11,9 +11,6 @@ class MountainsController < ApplicationController
     @mountains = Mountain.all
   end
 
-  def create
-  end
-
   def show
     format_time
     @mountain  = Mountain.find_by slug: params[:mountain]
