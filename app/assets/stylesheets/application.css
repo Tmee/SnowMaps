@@ -94,6 +94,15 @@
   box-shadow: 0 10px 10px -3px black;
  }
 
+ .left-box {
+  padding-left: 0px;
+ }
+
+ .overnight {
+  padding-left: 0px;
+  padding-right: 0px;
+ }
+
  .home-button {
   padding-top: 25%;
   background-color: transparent;
