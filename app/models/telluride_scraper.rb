@@ -95,9 +95,17 @@ class TellurideScraper < ActiveRecord::Base
   def create_trails(trails, peak_id)
     trails.each do |trail|
       unless trail[:name] == ''
-        Trail.find_by(name: trail[:name]).update(open: trail[:open],
-                                                difficulty: trail[:difficulty]
-        )
+        if Trail.find_by(name: trail[:name]) == nil
+          Trail.create!(peak_id: 8,
+                        name: trail[:name],
+                        open: trail[:open],
+                        difficulty: trail[:difficulty]
+          )
+        else
+          Trail.find_by(name: trail[:name]).update(open: trail[:open],
+                                                  difficulty: trail[:difficulty]
+          )
+        end
       end
     end
   end
