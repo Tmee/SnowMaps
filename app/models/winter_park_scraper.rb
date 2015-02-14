@@ -90,9 +90,16 @@ private
 
   def create_trails(trails, peak_id)
     trails.each do |trail|
-      unless trail[:name] == ''
+      if Trail.find_by(name: trail[:name]) == nil
+        Trail.create!(peak_id: peak_id,
+                      name: trail[:name],
+                      open: trail[:open],
+                      difficulty: trail[:difficulty]
+        )
+      else
         Trail.find_by(name: trail[:name]).update(open: trail[:open],
-                                                difficulty: trail[:difficulty]
+                                                difficulty: trail[:difficulty],
+                                                peak_id: peak_id
         )
       end
     end
