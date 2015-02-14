@@ -159,6 +159,6 @@ private
     lift_trail_acre = []
     lift_trail_acre << lift_trail_acres[2].text
     lift_trail_acre << lift_trail_acres[3].text
-    lift_trail_acre << lift_trail_acres[5].attribute('data-imperial').value
+    lift_trail_acre << lift_trail_acres[4].attribute('data-imperial').value
   end
 end
