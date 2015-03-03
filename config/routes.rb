@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get "/auth/twitter/callback", to: "sessions#create"
+
   root 'sessions#new'
 
   get "search", to: "search#user_search"
