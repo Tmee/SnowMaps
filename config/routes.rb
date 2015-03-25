@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get "/auth/twitter/callback", to: "sessions#create"
-
   root 'sessions#new'
+  delete '/logout', to: "sessions#destroy"
 
   get "search", to: "search#user_search"
   get '/today', to: 'mountains#today'
@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   resources :users
 
-  delete '/logout', to: "sessions#destroy"
+  get '/code' => redirect "https://github.com/Tmee/snow_maps"
+
 end
