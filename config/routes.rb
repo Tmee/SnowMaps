@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
   resources :users
 
-  get '/code' => redirect "https://github.com/Tmee/snow_maps"
+  get '/code' => redirect("https://github.com/Tmee/snow_maps")
 
 end
