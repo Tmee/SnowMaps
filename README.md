@@ -9,3 +9,8 @@
 
 
 [lag]: http://snowfinding.ninja/
+
+
+Tech:
+ * Digital Ocean droplet
+ * Foundation CSS
