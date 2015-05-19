@@ -17,14 +17,14 @@ class Seed
     CopperScraper.new         #4
     puts "Generate Copper, complete"
 
+    KeystoneScraper.new       #5
+    puts "Generate Keystone, complete"
 
 
 
     # VailScraper.new          #
     # puts "Generate Vail, complete"
 
-    # KeystoneScraper.new      #2
-    # puts "Generate Keystone, complete"
 
     # LovelandScraper.new      #6
     # puts "Generate Loveland, complete"

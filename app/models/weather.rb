@@ -12,15 +12,12 @@ class Weather
     get_beaver_creek_weather_report
     get_breckenridge_weather_report
     get_copper_weather_report
+    get_keystone_weather_report
+    # sleep(61.seconds)
     # get_vail_weather_report
-    # sleep(35.seconds)
-    # get_keystone_weather_report
-    # sleep(35.seconds)
     # get_loveland_weather_report
-    # sleep(35.seconds)
     # get_winter_park_weather_report
     # get_telluride_weather_report
-    # sleep(35.seconds)
     # get_powderhorn_weather_report
   end
 
@@ -48,6 +45,11 @@ class Weather
     create_weather_report(forecast, current_temp, 4)
   end
 
+  def get_keystone_weather_report
+    forecast     = get_forecast("Keystone")
+    current_temp = get_current_temp("Keystone")
+    create_weather_report(forecast, current_temp, 5)
+  end
 
 
   # def get_vail_weather_report
@@ -56,11 +58,6 @@ class Weather
   #   create_weather_report(forecast, current_temp, )
   # end
 
-  # def get_keystone_weather_report
-  #   forecast     = get_forecast("Keystone")
-  #   current_temp = get_current_temp("Keystone")
-  #   create_weather_report(forecast, current_temp, )
-  # end
 
   # def get_loveland_weather_report
   #   forecast     = get_forecast("Georgetown")
