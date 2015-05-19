@@ -33,7 +33,7 @@ class CopperScraper
   end
 
   def generate_peaks
-    copper_peak_names = ['Beginner', 'Intermediate', 'Advanced', 'Expert']
+    copper_peak_names = ['Beginner', 'Intermediate', 'Advanced', 'Expert', 'Extreme']
     copper_peak_names.each do |peak|
       if Peak.find_by(name: peak).nil?
         Peak.create!(name: peak,
@@ -71,18 +71,15 @@ class CopperScraper
     create_trails(trail_set, 21)
   end
 
-  def create_extreme
-    trail_set = get_trails('extreme')
+  def create_expert
+    trail_set = get_trails('expert')
     create_trails(trail_set, 22)
   end
 
-  def create_expert
-    trail_set = get_trails('expert')
+  def create_extreme
+    trail_set = get_trails('extreme')
     create_trails(trail_set, 23)
   end
-
-
-  private
 
   def set_documents
     @mountain_doc = Nokogiri::HTML(open("http://www.coppercolorado.com/winter/the_mountain/dom/snow.html"))

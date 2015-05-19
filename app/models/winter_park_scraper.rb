@@ -2,9 +2,16 @@ class WinterParkScraper
 
   def initialize
     set_documents
+    generate_mountain
     generate_mountain_information
-    # generate_peaks
-    scrape_for_trails
+    generate_peaks
+    generate_trails
+  end
+
+  def generate_mountain
+    if Mountain.find_by(name: 'Winter Park Resort').nil?
+      Mountain.create!(name: 'Winter Park Resort')
+    end
   end
 
   def generate_mountain_information
@@ -12,7 +19,7 @@ class WinterParkScraper
     lift_trail_acre    = find_lift_trail_acre
     base_and_condition = find_base_and_condition
 
-    Mountain.find(7).update(last_24:        "#{snow_report[0]} \"",
+    Mountain.find(10).update(last_24:       "#{snow_report[0]} \"",
                             overnight:      "#{snow_report[0]} \"",
                             last_48:        "#{snow_report[1]} \"",
                             season_total:   "#{snow_report[3]} \"",
@@ -21,21 +28,23 @@ class WinterParkScraper
                             snow_condition: base_and_condition[1],
                             lifts_open:     lift_trail_acre[0],
                             runs_open:      lift_trail_acre[1],
-                            acres_open:     lift_trail_acre[2]
-    )
+                            acres_open:     lift_trail_acre[2])
   end
 
   def generate_peaks
-    peaks = ['Winter Park', 'Mary Jane', 'Vasquez Ridge', 'Parsenn Bowl', 'Eagle Wind', 'The Cirque']
-
-    peaks.each do |peak|
-      Peak.create!(name: peak,
-                  mountain_id: 7
-      )
+    if Mountain.find(10).peaks.emplty?
+      ['Winter Park',
+       'Mary Jane',
+       'Vasquez Ridge',
+       'Parsenn Bowl',
+       'Eagle Wind',
+       'The Cirque'].each do |peak|
+        Peak.create!(name: peak,mountain_id: 10)
+      end
     end
   end
 
-  def scrape_for_trails
+  def generate_trails
     scrape_for_winter_park
     scrape_for_mary_jane
     scrape_for_vasquez_ridge
@@ -47,41 +56,38 @@ class WinterParkScraper
   def scrape_for_winter_park
     winter_park_trails = scrape_raw_html(1)
     format_trails(winter_park_trails)
-    create_trails(winter_park_trails, 38)
+    create_trails(winter_park_trails, 50)
   end
 
   def scrape_for_mary_jane
     mary_jane_trails = scrape_raw_html(2)
     format_trails(mary_jane_trails)
-    create_trails(mary_jane_trails, 39)
+    create_trails(mary_jane_trails, 51)
   end
 
   def scrape_for_vasquez_ridge
     vasquez_ridge_trails = scrape_raw_html(3)
     format_trails(vasquez_ridge_trails)
-    create_trails(vasquez_ridge_trails, 40)
+    create_trails(vasquez_ridge_trails, 52)
   end
 
   def scrape_for_parsenn_bowl
     parsenn_bowl_trails = scrape_raw_html(4)
     format_trails(parsenn_bowl_trails)
-    create_trails(parsenn_bowl_trails, 41)
+    create_trails(parsenn_bowl_trails, 53)
   end
 
   def scrape_for_eagle_wind
     eagle_wind_trails = scrape_raw_html(5)
     format_trails(eagle_wind_trails)
-    create_trails(eagle_wind_trails, 42)
+    create_trails(eagle_wind_trails, 54)
   end
 
   def scrape_for_the_cirque
     the_cirque_trails = scrape_raw_html(6)
     format_trails(the_cirque_trails)
-    create_trails(the_cirque_trails, 43)
+    create_trails(the_cirque_trails, 55)
   end
-
-
-private
 
   def set_documents
     @terrain_doc  = Nokogiri::HTML(open("http://www.winterparkresort.com/the-mountain/lift-and-trail-report.aspx"))
@@ -90,17 +96,13 @@ private
 
   def create_trails(trails, peak_id)
     trails.each do |trail|
-      if Trail.find_by(name: trail[:name]) == nil
+      if Trail.find_by(name: trail[:name]).nil?
         Trail.create!(peak_id: peak_id,
                       name: trail[:name],
                       open: trail[:open],
-                      difficulty: trail[:difficulty]
-        )
+                      difficulty: trail[:difficulty])
       else
-        Trail.find_by(name: trail[:name]).update(open: trail[:open],
-                                                difficulty: trail[:difficulty],
-                                                peak_id: peak_id
-        )
+        Trail.find_by(name: trail[:name]).update(open: trail[:open])
       end
     end
   end
@@ -134,16 +136,12 @@ private
 
   def scrape_raw_html(section)
     rows = @terrain_doc.xpath("//div[contains(@id, 'trails2Tab')]//div[contains(@id, 'statusTablesTrail')]//section[position() = #{section}]//tr")
-    trails_array = rows.collect do |row|
-    detail = {}
-    [
-      [:name, 'td[position() = 2]'],
-      [:open, 'td[position() = 4]'],
-      [:difficulty, 'td[position() = 1]//img'],
-    ].each do |name, xpath|
-      detail[name] = row.at_xpath(xpath)
-      end
-    detail
+    rows.collect do |row|
+      {
+        :name => row.xpath("td[position() = 2]"),
+        :open => row.xpath("td[position() = 4]"),
+        :difficulty => row.xpath("td[position() = 1]//img")
+      }
     end
   end
 

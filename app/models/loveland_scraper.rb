@@ -1,13 +1,20 @@
-  class LovelandScraper
+class LovelandScraper
 
   def initialize
     set_documents
-    create_mountain_information
-    # generate_peaks
-    scrape_for_trails
+    generate_mountain
+    generate_mountain_information
+    generate_peaks
+    generate_trails
   end
 
-  def create_mountain_information
+  def generate_mountain
+    if Mountain.find_by(name: "Loveland Ski Area").nil?
+      Mountain.create!(name: "Loveland Ski Area")
+    end
+  end
+
+  def generate_mountain_information
     report = scrape_mountain_information
 
     Mountain.find(6).update(last_24:        "#{report[0]}\"",
@@ -27,13 +34,14 @@
     loveland_peak_names = ['Chair 1', 'Chair 2', 'Chair 3', 'Chair 4', 'Chair 6', 'Chair 7', 'Chair 8', 'Chair 9', 'Magic Carpet']
 
     loveland_peak_names.each do |peak|
-      Peak.create!(name: peak,
-                  mountain_id: 6
-      )
+      if Peak.find_by(name: peak).nil?
+        Peak.create!(name: peak,
+                     mountain_id: 6)
+      end
     end
   end
 
-  def scrape_for_trails
+  def generate_trails
     scrape_for_chair_1
     scrape_for_chair_2
     scrape_for_chair_3
@@ -48,59 +56,56 @@
   def scrape_for_chair_1
     chair_1_trails = scrape_raw_html(1)
     format_open_and_difficulty(chair_1_trails)
-    create_trails(chair_1_trails, 29)
+    create_trails(chair_1_trails, 28)
   end
 
   def scrape_for_chair_2
     chair_2_trails = scrape_raw_html(2)
     format_open_and_difficulty(chair_2_trails)
-    create_trails(chair_2_trails, 30)
+    create_trails(chair_2_trails, 29)
   end
 
   def scrape_for_chair_3
     chair_3_trails = scrape_raw_html(3)
     format_open_and_difficulty(chair_3_trails)
-    create_trails(chair_3_trails, 31)
+    create_trails(chair_3_trails, 30)
   end
 
   def scrape_for_chair_4
     chair_4_trails = scrape_raw_html(4)
     format_open_and_difficulty(chair_4_trails)
-    create_trails(chair_4_trails, 32)
+    create_trails(chair_4_trails, 31)
   end
 
   def scrape_for_chair_6
     chair_6_trails = scrape_raw_html(6)
     format_open_and_difficulty(chair_6_trails)
-    create_trails(chair_6_trails, 33)
+    create_trails(chair_6_trails, 32)
   end
 
   def scrape_for_chair_7
     chair_7_trails = scrape_raw_html(7)
     format_open_and_difficulty(chair_7_trails)
-    create_trails(chair_7_trails, 34)
+    create_trails(chair_7_trails, 33)
   end
 
   def scrape_for_chair_8
     chair_8_trails = scrape_raw_html(8)
     format_open_and_difficulty(chair_8_trails)
-    create_trails(chair_8_trails, 35)
+    create_trails(chair_8_trails, 34)
   end
 
   def scrape_for_chair_9
     chair_9_trails = scrape_raw_html(9)
     format_open_and_difficulty(chair_9_trails)
-    create_trails(chair_9_trails, 36)
+    create_trails(chair_9_trails, 35)
   end
 
   def scrape_for_magic_carpet
     chair_12_trails = scrape_raw_html(12)
     format_open_and_difficulty(chair_12_trails)
-    create_trails(chair_12_trails, 37)
+    create_trails(chair_12_trails, 36)
   end
-
-  private
-
 
   def set_documents
     @mountain_doc = Nokogiri::HTML(open("http://www.skiloveland.com/themountain/reports/snowreport.aspx"))
@@ -110,33 +115,34 @@
   def create_trails(trails, peak_id)
     trails.each do |trail|
       unless trail[:name] == ''
-        Trail.find_by(name: trail[:name]).update(open: trail[:open],
-                                                difficulty: trail[:difficulty]
-        )
+        if Trail.find_by(name: trail[:name]).nil?
+          Trail.create!(name: trail[:name],
+                        open: trail[:open],
+                        difficulty: trail[:difficulty],
+                        peak_id: peak_id)
+        else
+          Trail.find_by(name: trail[:name]).update_attributes(open: trail[:open])
+        end
       end
     end
   end
 
-  def format_open_and_difficulty(data)
-    data.delete_at(0)
-    data.each do |data|
-      data[:open]       = data[:open].to_s.scan(/\b(open|closed)\b/).join
-      data[:difficulty] = data[:difficulty].to_s.scan(/\b(beginner|intermediate|expert|advanced|park)\b/).join
+  def format_open_and_difficulty(array)
+    array.delete_at(0)
+    array.each do |trail|
+      trail[:open]       = trail[:open].to_s.scan(/\b(open|closed)\b/).join
+      trail[:difficulty] = trail[:difficulty].to_s.scan(/\b(beginner|intermediate|expert|advanced|park)\b/).join
     end
   end
 
   def scrape_raw_html(lift_number)
     rows = @terrain_doc.xpath("//div[contains(@id, 'Lift #{lift_number}')]//tr")
-    trails_array = rows.collect do |row|
-    detail = {}
-    [
-      [:name, 'td[position() = 3]//text()'],
-      [:open, 'td[position() = 2]//img'],
-      [:difficulty, 'td[position() = 1]//img'],
-    ].each do |name, xpath|
-      detail[name] = row.at_xpath(xpath).to_s.strip
-      end
-    detail
+    rows.collect do |row|
+      {
+        :name => row.xpath("td[position() = 3]//text()").text,
+        :open => row.xpath("td[position() = 2]//img"),
+        :difficulty => row.xpath("td[position() = 1]//img")
+      }
     end
   end
 

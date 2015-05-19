@@ -20,24 +20,20 @@ class Seed
     KeystoneScraper.new       #5
     puts "Generate Keystone, complete"
 
+    LovelandScraper.new       #6
+    puts "Generate Loveland, complete"
 
+    PowderhornScraper.new     #7
+    puts "Generate Powderhorn, complete"
 
-    # VailScraper.new          #
-    # puts "Generate Vail, complete"
+    TellurideScraper.new      #8
+    puts "Generate Telluride, complete"
 
+    VailScraper.new           #9
+    puts "Generate Vail, complete"
 
-    # LovelandScraper.new      #6
-    # puts "Generate Loveland, complete"
-
-    # WinterParkScraper.new    #7
-    # puts "Generate Winter Park, complete"
-
-    # TellurideScraper.new     #8
-    # puts "Generate Telluride, complete"
-
-    # PowderhornScraper.new    #9
-    # puts "Generate Powderhorn, complete"
-
+    WinterParkScraper.new     #10
+    puts "Generate Winter Park, complete"
   end
 end
 

@@ -50,7 +50,7 @@ class BreckenridgeScraper
   end
 
   def generate_peaks
-    breckenridge_peak_names = ['Peak 7', 'Peak 8', 'Peak 9', 'Peak 10', 'Terrain Parks', 'T-bar', 'Bowls', 'Peak 6']
+    breckenridge_peak_names = ['Peak 6', 'Peak 7', 'Peak 8', 'Peak 9', 'Peak 10', 'Terrain Parks', 'T-bar', 'Bowls']
     breckenridge_peak_names.each do |peak|
       if Peak.find_by(name: peak).nil?
         Peak.create!(name: peak,
@@ -70,53 +70,54 @@ class BreckenridgeScraper
     scrape_for_bowls
   end
 
+  def scrape_for_peak_6
+    peak_6_trails = scrape_raw_html("//div[contains(@id, 'GA7')]//td//tr")
+    format_open_and_difficulty(peak_6_trails)
+    create_trails(peak_6_trails, 11)
+  end
+
   def scrape_for_peak_7
     peak_7_trails = scrape_raw_html("//div[contains(@id, 'GA4')]//td//tr")
     format_open_and_difficulty(peak_7_trails)
-    create_trails(peak_7_trails, 11)
+    create_trails(peak_7_trails, 12)
   end
 
   def scrape_for_peak_8
     peak_8_trails = scrape_raw_html("//div[contains(@id, 'GA1')]//td//tr")
     format_open_and_difficulty(peak_8_trails)
-    create_trails(peak_8_trails, 12)
+    create_trails(peak_8_trails, 13)
   end
 
   def scrape_for_peak_9
     peak_9_trails = scrape_raw_html("//div[contains(@id, 'GA2')]//td//tr")
     format_open_and_difficulty(peak_9_trails)
-    create_trails(peak_9_trails, 13)
+    create_trails(peak_9_trails, 14)
   end
 
   def scrape_for_peak_10
     peak_10_trails = scrape_raw_html("//div[contains(@id, 'GA3')]//td//tr")
     format_open_and_difficulty(peak_10_trails)
-    create_trails(peak_10_trails, 14)
+    create_trails(peak_10_trails, 15)
   end
 
   def scrape_for_terrain_parks
     terrain_park_trails = scrape_raw_html("//div[contains(@id, 'GA9001')]//td//tr")
     format_open_and_difficulty(terrain_park_trails)
-    create_trails(terrain_park_trails, 15)
+    create_trails(terrain_park_trails, 16)
   end
 
   def scrape_for_t_bar
     t_bar_trails = scrape_raw_html("//div[contains(@id, 'GA6')]//td//tr")
     format_open_and_difficulty(t_bar_trails)
-    create_trails(t_bar_trails, 16)
+    create_trails(t_bar_trails, 17)
   end
 
   def scrape_for_bowls
     bowls_trails = scrape_raw_html("//div[contains(@id, 'GA5')]//td//tr")
     format_open_and_difficulty(bowls_trails)
-    create_trails(bowls_trails, 17)
+    create_trails(bowls_trails, 18)
   end
 
-  def scrape_for_peak_6
-    peak_6_trails = scrape_raw_html("//div[contains(@id, 'GA7')]//td//tr")
-    format_open_and_difficulty(peak_6_trails)
-    create_trails(peak_6_trails, 18)
-  end
 
   private
 
