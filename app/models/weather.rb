@@ -1,4 +1,4 @@
-class Weather < ActiveRecord::Base
+class Weather
 
   def initialize
     @w_api = Wunderground.new
@@ -8,20 +8,20 @@ class Weather < ActiveRecord::Base
   end
 
   def gather_mountain_weather_reports
-    get_vail_weather_report
-    get_keystone_weather_report
-    sleep(35.seconds)
-    get_breckenridge_weather_report
-    get_beaver_creek_weather_report
-    sleep(35.seconds)
     get_a_basin_weather_report
-    get_loveland_weather_report
-    sleep(35.seconds)
-    get_winter_park_weather_report
-    get_telluride_weather_report
-    sleep(35.seconds)
+    get_beaver_creek_weather_report
+    get_breckenridge_weather_report
     get_copper_weather_report
-    get_powderhorn_weather_report
+    # get_vail_weather_report
+    # sleep(35.seconds)
+    # get_keystone_weather_report
+    # sleep(35.seconds)
+    # get_loveland_weather_report
+    # sleep(35.seconds)
+    # get_winter_park_weather_report
+    # get_telluride_weather_report
+    # sleep(35.seconds)
+    # get_powderhorn_weather_report
   end
 
   def get_a_basin_weather_report
@@ -29,6 +29,26 @@ class Weather < ActiveRecord::Base
     current_temp = get_current_temp("Keystone")
     create_weather_report(forecast, current_temp, 1)
   end
+
+  def get_beaver_creek_weather_report
+    forecast     = get_forecast("Avon")
+    current_temp = get_current_temp("Avon")
+    create_weather_report(forecast, current_temp, 2)
+  end
+
+  def get_breckenridge_weather_report
+    forecast     = get_forecast("Breckenridge")
+    current_temp = get_current_temp("Breckenridge")
+    create_weather_report(forecast, current_temp, 3)
+  end
+
+  def get_copper_weather_report
+    forecast     = get_forecast("Copper Mountain")
+    current_temp = get_current_temp("Copper Mountain")
+    create_weather_report(forecast, current_temp, 4)
+  end
+
+
 
   # def get_vail_weather_report
   #   forecast     = get_forecast("Vail")
@@ -39,53 +59,32 @@ class Weather < ActiveRecord::Base
   # def get_keystone_weather_report
   #   forecast     = get_forecast("Keystone")
   #   current_temp = get_current_temp("Keystone")
-  #   create_weather_report(forecast, current_temp, 2)
+  #   create_weather_report(forecast, current_temp, )
   # end
-
-  # def get_breckenridge_weather_report
-  #   forecast     = get_forecast("Breckenridge")
-  #   current_temp = get_current_temp("Breckenridge")
-  #   create_weather_report(forecast, current_temp, 3)
-  # end
-
-  # def get_beaver_creek_weather_report
-  #   forecast     = get_forecast("Avon")
-  #   current_temp = get_current_temp("Avon")
-  #   create_weather_report(forecast, current_temp, 4)
-  # end
-
 
   # def get_loveland_weather_report
   #   forecast     = get_forecast("Georgetown")
   #   current_temp = get_current_temp("Georgetown")
-  #   create_weather_report(forecast, current_temp, 6)
+  #   create_weather_report(forecast, current_temp, )
   # end
 
   # def get_winter_park_weather_report
   #   forecast     = get_forecast("Winter Park")
   #   current_temp = get_current_temp("Winter Park")
-  #   create_weather_report(forecast, current_temp, 7)
+  #   create_weather_report(forecast, current_temp, )
   # end
 
   # def get_telluride_weather_report
   #   forecast     = get_forecast("Telluride")
   #   current_temp = get_current_temp("Telluride")
-  #   create_weather_report(forecast, current_temp, 8)
+  #   create_weather_report(forecast, current_temp, )
   # end
 
   # def get_powderhorn_weather_report
   #   forecast     = get_forecast("Mesa")
   #   current_temp = get_current_temp("Mesa")
-  #   create_weather_report(forecast, current_temp, 9)
+  #   create_weather_report(forecast, current_temp, )
   # end
-
-  # def get_copper_weather_report
-  #   forecast     = get_forecast("Copper Mountain")
-  #   current_temp = get_current_temp("Copper Mountain")
-  #   create_weather_report(forecast, current_temp, 10)
-  # end
-
-  private
 
   def get_forecast(town)
     @w_api.forecast_for("CO","#{town}")['forecast']['simpleforecast']['forecastday']

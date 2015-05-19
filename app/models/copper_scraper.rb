@@ -1,18 +1,27 @@
-class CopperScraper < ActiveRecord::Base
+class CopperScraper
 
   def initialize
     set_documents
-    create_mountain_information
-    # generate_peaks
-    scrape_for_trails
+    generate_mountain
+    generate_mountain_information
+    generate_peaks
+    puts "made peaks"
+    generate_trails
+    puts "made trails"
   end
 
-  def create_mountain_information
+  def generate_mountain
+    if Mountain.find_by(name: "Copper Mountain").nil?
+      Mountain.create!(name: "Copper Mountain")
+    end
+  end
+
+  def generate_mountain_information
     snow_report    = find_snow_report
     terrain_status = find_terrian_status
     snow_depth     = find_snow_depth
 
-    Mountain.find(10).update(last_24:        "#{snow_report[1]} \"",
+    Mountain.find(4).update(last_24:        "#{snow_report[1]} \"",
                             overnight:      "#{snow_report[8]} \"",
                             last_48:        "#{snow_report[9]} \"",
                             last_7_days:    "#{snow_report[11]} \"",
@@ -28,13 +37,14 @@ class CopperScraper < ActiveRecord::Base
   def generate_peaks
     copper_peak_names = ['Beginner', 'Intermediate', 'Advanced', 'Expert']
     copper_peak_names.each do |peak|
-      Peak.create!(name: peak,
-                  mountain_id: 10
-      )
+      if Peak.find_by(name: peak).nil?
+        Peak.create!(name: peak,
+                    mountain_id: 4)
+      end
     end
   end
 
-  def scrape_for_trails
+  def generate_trails
     scrape_all_trails
     create_beginner
     create_intermediate
@@ -50,27 +60,27 @@ class CopperScraper < ActiveRecord::Base
 
   def create_beginner
     trail_set = get_trails('beginner')
-    create_trails(trail_set, 51)
+    create_trails(trail_set, 19)
   end
 
   def create_intermediate
     trail_set = get_trails('intermediate')
-    create_trails(trail_set, 52)
+    create_trails(trail_set, 20)
   end
 
   def create_advanced
     trail_set = get_trails('advanced')
-    create_trails(trail_set, 53)
+    create_trails(trail_set, 21)
   end
 
   def create_extreme
     trail_set = get_trails('extreme')
-    create_trails(trail_set, 54)
+    create_trails(trail_set, 22)
   end
 
   def create_expert
     trail_set = get_trails('expert')
-    create_trails(trail_set, 55)
+    create_trails(trail_set, 23)
   end
 
 
@@ -82,39 +92,26 @@ class CopperScraper < ActiveRecord::Base
 
   def scrape_raw_html(xpath)
     rows = @mountain_doc.xpath(xpath)
-    trails = rows.collect do |row|
-    detail = {}
-    [
-      [:name, "td[contains(@class, 'title')]"],
-      [:open, "//td[contains(@class, 'status_icon')]//img"],
-      [:difficulty, "td[contains(@class, 'trail icon')]//img"],
-    ].each do |name, xpath|
-      case name
-        when :name
-          detail[name] = row.at_xpath(xpath).text
-        when :open
-          detail[name] = row.at_xpath(xpath).attribute('src').value
-        when :difficulty
-          detail[name] = row.at_xpath(xpath).attribute('src').value
-        end
-      end
-    detail
+    rows.collect do |row|
+      {
+        :name => row.xpath("td[contains(@class, 'title')]").text,
+        :open => row.xpath("//td[contains(@class, 'status_icon')]//img").attribute('src').value,
+        :difficulty => row.xpath("td[contains(@class, 'trail icon')]//img").attribute('src').value,
+      }
     end
   end
 
   def format_trails(array)
     array.each do |trail|
-      trail[:open]       = trail[:open].scan(/\b(open|groomed|closed)\b/).join(',')
-      trail[:difficulty] = trail[:difficulty].scan(/\b(beginner|intermediate|advanced|expert|extreme)\b/).join(',')
+      trail[:open]       = trail[:open].scan(/\b(open|groomed|closed)\b/).join
+      trail[:difficulty] = trail[:difficulty].scan(/\b(beginner|intermediate|advanced|expert|extreme)\b/).join
     end
   end
 
-  def get_trails(target_difficulty)
+  def get_trails(target)
     trail_set = []
     @all_trails.collect do |trail|
-      if trail[:difficulty] == target_difficulty
-        trail_set << trail
-      end
+      trail[:difficulty] == target ? trail_set << trail : false
     end
     trail_set
   end
@@ -122,9 +119,16 @@ class CopperScraper < ActiveRecord::Base
   def create_trails(trails, peak_id)
     trails.each do |trail|
       unless trail[:name] == ''
-        Trail.find_by(name: trail[:name]).update(open: trail[:open],
-                                                difficulty: trail[:difficulty]
-        )
+        if Trail.find_by(name: trail[:name]).nil?
+          Trail.create!(name: trail[:name],
+                        open: trail[:open],
+                        difficulty: trail[:difficulty],
+                        peak_id: peak_id)
+        else
+          Trail.find_by(name: trail[:name])
+            .update_attributes(open: trail[:open],
+                               difficulty: trail[:difficulty])
+        end
       end
     end
 

@@ -5,8 +5,10 @@ class ArapahoeBasinScraper
     generate_mountain
     generate_mountain_information
     generate_peak
-    scrape_for_trails
+    generate_trails
   end
+
+  private
 
   def generate_mountain
     if Mountain.find_by(name: "Arapahoe Basin").nil?
@@ -33,7 +35,7 @@ class ArapahoeBasinScraper
   end
 
 
-  def scrape_for_trails
+  def generate_trails
     trails = scrape_raw_html
     format_name_open_difficulty(trails)
 
@@ -52,8 +54,6 @@ class ArapahoeBasinScraper
       end
     end
   end
-
-private
 
   def generate_peak
     if Peak.find_by(mountain_id: 1).nil?

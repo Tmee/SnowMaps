@@ -1,13 +1,26 @@
-class BreckenridgeScraper < ActiveRecord::Base
+class BreckenridgeScraper
 
   def initialize
     set_documents
-    create_mountain_information
-    # generate_peaks
-    scrape_for_trails
+    # check_closed_status
+    generate_mountain
+    generate_mountain_information
+    generate_peaks
+    generate_trails
   end
 
-  def create_mountain_information
+  # def check_closed_status
+  #   status = @doc.xpath("//ul[contains(@class, 'terrain_info')]").text.include?("closed")
+  #   status == true ? Mountain.find(3).closed
+  # end
+
+  def generate_mountain
+    if Mountain.find_by(name: "Breckenridge").nil?
+      Mountain.create!(name: "Breckenridge")
+    end
+  end
+
+  def generate_mountain_information
     snow_condition = scrape_for_snow_condition
     report         = scrape_for_snow_report_data
 
@@ -39,13 +52,14 @@ class BreckenridgeScraper < ActiveRecord::Base
   def generate_peaks
     breckenridge_peak_names = ['Peak 7', 'Peak 8', 'Peak 9', 'Peak 10', 'Terrain Parks', 'T-bar', 'Bowls', 'Peak 6']
     breckenridge_peak_names.each do |peak|
-      Peak.create!(name: peak,
-                  mountain_id: 3
-      )
+      if Peak.find_by(name: peak).nil?
+        Peak.create!(name: peak,
+                     mountain_id: 3)
+      end
     end
   end
 
-  def scrape_for_trails
+  def generate_trails
     scrape_for_peak_6
     scrape_for_peak_7
     scrape_for_peak_8
@@ -114,33 +128,34 @@ class BreckenridgeScraper < ActiveRecord::Base
   def create_trails(trails, peak_id)
     trails.each do |trail|
       unless trail[:name] == ''
-        Trail.find_by(name: trail[:name]).update(open: trail[:open],
-                                               difficulty: trail[:difficulty]
-        )
+        if Trail.find_by(name: trail[:name]).nil?
+          Trail.create!(name: trail[:name],
+                        open: trail[:open],
+                        difficulty: trail[:difficulty],
+                        peak_id: peak_id)
+        else
+          Trail.find_by(name: trail[:name]).update_attributes(open: trail[:open])
+        end
       end
     end
   end
 
-  def scrape_raw_html(xpath)
-    rows = @doc.xpath(xpath)
-    trails_array = rows.collect do |row|
-    detail = {}
-    [
-      [:name, 'td[position() = 2]//text()'],
-      [:open, 'td[position() = 3]'],
-      [:difficulty, 'td[position() = 1]'],
-    ].each do |name, xpath|
-      detail[name] = row.at_xpath(xpath).to_s.strip
-      end
-    detail
+  def scrape_raw_html(row_xpath)
+    rows = @doc.xpath(row_xpath)
+    rows.collect do |row|
+      {
+        :name => row.xpath("td[position() = 2]").text,
+        :open => row.xpath("td[position() = 3]//@class").text,
+        :difficulty => row.xpath("td[position() = 1]//@class").text
+      }
     end
   end
 
   def format_open_and_difficulty(array)
     array.delete_at(0)
     array.each do |trail|
-      trail[:open] = trail[:open].scan(/\b(noStatus|yesStatus)\b/).join(',')
-      trail[:difficulty] = trail[:difficulty].scan(/\b(easiest|moreDifficult|mostDifficult|doubleDiamond)\b/).join(',')
+      trail[:open] = trail[:open].scan(/\b(noStatus|yesStatus)\b/).join
+      trail[:difficulty] = trail[:difficulty].scan(/\b(easiest|moreDifficult|mostDifficult|doubleDiamond)\b/).join
     end
   end
 end

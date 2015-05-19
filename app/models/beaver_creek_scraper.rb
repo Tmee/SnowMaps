@@ -8,7 +8,7 @@ class BeaverCreekScraper
     generate_trails
   end
 
-
+  private
 
   def generate_mountain_information
     snow_condition = scrape_for_snow_condition
@@ -27,9 +27,9 @@ class BeaverCreekScraper
                             snow_condition: snow_condition)
   end
 
-  def check_closed(status)
-    status.include?("closed")
-  end
+  # def check_closed(status)
+  #   status.include?("closed")
+  # end
 
   def scrape_for_openness
     open_area = @doc.xpath("//div[contains(@class, 'gradBorderModule')]//li//span//text()")
@@ -129,9 +129,6 @@ class BeaverCreekScraper
     format_open_and_difficulty(rose_bowl_trails)
     create_trails(rose_bowl_trails, 10)
   end
-
-  private
-
 
   def set_documents
     @doc = Nokogiri::HTML(open("http://www.beavercreek.com/the-mountain/terrain-status.aspx#/TerrainStatus"))
