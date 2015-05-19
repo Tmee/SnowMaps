@@ -1,4 +1,4 @@
-  class LovelandScraper < ActiveRecord::Base
+  class LovelandScraper
 
   def initialize
     set_documents

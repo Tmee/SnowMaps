@@ -1,4 +1,4 @@
-class WinterParkScraper < ActiveRecord::Base
+class WinterParkScraper
 
   def initialize
     set_documents

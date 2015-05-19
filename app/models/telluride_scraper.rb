@@ -1,4 +1,4 @@
-class TellurideScraper < ActiveRecord::Base
+class TellurideScraper
 
   def initialize
     set_documents

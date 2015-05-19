@@ -47,9 +47,7 @@ class ArapahoeBasinScraper
                         difficulty: trail[:difficulty],
                         peak_id: 1)
         else
-          Trail.find_by(name: trail[:name])
-            .update_attributes(open: trail[:open],
-                               difficulty: trail[:difficulty])
+          Trail.find_by(name: trail[:name]).update_attributes(open: trail[:open])
         end
       end
     end

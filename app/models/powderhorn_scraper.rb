@@ -1,4 +1,4 @@
-class PowderhornScraper < ActiveRecord::Base
+class PowderhornScraper
 
   def initialize
     set_documents

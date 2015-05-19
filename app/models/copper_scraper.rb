@@ -5,9 +5,7 @@ class CopperScraper
     generate_mountain
     generate_mountain_information
     generate_peaks
-    puts "made peaks"
     generate_trails
-    puts "made trails"
   end
 
   def generate_mountain
@@ -122,12 +120,10 @@ class CopperScraper
         if Trail.find_by(name: trail[:name]).nil?
           Trail.create!(name: trail[:name],
                         open: trail[:open],
-                        difficulty: trail[:difficulty],
-                        peak_id: peak_id)
+                  difficulty: trail[:difficulty],
+                     peak_id: peak_id)
         else
-          Trail.find_by(name: trail[:name])
-            .update_attributes(open: trail[:open],
-                               difficulty: trail[:difficulty])
+          Trail.find_by(name: trail[:name]).update_attributes(open: trail[:open])
         end
       end
     end

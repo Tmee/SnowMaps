@@ -1,4 +1,4 @@
-class VailScraper < ActiveRecord::Base
+class VailScraper
 
   def initialize
     set_documents
