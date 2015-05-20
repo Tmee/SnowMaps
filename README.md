@@ -1,5 +1,8 @@
 ## Snow Maps
 
+It's Summer and the mountains have closed.... and changed their websites.
+Changes are coming soon! Check back in a bit.
+
 <h2>Turing School Module 3 -- Self Directed Project</h2>
 
 <p>This application brings the ski resorts' snow reports to one easy to view page </p>
