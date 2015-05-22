@@ -12,7 +12,7 @@ class BeaverCreekScraper
   end
 
   def check_open_status
-    scrape_for_snow_condition.include?('closed') ? Mountain.find(2).set_closed : Mountain.find(2).set_open
+    @mountain_doc.xpath("//div[contains(@class, 'snowConditions')]//text()").to_s.include?("is closed") ? Mountain.find(2).set_closed : Mountain.find(2).set_open
   end
 
   def generate_mountain_information
