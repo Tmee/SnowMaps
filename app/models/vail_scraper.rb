@@ -12,7 +12,7 @@ class VailScraper
   end
 
   def check_open_status
-    scrape_for_snow_condition.include?('Vail is closed') ? Mountain.find_by(name: 'Vail Ski Resort').set_closed : Mountain.find_by(name: 'Vail Ski Resort').set_open
+    @mountain_doc.xpath("//div[contains(@class, 'snowConditions')]//text()").to_s.include?("is closed") ? Mountain.find_by(name: 'Vail Ski Resort').set_closed : Mountain.find_by(name: 'Vail Ski Resort').set_open
   end
 
   def generate_mountain
