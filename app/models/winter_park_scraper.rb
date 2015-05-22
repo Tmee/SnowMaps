@@ -3,9 +3,22 @@ class WinterParkScraper
   def initialize
     set_documents
     generate_mountain
-    generate_mountain_information
-    generate_peaks
-    generate_trails
+    check_open_status
+    unless closed?
+      generate_mountain_information
+      generate_peaks
+      generate_trails
+    end
+  end
+
+  def check_open_status
+    a = @terrain_doc.xpath("//div[contains(@id, 'trails1Tab')]//p[contains(@class, 'overallInfo')]").map(&:text).join.scan("Open Winter Park Trails: 0")
+
+    if a.empty?
+      Mountain.find_by(name: "Winter Park Resort").set_open
+    else
+      Mountain.find_by(name: "Winter Park Resort").set_closed
+    end
   end
 
   def generate_mountain
@@ -165,5 +178,9 @@ class WinterParkScraper
     lift_trail_acre << lift_trail_acres[2].text
     lift_trail_acre << lift_trail_acres[3].text
     lift_trail_acre << lift_trail_acres[4].attribute('data-imperial').value
+  end
+
+  def closed?
+    !Mountain.find_by(name: "Winter Park Resort").open?
   end
 end

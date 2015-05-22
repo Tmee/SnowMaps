@@ -7,8 +7,15 @@ class Mountain < ActiveRecord::Base
 
   before_save :generate_slug
 
+  def set_closed
+    update_attribute(:open, false)
+  end
 
-  protected
+  def set_open
+    update_attribute(:open, true)
+  end
+
+  private
 
   def generate_slug
     self.slug = name.parameterize

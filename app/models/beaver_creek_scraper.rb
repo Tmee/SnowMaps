@@ -3,12 +3,17 @@ class BeaverCreekScraper
   def initialize
     set_documents
     generate_mountain
-    generate_mountain_information
-    generate_peaks
-    generate_trails
+    check_open_status
+    unless closed?
+      generate_mountain_information
+      generate_peaks
+      generate_trails
+    end
   end
 
-  private
+  def check_open_status
+    scrape_for_snow_condition.include?('closed') ? Mountain.find(2).set_closed : Mountain.find(2).set_open
+  end
 
   def generate_mountain_information
     snow_condition = scrape_for_snow_condition
@@ -26,10 +31,6 @@ class BeaverCreekScraper
                             runs_open:      "#{open_area[2]} of #{open_area[3]}",
                             snow_condition: snow_condition)
   end
-
-  # def check_closed(status)
-  #   status.include?("closed")
-  # end
 
   def scrape_for_openness
     open_area = @doc.xpath("//div[contains(@class, 'gradBorderModule')]//li//span//text()")
@@ -50,7 +51,7 @@ class BeaverCreekScraper
   end
 
   def scrape_for_snow_condition
-    snow_condition =  @mountain_doc.xpath("//div[contains(@class, 'snowConditions')]//tr[position() = 2]//td[position() = 1]//text()").to_s.gsub("\r\n", "").gsub(/\s{2}/, "")
+    @mountain_doc.xpath("//div[contains(@class, 'snowConditions')]//tr[position() = 2]//td[position() = 1]//text()").to_s.gsub("\r\n", "").gsub(/\s{2}/, "")
   end
 
 
@@ -173,5 +174,9 @@ class BeaverCreekScraper
       trail[:open] = trail[:open].scan(/\b(noStatus|yesStatus)\b/).join
       trail[:difficulty] = trail[:difficulty].scan(/\b(easiest|moreDifficult|mostDifficult|doubleDiamond|expert)\b/).join
     end
+  end
+
+  def closed?
+    !Mountain.find(2).open?
   end
 end

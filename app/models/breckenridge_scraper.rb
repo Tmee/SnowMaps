@@ -2,17 +2,18 @@ class BreckenridgeScraper
 
   def initialize
     set_documents
-    # check_closed_status
     generate_mountain
-    generate_mountain_information
-    generate_peaks
-    generate_trails
+    check_open_status
+    unless closed?
+      generate_mountain_information
+      generate_peaks
+      generate_trails
+    end
   end
 
-  # def check_closed_status
-  #   status = @doc.xpath("//ul[contains(@class, 'terrain_info')]").text.include?("closed")
-  #   status == true ? Mountain.find(3).closed
-  # end
+  def check_open_status
+    scrape_for_snow_condition.include?('closed') ? Mountain.find_by(name: "Breckenridge").set_closed : Mountain.find_by(name: "Breckenridge").set_open
+  end
 
   def generate_mountain
     if Mountain.find_by(name: "Breckenridge").nil?
@@ -158,5 +159,9 @@ class BreckenridgeScraper
       trail[:open] = trail[:open].scan(/\b(noStatus|yesStatus)\b/).join
       trail[:difficulty] = trail[:difficulty].scan(/\b(easiest|moreDifficult|mostDifficult|doubleDiamond)\b/).join
     end
+  end
+
+  def closed?
+    !Mountain.find_by(name: "Breckenridge").open?
   end
 end
