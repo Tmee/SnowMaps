@@ -3,9 +3,16 @@ class PowderhornScraper
   def initialize
     set_documents
     generate_mountain
-    generate_mountain_information
-    generate_peaks
-    generate_trails
+    check_open_status
+    unless closed?
+      generate_mountain_information
+      generate_peaks
+      generate_trails
+    end
+  end
+
+  def check_open_status
+    @mountain_doc.xpath("//section[contains(@id, 'main-content')]//div[contains(@class, 'content')]//div[contains(@class, 'field-items')]").first.text.include?("Thanks for supporting us this season. See you next year.") ? Mountain.find_by(name: "Powderhorn Ski Area").set_closed : Mountain.find_by(name: "Powderhorn Ski Area").set_open
   end
 
   def generate_mountain
@@ -109,5 +116,9 @@ class PowderhornScraper
         Trail.find_by(name: trail[:name]).update(open: trail[:open])
       end
     end
+  end
+
+  def closed?
+    !Mountain.find_by(name: "Powderhorn Ski Area").open?
   end
 end

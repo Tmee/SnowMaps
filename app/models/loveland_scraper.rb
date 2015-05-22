@@ -3,9 +3,17 @@ class LovelandScraper
   def initialize
     set_documents
     generate_mountain
-    generate_mountain_information
-    generate_peaks
-    generate_trails
+    check_open_status
+    unless closed?
+      generate_mountain_information
+      generate_peaks
+      generate_trails
+    end
+  end
+
+  def check_open_status
+    doc = Nokogiri::HTML(open("http://skiloveland.com/themountain/uphillaccess.aspx"))
+    doc.xpath("//div[contains(@id, 'uphillaccess')]//div[contains(@id ,'layer3')]//div[contains(@id, 'layer1')]//p[contains(@class, 'auto-style1')]").text.include?("Loveland Ski Area is now closed for the season") ? Mountain.find_by(name: "Loveland Ski Area").set_closed : Mountain.find_by(name: "Loveland Ski Area").set_open
   end
 
   def generate_mountain
@@ -148,5 +156,9 @@ class LovelandScraper
 
   def scrape_mountain_information
     @mountain_doc.xpath("//div[contains(@id, 'report')]//tr//td[position() = 2]//text()").map {|x| x.text}[5..-1]
+  end
+
+  def closed?
+    !Mountain.find_by(name: "Loveland Ski Area").open?
   end
 end
