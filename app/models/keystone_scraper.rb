@@ -12,7 +12,7 @@ class KeystoneScraper
   end
 
   def check_open_status
-    scrape_for_snow_condition.include?('Keystone is closed') ? Mountain.find_by(name: "Keystone Resort").set_closed : Mountain.find_by(name: "Keystone Resort").set_open
+    @mountain_doc.xpath("//div[contains(@class, 'snowConditions')]//text()").to_s.include?("is closed") ? Mountain.find_by(name: "Keystone Resort").set_closed : Mountain.find_by(name: "Keystone Resort").set_open
   end
 
   def generate_mountain
@@ -94,7 +94,7 @@ class KeystoneScraper
   end
 
   def scrape_for_snow_condition
-    @mountain_doc.xpath("//div[contains(@class, 'snowConditions')]//tr[position() = 2]//text()").to_s.gsub("\r\n", "").gsub(/\s{2}/, "")
+    @mountain_doc.xpath("//div[contains(@class, 'snowConditions')]//tr[position() = 2]//td[position() = 1]//text()").to_s.gsub("\r\n", "").gsub(/\s{2}/, "")
   end
 
   def create_trails(trails, peak_id)
