@@ -3,9 +3,16 @@ class KeystoneScraper
   def initialize
     set_documents
     generate_mountain
-    generate_mountain_information
-    generate_peak_names
-    generate_trails
+    check_open_status
+    unless closed?
+      generate_mountain_information
+      generate_peak_names
+      generate_trails
+    end
+  end
+
+  def check_open_status
+    scrape_for_snow_condition.include?('Keystone is closed') ? Mountain.find_by(name: "Keystone Resort").set_closed : Mountain.find_by(name: "Keystone Resort").set_open
   end
 
   def generate_mountain
@@ -124,5 +131,9 @@ class KeystoneScraper
       trail[:open]       = trail[:open].scan(/\b(noStatus|yesStatus)\b/).join
       trail[:difficulty] = trail[:difficulty].scan(/\b(easiest|moreDifficult|mostDifficult|doubleDiamond)\b/).join
     end
+  end
+
+  def closed?
+    !Mountain.find_by(name: "Keystone Resort").open?
   end
 end

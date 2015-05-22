@@ -3,9 +3,20 @@ class CopperScraper
   def initialize
     set_documents
     generate_mountain
-    generate_mountain_information
-    generate_peaks
-    generate_trails
+    check_open_status
+    unless closed?
+      generate_mountain_information
+      generate_peaks
+      generate_trails
+    end
+  end
+
+  def check_open_status
+    if @mountain_doc.xpath("//div[contains(@id, 'report-page')]//table[contains(@class, 'report-page-conditions')][position() = 6]//tr//p").text.include?("We are closed")
+      Mountain.find_by(name: "Copper Mountain").set_closed
+    else
+      Mountain.find_by(name: "Copper Mountain").set_open
+    end
   end
 
   def generate_mountain
@@ -28,8 +39,7 @@ class CopperScraper
                             acres_open:     terrain_status[2],
                             lifts_open:     terrain_status[0],
                             runs_open:      terrain_status[1],
-                            snow_condition: terrain_status[3]
-    )
+                            snow_condition: terrain_status[3])
   end
 
   def generate_peaks
@@ -142,5 +152,9 @@ class CopperScraper
 
   def format_terrain(data)
     data.map {|data| data.gsub(/\s{2}/, '')}
+  end
+
+  def closed?
+    !Mountain.find_by(name: "Copper Mountain").open?
   end
 end

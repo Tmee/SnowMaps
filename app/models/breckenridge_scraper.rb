@@ -119,9 +119,6 @@ class BreckenridgeScraper
     create_trails(bowls_trails, 18)
   end
 
-
-  private
-
   def set_documents
     @doc = Nokogiri::HTML(open("http://www.breckenridge.com/mountain/terrain-status.aspx#/GA4"))
     @mountain_doc = Nokogiri::HTML(open("http://www.breckenridge.com/mountain/snow-and-weather-report.aspx"))
