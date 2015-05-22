@@ -3,9 +3,16 @@ class TellurideScraper
   def initialize
     set_documents
     generate_mountain
-    generate_mountain_information
-    generate_peaks
-    generate_trails
+    check_open_status
+    unless closed?
+      generate_mountain_information
+      generate_peaks
+      generate_trails
+    end
+  end
+
+  def check_open_status
+    find_snow_report.last.to_i == 0 ? Mountain.find_by(name: 'Telluride Resort').set_closed : Mountain.find_by(name: 'Telluride Resort').set_open
   end
 
   def generate_mountain
@@ -135,5 +142,9 @@ class TellurideScraper
       trail[:open]       = trail[:open].scan(/\b(keyClosed|keyOpen)\b/).join
       trail[:difficulty] = trail[:difficulty].scan(/\b(levelNovice|levelIntermediate|AdvancedIntermediate|levelExpert|levelExtreme)\b/).join
     end
+  end
+
+  def closed?
+    !Mountain.find_by(name: 'Telluride Resort').open?
   end
 end
