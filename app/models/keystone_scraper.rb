@@ -78,8 +78,6 @@ class KeystoneScraper
     create_trails(outback_trails, 27)
   end
 
-  private
-
   def set_documents
     @doc = Nokogiri::HTML(open("http://www.keystoneresort.com/ski-and-snowboard/terrain-status.aspx#/TerrainStatus"))
     @mountain_doc = Nokogiri::HTML(open("http://www.keystoneresort.com/ski-and-snowboard/snow-report.aspx"))
@@ -96,7 +94,7 @@ class KeystoneScraper
   end
 
   def scrape_for_snow_condition
-    @mountain_doc.xpath("//div[contains(@class, 'snowConditions')]//tr[position() = 2]//td[position() = 1]//text()").to_s.gsub("\r\n", "").gsub(/\s{2}/, "")
+    @mountain_doc.xpath("//div[contains(@class, 'snowConditions')]//tr[position() = 2]//text()").to_s.gsub("\r\n", "").gsub(/\s{2}/, "")
   end
 
   def create_trails(trails, peak_id)
