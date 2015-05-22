@@ -1,4 +1,4 @@
-class Weather < ActiveRecord::Base
+class Weather
 
   def initialize
     @w_api = Wunderground.new
@@ -8,31 +8,28 @@ class Weather < ActiveRecord::Base
   end
 
   def gather_mountain_weather_reports
-    get_vail_weather_report
-    get_keystone_weather_report
-    sleep(35.seconds)
-    get_breckenridge_weather_report
-    get_beaver_creek_weather_report
-    sleep(35.seconds)
     get_a_basin_weather_report
-    get_loveland_weather_report
-    sleep(35.seconds)
-    get_winter_park_weather_report
-    get_telluride_weather_report
-    sleep(35.seconds)
+    get_beaver_creek_weather_report
+    get_breckenridge_weather_report
     get_copper_weather_report
+    get_keystone_weather_report
+    sleep(61.seconds)
+    get_loveland_weather_report
     get_powderhorn_weather_report
+    get_telluride_weather_report
+    get_vail_weather_report
+    get_winter_park_weather_report
   end
 
-  def get_vail_weather_report
-    forecast     = get_forecast("Vail")
-    current_temp = get_current_temp("Vail")
+  def get_a_basin_weather_report
+    forecast     = get_forecast("Keystone")
+    current_temp = get_current_temp("Keystone")
     create_weather_report(forecast, current_temp, 1)
   end
 
-  def get_keystone_weather_report
-    forecast     = get_forecast("Keystone")
-    current_temp = get_current_temp("Keystone")
+  def get_beaver_creek_weather_report
+    forecast     = get_forecast("Avon")
+    current_temp = get_current_temp("Avon")
     create_weather_report(forecast, current_temp, 2)
   end
 
@@ -42,13 +39,13 @@ class Weather < ActiveRecord::Base
     create_weather_report(forecast, current_temp, 3)
   end
 
-  def get_beaver_creek_weather_report
-    forecast     = get_forecast("Avon")
-    current_temp = get_current_temp("Avon")
+  def get_copper_weather_report
+    forecast     = get_forecast("Copper Mountain")
+    current_temp = get_current_temp("Copper Mountain")
     create_weather_report(forecast, current_temp, 4)
   end
 
-  def get_a_basin_weather_report
+  def get_keystone_weather_report
     forecast     = get_forecast("Keystone")
     current_temp = get_current_temp("Keystone")
     create_weather_report(forecast, current_temp, 5)
@@ -60,9 +57,9 @@ class Weather < ActiveRecord::Base
     create_weather_report(forecast, current_temp, 6)
   end
 
-  def get_winter_park_weather_report
-    forecast     = get_forecast("Winter Park")
-    current_temp = get_current_temp("Winter Park")
+  def get_powderhorn_weather_report
+    forecast     = get_forecast("Mesa")
+    current_temp = get_current_temp("Mesa")
     create_weather_report(forecast, current_temp, 7)
   end
 
@@ -72,19 +69,17 @@ class Weather < ActiveRecord::Base
     create_weather_report(forecast, current_temp, 8)
   end
 
-  def get_powderhorn_weather_report
-    forecast     = get_forecast("Mesa")
-    current_temp = get_current_temp("Mesa")
+  def get_vail_weather_report
+    forecast     = get_forecast("Vail")
+    current_temp = get_current_temp("Vail")
     create_weather_report(forecast, current_temp, 9)
   end
 
-  def get_copper_weather_report
-    forecast     = get_forecast("Copper Mountain")
-    current_temp = get_current_temp("Copper Mountain")
+  def get_winter_park_weather_report
+    forecast     = get_forecast("Winter Park")
+    current_temp = get_current_temp("Winter Park")
     create_weather_report(forecast, current_temp, 10)
   end
-
-  private
 
   def get_forecast(town)
     @w_api.forecast_for("CO","#{town}")['forecast']['simpleforecast']['forecastday']
@@ -102,8 +97,7 @@ class Weather < ActiveRecord::Base
                             conditions:   day['conditions'],
                             high:         day['high']['fahrenheit'],
                             low:          day['low']['fahrenheit'],
-                            current_temp: current_temp
-    )
+                            current_temp: current_temp)
     end
   end
 

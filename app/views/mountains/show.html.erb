@@ -29,15 +29,21 @@
       <small>Season Total: <%=@mountain.season_total%></small><hr/>
     </div>
     <div class="large-8 columns text-center">
-      <%= render partial: "terrain_side_table" %>
-      <dl class="tabs" data-tab>
-        <%@mountain.peaks.each do |peak|%>
-          <dd><a href="#panel<%=peak.id%>" class="trail-name"><%=peak.name%></a></dd>
-        <%end%>
-      </dl>
-      <div class="row">
-        <%= render partial: "trails_table" %>
-      </div>
+      <% if check_open_status(@mountain) %>
+        <%= render partial: "terrain_side_table" %>
+        <dl class="tabs" data-tab>
+          <%@mountain.peaks.each do |peak|%>
+            <dd><a href="#panel<%=peak.id%>" class="trail-name"><%=peak.name%></a></dd>
+          <%end%>
+        </dl>
+        <div class="row">
+          <%= render partial: "trails_table" %>
+        </div>
+      <% else %>
+
+        <h2><strong><%=@mountain.name%></strong> is closed for the ski season, Check back next winter!</h2>
+
+      <% end %>
     </div>
   </div>
   <br><br>

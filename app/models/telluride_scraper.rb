@@ -1,13 +1,27 @@
-class TellurideScraper < ActiveRecord::Base
+class TellurideScraper
 
   def initialize
     set_documents
-    create_mountain_information
-    # generate_peaks
-    scrape_for_trails
+    generate_mountain
+    check_open_status
+    unless closed?
+      generate_mountain_information
+      generate_peaks
+      generate_trails
+    end
   end
 
-  def create_mountain_information
+  def check_open_status
+    find_snow_report.last.to_i == 0 ? Mountain.find_by(name: 'Telluride Resort').set_closed : Mountain.find_by(name: 'Telluride Resort').set_open
+  end
+
+  def generate_mountain
+    if Mountain.find_by(name: 'Telluride Resort').nil?
+      Mountain.create!(name: 'Telluride Resort')
+    end
+  end
+
+  def generate_mountain_information
     trails_open         = find_open_count("//div[contains(@class, 'trailsOpen')]")
     lifts_open          = find_open_count("//div[contains(@class, 'liftsOpen')]")
     snow_report         = find_snow_report
@@ -27,15 +41,14 @@ class TellurideScraper < ActiveRecord::Base
   end
 
   def generate_peaks
-    telluride_peak_names = ['Beginner', 'Intermediate', 'Avanced', 'Expert']
-    telluride_peak_names.each do |peak|
-      Peak.create!(name: peak,
-                  mountain_id: 8
-      )
+    if Mountain.find(8).peaks.empty?
+      ['Beginner', 'Intermediate', 'Avanced', 'Expert'].each do |peak|
+        Peak.create!(name: peak, mountain_id: 8)
+      end
     end
   end
 
-  def scrape_for_trails
+  def generate_trails
     scrape_all_trails
     create_beginner
     create_intermediate
@@ -50,31 +63,28 @@ class TellurideScraper < ActiveRecord::Base
 
   def create_beginner
     trail_set = get_trails('levelNovice')
-    create_trails(trail_set, 44)
+    create_trails(trail_set, 40)
   end
 
   def create_intermediate
     trail_set = get_trails('levelIntermediate')
-    create_trails(trail_set, 45)
+    create_trails(trail_set, 41)
   end
 
   def create_advanced_intermediate
     trail_set = get_trails('AdvancedIntermediate')
-    create_trails(trail_set, 45) #not a fuck up
+    create_trails(trail_set, 41) #not a fuck up
   end
 
   def create_advanced
     trail_set = get_trails('levelExpert')
-    create_trails(trail_set, 46)
+    create_trails(trail_set, 42)
   end
 
   def create_expert
     trail_set = get_trails('levelExtreme')
-    create_trails(trail_set, 47)
+    create_trails(trail_set, 43)
   end
-
-
-  private
 
   def set_documents
     @mountain_doc = Nokogiri::HTML(open("http://www.tellurideskiresort.com/the-mountain/snow-report/"))
@@ -101,10 +111,7 @@ class TellurideScraper < ActiveRecord::Base
                       difficulty: trail[:difficulty]
         )
       else
-        Trail.find_by(name: trail[:name]).update(open: trail[:open],
-                                                difficulty: trail[:difficulty],
-                                                peak_id: peak_id
-        )
+        Trail.find_by(name: trail[:name]).update(open: trail[:open])
       end
     end
   end
@@ -122,29 +129,22 @@ class TellurideScraper < ActiveRecord::Base
   def scrape_raw_html(xpath)
     rows = @mountain_doc.xpath(xpath)
     rows.collect do |row|
-      detail = {}
-      [
-        [:name, 'div[position() = 2]'],
-        [:open, 'div[position() = 3]'],
-        [:difficulty, 'div[position() = 1]'],
-      ].each do |name, xpath|
-        case name
-        when :name
-          detail[name] = row.at_xpath(xpath).child.text
-        when :open
-          detail[name] = row.at_xpath(xpath).attribute('class').value
-        when :difficulty
-          detail[name] = row.at_xpath(xpath).attribute('class').value
-        end
-      end
-    detail
+      {
+        :name => row.xpath("div[contains(@class, 'title')]").text,
+        :open => row.xpath("div[position() = 3]//@class").text,
+        :difficulty => row.xpath("div[position() = 1]//@class").text
+      }
     end
   end
 
   def format_trails(array)
     array.each do |trail|
-      trail[:open]       = trail[:open].scan(/\b(keyClosed|keyOpen)\b/).join(',')
-      trail[:difficulty] = trail[:difficulty].scan(/\b(levelNovice|levelIntermediate|AdvancedIntermediate|levelExpert|levelExtreme)\b/).join(',')
+      trail[:open]       = trail[:open].scan(/\b(keyClosed|keyOpen)\b/).join
+      trail[:difficulty] = trail[:difficulty].scan(/\b(levelNovice|levelIntermediate|AdvancedIntermediate|levelExpert|levelExtreme)\b/).join
     end
+  end
+
+  def closed?
+    !Mountain.find_by(name: 'Telluride Resort').open?
   end
 end

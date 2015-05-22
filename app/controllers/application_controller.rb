@@ -5,11 +5,6 @@ class ApplicationController < ActionController::Base
   helper_method :set_mountains
 
 
-  def format_time
-    raw_time = Time.now
-    @time = raw_time.strftime'%I:%M'
-  end
-
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end

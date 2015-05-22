@@ -1,17 +1,26 @@
-class ArapahoeBasinScraper < ActiveRecord::Base
+class ArapahoeBasinScraper
 
   def initialize
     set_documents
+    generate_mountain
     generate_mountain_information
-    # generate_peak
-    scrape_for_trails
+    generate_peak
+    generate_trails
+  end
+
+  private
+
+  def generate_mountain
+    if Mountain.find_by(name: "Arapahoe Basin").nil?
+      Mountain.create!(name: "Arapahoe Basin")
+    end
   end
 
   def generate_mountain_information
     new_snow = @mountain_doc.xpath("//div//section[contains(@id, 'mountain-conditions')]//ul//li//strong//text()").map {|x| x.to_s.split(' ').join}
     lifts_open = count_the_lifts
 
-    Mountain.find(5).update(last_24:        new_snow[0],
+    Mountain.find(1).update(last_24:        new_snow[0],
                             overnight:      new_snow[0],
                             last_48:        new_snow[1],
                             last_7_days:    "-",
@@ -19,32 +28,37 @@ class ArapahoeBasinScraper < ActiveRecord::Base
                             season_total:   "-",
                             acres_open:     "-",
                             lifts_open:     lifts_open,
-                            runs_open:      "#{new_snow[-1]} of front",
+                            runs_open:      "-",
                             snow_condition: new_snow[3]
 
     )
   end
 
-  def generate_peak
-    Peak.create!(name: 'All Trails',
-                mountain_id: 5
-    )
-  end
 
-  def scrape_for_trails
-    back_side_trails = scrape_raw_html("//div//article//ul[contains(@class, 'runs-list')]//li")
-    format_name_open_difficulty(back_side_trails)
+  def generate_trails
+    trails = scrape_raw_html
+    format_name_open_difficulty(trails)
 
-    back_side_trails.each do |trail|
+    trails.each do |trail|
       unless trail[:name] == ''
-        Trail.find_by(name: trail[:name]).update(open: trail[:open],
-                                                difficulty: trail[:difficulty]
-          )
+        if Trail.find_by(name: trail[:name]).nil?
+          Trail.create!(name: trail[:name],
+                        open: trail[:open],
+                        difficulty: trail[:difficulty],
+                        peak_id: 1)
+        else
+          Trail.find_by(name: trail[:name]).update_attributes(open: trail[:open])
+        end
       end
     end
   end
 
-private
+  def generate_peak
+    if Peak.find_by(mountain_id: 1).nil?
+      Peak.create!(name: 'All Trails',
+                   mountain_id: 1)
+    end
+  end
 
   def count_the_lifts
     raw_data_array = @mountain_doc.at('div:has(h2[text() = "Lifts Open"])').text.delete("\r\n\t").gsub(/\s{15}/, ',').split(',')
@@ -57,25 +71,22 @@ private
     @mountain_doc = Nokogiri::HTML(open("http://www.arapahoebasin.com/ABasin/snow-conditions/default.aspx"))
   end
 
-  def scrape_raw_html(xpath)
+  def scrape_raw_html
     rows = @terrain_doc.xpath("//div//article//ul[contains(@class, 'runs-list')]//li")
-    trails_array = rows.collect do |row|
-    detail = {}
-    [
-      [:name, 'a//text()'],
-      [:open, 'a//span//text()'],
-      [:difficulty, '@class'],
-    ].each do |name, xpath|
-      detail[name] = row.at_xpath(xpath).to_s.strip
-    end
-    detail
+
+    rows.collect do |row|
+      {
+        :name => row.xpath("a/text()[1]").text,
+        :open => row.xpath("a//span//text()").text,
+        :difficulty => row.xpath("@class").text
+      }
     end
   end
 
   def format_name_open_difficulty(array)
     array.each do |trail|
-      trail[:name] = trail[:name].gsub(/open/,"").gsub(/closed/,"").delete("\r\n").gsub(/\s/, '').split('-').join(',')
-      trail[:open] = trail[:open].delete("\r\n").split(' ').join(',')
+      trail[:name] = trail[:name].delete("\r\n").gsub(/\s{2}/, '')
+      trail[:open] = trail[:open].scan(/[a-zA-Z]/).join
       trail[:difficulty] = trail[:difficulty].scan(/\b(beg|int|adv|exp|terrain)\b/).join(',')
     end
   end

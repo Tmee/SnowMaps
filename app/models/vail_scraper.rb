@@ -1,17 +1,31 @@
-class VailScraper < ActiveRecord::Base
+class VailScraper
 
   def initialize
     set_documents
-    create_mountain_information
-    # generate_peaks
-    scrape_for_trails
+    generate_mountain
+    check_open_status
+    unless closed?
+      generate_mountain_information
+      generate_peaks
+      generate_trails
+    end
   end
 
-  def create_mountain_information
+  def check_open_status
+    scrape_for_snow_condition.include?('Vail is closed') ? Mountain.find_by(name: 'Vail Ski Resort').set_closed : Mountain.find_by(name: 'Vail Ski Resort').set_open
+  end
+
+  def generate_mountain
+    if Mountain.find_by(name: 'Vail Ski Resort').nil?
+      Mountain.create!(name: 'Vail Ski Resort')
+    end
+  end
+
+  def generate_mountain_information
     snow_condition = scrape_for_snow_condition
     report         = scrape_for_snow_report_data
 
-    Mountain.find(1).update(last_24:        report[0],
+    Mountain.find(9).update(last_24:        report[0],
                             overnight:      report[1],
                             last_48:        report[2],
                             last_7_days:    report[3],
@@ -20,8 +34,7 @@ class VailScraper < ActiveRecord::Base
                             acres_open:     report[6],
                             lifts_open:     report[7],
                             runs_open:      report[8],
-                            snow_condition: snow_condition
-    )
+                            snow_condition: snow_condition)
   end
 
   def scrape_for_snow_report_data
@@ -38,15 +51,14 @@ class VailScraper < ActiveRecord::Base
   end
 
   def generate_peaks
-    vail_peak_names = ['Vail Village', 'Back Bowls', 'Blue Sky Basin', 'China Bowl', 'Golden Peak', 'Lionshead']
-    vail_peak_names.each do |peak|
-      Peak.create!(name: peak,
-                  mountain_id: 1
-      )
+    if Mountain.find(9).peaks.empty?
+      ['Vail Village', 'Back Bowls', 'Blue Sky Basin', 'China Bowl', 'Golden Peak', 'Lionshead'].each do |peak|
+        Peak.create!(name: peak, mountain_id: 9)
+      end
     end
   end
 
-  def scrape_for_trails
+  def generate_trails
     scrape_for_vail_village_trails
     scrape_for_back_bowls
     scrape_for_blue_sky_basin
@@ -58,37 +70,37 @@ class VailScraper < ActiveRecord::Base
   def scrape_for_vail_village_trails
     vail_village_trails = scrape_raw_html("//div[contains(@id, 'GA8')]//td//tr")
     format_open_and_difficulty(vail_village_trails)
-    create_trails(vail_village_trails, 1)
+    create_trails(vail_village_trails, 44)
   end
 
   def scrape_for_back_bowls
     back_bowl_trails = scrape_raw_html("//div[contains(@id, 'GA4')]//td//tr")
     format_open_and_difficulty(back_bowl_trails)
-    create_trails(back_bowl_trails, 2)
+    create_trails(back_bowl_trails, 45)
   end
 
   def scrape_for_blue_sky_basin
     blue_sky_basin_trails = scrape_raw_html("//div[contains(@id, 'GA7')]//td//tr")
     format_open_and_difficulty(blue_sky_basin_trails)
-    create_trails(blue_sky_basin_trails, 3)
+    create_trails(blue_sky_basin_trails, 46)
   end
 
   def scrape_for_china_bowl
     china_bowl_trails = scrape_raw_html("//div[contains(@id, 'GA6')]//td//tr")
     format_open_and_difficulty(china_bowl_trails)
-    create_trails(china_bowl_trails, 4)
+    create_trails(china_bowl_trails, 47)
   end
 
   def scrape_for_golden_peak
     golden_peak_trails = scrape_raw_html("//div[contains(@id, 'GA5')]//td//tr")
     format_open_and_difficulty(golden_peak_trails)
-    create_trails(golden_peak_trails, 5)
+    create_trails(golden_peak_trails, 48)
   end
 
   def scrape_for_lionshead
     lionshead_trails = scrape_raw_html("//div[contains(@id, 'GA1')]//td//tr")
     format_open_and_difficulty(lionshead_trails)
-    create_trails(lionshead_trails, 6)
+    create_trails(lionshead_trails, 49)
   end
 
   private
@@ -101,33 +113,38 @@ class VailScraper < ActiveRecord::Base
   def create_trails(trails, peak_id)
     trails.each do |trail|
       unless trail[:name] == ''
-          Trail.find_by(name: trail[:name]).update(open: trail[:open],
-                                                  difficulty: trail[:difficulty]
-                                                  )
+        if Trail.find_by(name: trail[:name]).nil?
+          Trail.create!(name: trail[:name],
+                        open: trail[:open],
+                        difficulty: trail[:difficulty],
+                        peak_id: peak_id)
+        else
+          Trail.find_by(name: trail[:name]).update_attributes(open: trail[:open])
+        end
       end
     end
   end
 
   def scrape_raw_html(xpath)
     rows = @doc.xpath(xpath)
-    trails_array = rows.collect do |row|
-    detail = {}
-    [
-      [:name, 'td[position() = 2]//text()'],
-      [:open, 'td[position() = 3]'],
-      [:difficulty, 'td[position() = 1]'],
-    ].each do |name, xpath|
-      detail[name] = row.at_xpath(xpath).to_s.strip
-      end
-    detail
+    rows.collect do |row|
+      {
+        :name => row.xpath("td[position() = 2]").text,
+        :open => row.xpath("td[position() = 3]//@class").text,
+        :difficulty => row.xpath("td[position() = 1]//@class").text
+      }
     end
   end
 
   def format_open_and_difficulty(array)
     array.delete_at(0)
     array.each do |trail|
-      trail[:open] = trail[:open].scan(/\b(noStatus|yesStatus)\b/).join(',')
-      trail[:difficulty] = trail[:difficulty].scan(/\b(easiest|moreDifficult|mostDifficult|doubleDiamond)\b/).join(',')
+      trail[:open] = trail[:open].scan(/\b(noStatus|yesStatus)\b/).join
+      trail[:difficulty] = trail[:difficulty].scan(/\b(easiest|moreDifficult|mostDifficult|doubleDiamond)\b/).join
     end
+  end
+
+  def closed?
+    !Mountain.find_by(name: 'Vail Ski Resort').open?
   end
 end

@@ -11,40 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150126220308) do
+ActiveRecord::Schema.define(version: 20150520202754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "arapahoe_basin_scrapers", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "beaver_creek_scrapers", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "breckenridge_scrapers", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "copper_scrapers", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "keystone_scrapers", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "loveland_scrapers", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "mountains", force: true do |t|
     t.string   "name"
@@ -62,21 +32,12 @@ ActiveRecord::Schema.define(version: 20150126220308) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "town"
+    t.boolean  "open"
   end
 
   create_table "peaks", force: true do |t|
     t.string   "name"
     t.integer  "mountain_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "powderhorn_scrapers", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "telluride_scrapers", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -101,16 +62,6 @@ ActiveRecord::Schema.define(version: 20150126220308) do
     t.datetime "updated_at"
   end
 
-  create_table "vail_scrapers", force: true do |t|
-    t.string   "name"
-    t.string   "difficulty"
-    t.integer  "peak_id"
-    t.integer  "mountain_id"
-    t.string   "open"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "weather_reports", force: true do |t|
     t.string   "weekday"
     t.string   "icon"
@@ -119,16 +70,6 @@ ActiveRecord::Schema.define(version: 20150126220308) do
     t.string   "high"
     t.string   "low"
     t.string   "current_temp"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "weathers", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "winter_park_scrapers", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

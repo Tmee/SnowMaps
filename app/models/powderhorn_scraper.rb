@@ -1,21 +1,39 @@
-class PowderhornScraper < ActiveRecord::Base
+class PowderhornScraper
 
   def initialize
     set_documents
-    create_mountain_information
-    # generate_peaks
-    scrape_for_trails
+    generate_mountain
+    check_open_status
+    unless closed?
+      generate_mountain_information
+      generate_peaks
+      generate_trails
+    end
   end
 
-  def create_mountain_information
-    overnight   = @mountain_doc.xpath("//div//section[contains(@class, 'field-name-field-24hr-inches')]//div[contains(@class, 'field-items')]").map {|x|x.text.scan(/\d/).join}
-    hr_48        = @mountain_doc.xpath("//div//section[contains(@class, 'field-name-field-48hr-inches')]//div[contains(@class, 'field-items')]").map {|x|x.text.scan(/\d/).join}
-    base        = @mountain_doc.xpath("//div//section[contains(@class, 'field-name-field-base-inches')]//div[contains(@class, 'field-items')]").map {|x|x.text}
-    acres       = @mountain_doc.xpath("//div//section[contains(@class, 'field-name-field-percent-open ')]//div[contains(@class, 'field-items')]").map {|x|x.text}
-    conditions  = @mountain_doc.xpath("//div//section[contains(@class, 'field-name-field-surface-conditions')]//div[contains(@class, 'field-items')]").map {|x|x.text}
-    lifts       = @mountain_doc.xpath("//div//section[contains(@class, 'field-name-field-lifts-open')]//div[contains(@class, 'field-items')]").map {|x|x.text}
+  def check_open_status
+    @mountain_doc.xpath("//section[contains(@id, 'main-content')]//div[contains(@class, 'content')]//div[contains(@class, 'field-items')]").first.text.include?("Thanks for supporting us this season. See you next year.") ? Mountain.find_by(name: "Powderhorn Ski Area").set_closed : Mountain.find_by(name: "Powderhorn Ski Area").set_open
+  end
 
-    Mountain.find(9).update(last_24:       "#{overnight[0]}\"",
+  def generate_mountain
+    if Mountain.find_by(name: "Powderhorn Ski Area").nil?
+      Mountain.create!(name: "Powderhorn Ski Area")
+    end
+  end
+
+  def mountain_info_field(section)
+    @mountain_doc.xpath("//div//section[contains(@class, 'field-name-field-#{section}')]//div[contains(@class, 'field-items')]").map {|x|x.text.scan(/\d/).join}
+  end
+
+  def generate_mountain_information
+    overnight  = mountain_info_field('24hr-inches')
+    hr_48      = mountain_info_field('48hr-inches')
+    base       = mountain_info_field('base-inches')
+    acres      = mountain_info_field('percent-open')
+    conditions = mountain_info_field('surface-conditions')
+    lifts      = mountain_info_field('lifts-open')
+
+    Mountain.find(7).update(last_24:       "#{overnight[0]}\"",
                             overnight:      "#{overnight[0]}\"",
                             last_48:        hr_48[0],
                             last_7_days:    '-',
@@ -29,15 +47,15 @@ class PowderhornScraper < ActiveRecord::Base
   end
 
   def generate_peaks
-    powderhorn_peak_names = ['Beginner', 'Intermediate', 'Expert']
-    powderhorn_peak_names.each do |peak|
-      Peak.create!(name: peak,
-                  mountain_id: 9
-      )
+    if Mountain.find(7).peaks.empty?
+      ['Beginner', 'Intermediate', 'Expert'].each do |peak|
+        Peak.create!(name: peak,
+                     mountain_id: 7)
+      end
     end
   end
 
-  def scrape_for_trails
+  def generate_trails
     scrape_for_beginner
     scrape_for_intermediate
     scrape_for_expert
@@ -48,7 +66,7 @@ class PowderhornScraper < ActiveRecord::Base
     status = @mountain_doc.xpath("//div//fieldset[contains(@class, 'group-snow-green')]//div[contains(@class, 'fieldset-wrapper')]//div//span").map {|x| x.text}
 
     array = create_trail_array(names, status, 'beginner')
-    create_trails(array, 48)
+    create_trails(array, 37)
   end
 
   def scrape_for_intermediate
@@ -56,7 +74,7 @@ class PowderhornScraper < ActiveRecord::Base
     status = @mountain_doc.xpath("//div//fieldset[contains(@class, 'group-snow-blue')]//div[contains(@class, 'fieldset-wrapper')]//div//span").map {|x| x.text}
 
     array = create_trail_array(names, status, 'intermediate')
-    create_trails(array, 49)
+    create_trails(array, 38)
   end
 
   def scrape_for_expert
@@ -64,7 +82,7 @@ class PowderhornScraper < ActiveRecord::Base
     status = @mountain_doc.xpath("//div//fieldset[contains(@class, 'group-snow-black')]//div[contains(@class, 'fieldset-wrapper')]//div//span").map {|x| x.text}
 
     array = create_trail_array(names, status, 'expert')
-    create_trails(array, 50)
+    create_trails(array, 39)
   end
 
 
@@ -95,11 +113,12 @@ class PowderhornScraper < ActiveRecord::Base
                       difficulty: trail[:difficulty]
         )
       else
-        Trail.find_by(name: trail[:name]).update(open: trail[:open],
-                                                difficulty: trail[:difficulty],
-                                                peak_id: peak_id
-        )
+        Trail.find_by(name: trail[:name]).update(open: trail[:open])
       end
     end
+  end
+
+  def closed?
+    !Mountain.find_by(name: "Powderhorn Ski Area").open?
   end
 end
