@@ -12,7 +12,7 @@ class BreckenridgeScraper
   end
 
   def check_open_status
-    scrape_for_snow_condition.include?('closed') ? Mountain.find_by(name: "Breckenridge").set_closed : Mountain.find_by(name: "Breckenridge").set_open
+     @doc.xpath("//div[contains(@class, 'terrainStatus')]//ul[contains(@class, 'terrain_info')]").text.include?('Breck is closed') ? Mountain.find_by(name: "Breckenridge").set_closed : Mountain.find_by(name: "Breckenridge").set_open
   end
 
   def generate_mountain

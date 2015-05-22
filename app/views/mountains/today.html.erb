@@ -12,6 +12,11 @@
           <div class="large-6 columns today-temp">
             <h2><%=@most_snow.weather_reports.first.current_temp%>℉</h2>
           </div>
+          <%if !check_open_status(@most_snow)%>
+            <div class="large-12 columns text-right">
+              <h1>Closed</h1>
+            </div>
+          <%end%>
         </div>
         <%= render partial: "shared/panel_terrain_report", locals: {mountain: @most_snow}%>
       </div>
