@@ -5,6 +5,9 @@ class Mountain < ActiveRecord::Base
 
   validates :name, presence: true
 
+  scope :max_overnight, -> { where("overnight IS NOT null").order("overnight DESC").first }
+  scope :min_overnights, -> { where.not(max_overnight) }
+
   before_save :generate_slug
 
   def set_closed

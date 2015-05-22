@@ -2,8 +2,8 @@ class MountainsController < ApplicationController
   before_action :set_mountains
 
   def today
-    @mountains = Mountain.all.order(overnight: :asc)
-    @most_snow = @mountains[0]
+    @most_snow = Mountain.max_overnight
+    @mountains = Mountain.where.not(id: @most_snow.id)
   end
 
   def index
