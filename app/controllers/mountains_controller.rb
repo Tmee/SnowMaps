@@ -4,6 +4,7 @@ class MountainsController < ApplicationController
   def today
     @most_snow = Mountain.max_overnight
     @mountains = Mountain.where.not(id: @most_snow.id)
+    @all_mountains = Mountain.all
   end
 
   def index

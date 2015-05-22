@@ -20,7 +20,7 @@
       <li class="has-dropdown">
         <a href="#">Resorts</a>
         <ul class="dropdown">
-          <%@mountains.each do |mountain|%>
+          <%@all_mountains.each do |mountain|%>
           <li><a href="/<%=mountain.slug%>"><%=mountain.name%></a></li>
           <%end%>
         </ul>
