@@ -47,7 +47,7 @@ class BeaverCreekScraper
       report.text.gsub(/\s{2}/, "")
     end
     snow_report_formatted.delete('')
-    snow_report_formatted
+    snow_report_formatted.map! {|x| x.include?('--') ? x = 0 : x}
   end
 
   def scrape_for_snow_condition
