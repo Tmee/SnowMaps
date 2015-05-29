@@ -1,5 +1,9 @@
 ## Snow Maps
 
+
+Seasons change and so do website sites.... Check back soon for updates!
+
+
 <h2>Turing School Module 3 -- Self Directed Project</h2>
 
 <p>This application brings the ski resorts' snow reports to one easy to view page </p>
