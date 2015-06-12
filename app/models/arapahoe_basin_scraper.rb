@@ -29,9 +29,7 @@ class ArapahoeBasinScraper
                             acres_open:     "-",
                             lifts_open:     lifts_open,
                             runs_open:      "-",
-                            snow_condition: new_snow[3]
-
-    )
+                            snow_condition: new_snow[3])
   end
 
 
